@@ -31,7 +31,7 @@ conda update jupyter
 ```
 **Experienced users**
 If you already have Python installed and prefer not to install Anaconda you can install the notebooks via pip:
-```
+```bash
 pip install jupyter
 ```
 You have now a notebook server installed on your computer. If you want to run a notebook server you need to open a terminal and run
@@ -52,10 +52,18 @@ IRkernel::installspec()  # to register the kernel in the current R installation
 Note you need to do this from an R console (**do not** use R studio if you have this installed).
 
 
-## 4. Misc packages
+## 4. Multiple packages
 You will need to install various packages for this course. All of them are available on CRAN. Thus you can install them from a R console by typing
 ```R
 install.packages('package_name')
 ```
 Make sure you have all of the following packages:
-* multtest
+* multtest (note that for the latest versions of R you need to install this from an R console, see the [Bioconductor website](https://bioconductor.org/packages/release/bioc/html/multtest.html))
+```R
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite("multtest")
+```
+* xlsx
+* gdata
+* ape
