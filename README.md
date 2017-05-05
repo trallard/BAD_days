@@ -1,9 +1,9 @@
 # BAD days
 Bioinformatics Awareness Days (BAD).
 
-Orignially developed by Luisa Cutilzo (2015-2016)
+Orignially developed by Luisa Cutillo (2015-2016)
 
-** Add description **
+** Add description (Luisa?)**
 
 # Running the course content
 
@@ -69,3 +69,9 @@ biocLite("multtest")
 * xlsx
 * gdata
 * ape
+
+
+## Working with the material
+The simplest way to enjoy these materials is to view each lesson online as rendered by the IPython Notebook viewer. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
+
+You can also **download** the whole collections of Notebooks from the GitHub repository. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
