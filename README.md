@@ -9,11 +9,11 @@ Orignially developed by Luisa Cutilzo (2015-2016)
 
 The core of this tutorial is built around the [Jupyter Notebooks](https://jupyter.org), an interactive computational environment run in a web browser.
 
-Before continuing with the material you will need to install some dependencies. The basic instructions to do so are described below. Install the components in the order detailed in this guide.
+Before continuing with the material you will need to install some dependencies. The basic instructions to do so are described below. Please make sure to install the components in the order detailed in this guide.
 
 
 ## 1. Installing R
-In order to find the latest version of R, you ca have a look at the [CRAN website](https://www.r-project.org).
+You can find information regarding the latest R version on the [CRAN website](https://www.r-project.org).
 
 ### MAC OS-X
 Get the R binary from https://cran.r-project.org/bin/macosx/. Once downloaded install from the .pkg file.
@@ -38,10 +38,12 @@ You have now a notebook server installed on your computer. If you want to run a 
 ```
 jupyter notebook
 ```
-Alternatively, if you have the Anaconda navigator you can open an instance from there. For more information visit https://jupyter.readthedocs.io/en/latest/running.html#running
+Alternatively, if you have the Anaconda navigator you can open an instance from there.
+
+For more information on running the notebooks server visit: https://jupyter.readthedocs.io/en/latest/running.html#running
 
 ## 3. Installing the R Kernel
-This course will be using the [IRKernel](https://github.com/IRkernel/IRkernel). This has not been made available as a package from CRAN (yet). So in order to install the Kernel you need to install it via the `devtools` package (see [here](https://irkernel.github.io/installation/))
+This course will be using the [IRKernel](https://github.com/IRkernel/IRkernel). This has not been made available as a package from CRAN (yet). So in order to install the Kernel you need to install it via the `devtools` package (see [here](https://irkernel.github.io/installation/)):
 ```R
 install.packages('devtools')
 devtools::install_github('IRkernel/IRkernel')
