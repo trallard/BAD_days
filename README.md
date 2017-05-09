@@ -3,11 +3,34 @@ Bioinformatics Awareness Days (BAD).
 
 Orignially developed by Luisa Cutillo (2015-2016)
 
-** Add description (Luisa?)**
+** Add description **
+* Content
+* Purpose
+* Format of the course
 
-# Running the course content
+# Working with the material
+The simplest way to enjoy these materials is to view each lesson online at [**add website**]. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
+
+You can also **download/fork** the whole collections of Notebooks from the GitHub repository. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
+
+# About the course
 
 The core of this tutorial is built around the [Jupyter Notebooks](https://jupyter.org), an interactive computational environment run in a web browser.
+
+In this particular case we will be using the R programming language for the data exploration/analysis.
+
+## What is R?
+
+R is a free, open-source programming language that has very strong support for statistics. It was originally developed as an open source implementation of the [S Programming language](https://en.wikipedia.org/wiki/S_(programming_language)).
+It is used extensively in research and industry for areas such as data analysis, statistics, machine learning, bioinformatics, simulation, linguistics and much more.
+
+With over [8000 freely available add-on packages](https://cran.r-project.org/web/packages/) that provide extensive additional functionality, R will probably have something that can help your research.
+
+Don't just take our word for it though -- here's what others have to say
+
+* [Why use R? Five reasons](http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html) - From the 'Econometrics By Simulation' blog.
+
+# Getting all set up
 
 Before continuing with the material you will need to install some dependencies. The basic instructions to do so are described below. Please make sure to install the components in the order detailed in this guide.
 
@@ -15,10 +38,10 @@ Before continuing with the material you will need to install some dependencies. 
 ## 1. Installing R
 You can find information regarding the latest R version on the [CRAN website](https://www.r-project.org).
 
-### MAC OS-X
+* MAC OS-X:
 Get the R binary from https://cran.r-project.org/bin/macosx/. Once downloaded install from the .pkg file.
 
-### Windows
+* Windows:
 Download the installer from https://cran.r-project.org/bin/windows/base/. Once downloaded run the executable.
 
 ## 2. Installing Anaconda and the Notebooks
@@ -69,9 +92,3 @@ biocLite("multtest")
 * xlsx
 * gdata
 * ape
-
-
-## Working with the material
-The simplest way to enjoy these materials is to view each lesson online as rendered by the IPython Notebook viewer. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
-
-You can also **download** the whole collections of Notebooks from the GitHub repository. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
