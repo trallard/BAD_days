@@ -1,5 +1,8 @@
-
-# <font color="#4682B4"> BAD Day 1 : T-test </font>
+---
+layout: default
+permalink: /T-test.html
+---
+#  BAD Day 1 : T-test
 
 
 
@@ -35,7 +38,7 @@ head(golub.expr)
 
 
 
- `golub.names` is a matrix containing the names of the 3051 
+ `golub.names` is a matrix containing the names of the 3051
  genes contained in `golub`. The three columns correspond to:
 `index, ID and name`
 
@@ -94,7 +97,7 @@ Draw a barplot with color-coded cancer type
 ```R
 plot.col <- c('ALL'='lightblue', 'AML'='mediumpurple')
 
-barplot(g.profile, main=paste("Golub (1999), gene", g), 
+barplot(g.profile, main=paste("Golub (1999), gene", g),
         col=plot.col[cancer.type])
 legend('topright', c("ALL","AML"),col=plot.col[c("ALL","AML")],
        pch=15, bty="o", bg='white')
@@ -119,7 +122,7 @@ mean.est.ALL <- mean(sample.ALL)
 mean.est.AML <- mean(sample.AML)
 ```
 
-Compute the sample standard deviations 
+Compute the sample standard deviations
 The sd() function automatically computes the estimate corrected with sqrt(n-1)
 
 
@@ -170,7 +173,7 @@ P.val.Student <- 2 * pt(q = t.obs.Student, df = n.ALL + n.AML-2, lower.tail = F)
 
 ## 3. T-test the fast way
 
-### This is what you should be doing... 
+### This is what you should be doing...
 
 ### 3.1 Apply the Student-Fischer t-test (this assumes that the two populations have equal variance).
 
@@ -185,5 +188,5 @@ print(t.student)
 
 ```R
 t.welch <- t.test(sample.ALL,sample.AML, var.equal=FALSE)
-print(t.welch) 
+print(t.welch)
 ```
