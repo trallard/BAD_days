@@ -1,0 +1,24 @@
+body{
+  font-family: $base-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: $title-font;
+  color: $secondary;
+}
+
+.navbar-brand{
+  font-family: $title-font;
+}
+
+.navbar{
+  border-radius: 0;
+}
+
+a{
+  color: $secondary-light;
+}

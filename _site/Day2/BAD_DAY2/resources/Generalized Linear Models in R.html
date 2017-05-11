@@ -1,0 +1,1530 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" href="file:///C%7C/academic/courses/PlantEcology_sem/web/R_feb8_notes_files/filelist.xml">
+<title>Generalized Linear Models in R</title>
+</head><body style="tab-interval:36.0pt" lang="EN-US"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Jason Fridley</o:Author>
+  <o:LastAuthor>Jason Fridley</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>77</o:TotalTime>
+  <o:Created>2010-02-05T22:13:00Z</o:Created>
+  <o:LastSaved>2010-02-05T22:14:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>4385</o:Words>
+  <o:Characters>24997</o:Characters>
+  <o:Company>Biology @ Syracuse U.</o:Company>
+  <o:Lines>208</o:Lines>
+  <o:Paragraphs>58</o:Paragraphs>
+  <o:CharactersWithSpaces>29324</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:SelectEntireFieldWithStartOrEnd/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 216.0pt right 432.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+ /* Page Definitions */
+ @page
+	{mso-footnote-separator:url("R_feb8_notes_files/header.htm") fs;
+	mso-footnote-continuation-separator:url("R_feb8_notes_files/header.htm") fcs;
+	mso-endnote-separator:url("R_feb8_notes_files/header.htm") es;
+	mso-endnote-continuation-separator:url("R_feb8_notes_files/header.htm") ecs;}
+@page Section1
+	{size:792.0pt 612.0pt;
+	mso-page-orientation:landscape;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-even-footer:url(file:///C|/academic/courses/PlantEcology_sem/web/R_feb8_notes_files/header.htm) ef1;
+	mso-footer:url(file:///C|/academic/courses/PlantEcology_sem/web/R_feb8_notes_files/header.htm) f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+span.SpellE1 {mso-style-name:"";
+	mso-spl-e:yes;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0pt 5.4pt 0pt 5.4pt;
+	mso-para-margin:0pt;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+
+
+
+
+<div class="Section1">
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">Generalized linear
+models
+    <o:p></o:p>
+    in R 
+</b></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">General<em>ized</em> linear models (GLMs) extend the linear modeling
+capability of R to scenarios that involve non-normal error distributions or
+heteroscedasticity.<span style="mso-spacerun:yes">&nbsp; </span>All other classic
+assumptions (particularly independent observations) still apply.<span style="mso-spacerun:yes">&nbsp; </span>The idea here is that linear functions of the
+predictor variables are obtained by transforming the right side of the equation
+( f(x) ) by a <i style="mso-bidi-font-style:normal">link</i> function.<span style="mso-spacerun:yes">&nbsp; </span>The data are then fit in this transformed
+scale (using an iterative routine based on least squares), but the expected
+variance is calculated on the original scale of the predictor variables.<span style="mso-spacerun:yes">&nbsp; </span>Simple examples of link functions are log(y)
+[which linearizes exp(x)], sqrt(y) [x^2], and 1/y [1/x].<span style="mso-spacerun:yes">&nbsp; </span>More particularly, GLMs work for the
+so-called 'exponential' family of error models: Poisson, binomial, Gamma, and
+normal.<span style="mso-spacerun:yes">&nbsp; </span>Each of these has a standard (default)
+link function:</p>
+
+<p class="MsoNormal"><u>Error family<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Default
+link<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Inverse of link<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Use for:<o:p></o:p></u></p>
+
+<p class="MsoNormal">gaussian<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>identity<span style="mso-tab-count:1"> </span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1<span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>normally
+distributed error</p>
+
+<p class="MsoNormal">poisson<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>log<span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>exp<span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>counts (many
+zeros, various integers)</p>
+
+<p class="MsoNormal">binomial<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>logit<span style="mso-tab-count:
+3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>1/(1+1/exp(x))<span style="mso-tab-count:
+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>proportions or binary (0,1) data</p>
+
+<p class="MsoNormal">Gamma<span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>inverse<span style="mso-tab-count:1">&nbsp; </span><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>1/x<span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>continuous data
+with non-constant error (constant CV)</p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">You don't have to use the default link.<span style="mso-spacerun:yes">&nbsp; </span>For example, for binary data (e.g.,
+presence-absence data) it may be more appropriate to use the 'complementary
+log-log link function, specified as family=binomial(link="cloglog").<span style="mso-spacerun:yes">&nbsp; </span>The link transformations are particularly
+handy when it comes to model comparisons, because the GLM approach produces a
+response deviance on the same scale for all models (e.g., AICs are comparable
+and likelihood ratio tests are appropriate for nested models).<span style="mso-spacerun:yes">&nbsp; </span>This allows for flexibility in exploring
+which link function is most appropriate: take the one with the lowest residual
+deviance (-2*logLikelihood).</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Note that
+parameter values returned by coef() or summary() are on the scale of the link
+function, not the untransformed predictor variables.<span style="mso-spacerun:yes">&nbsp; </span>Use the inverse of the link function to get
+parameter values back on the scale of x, or use the function <b style="mso-bidi-font-weight:normal">predict</b> with the <i style="mso-bidi-font-style:
+normal">type="response"</i> argument.</p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><i style="mso-bidi-font-style:normal">Count (or count-like)
+response variables<o:p></o:p></i></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>We'll first
+try some examples for using <b style="mso-bidi-font-weight:normal">glm</b>
+given count data.<span style="mso-spacerun:yes">&nbsp; </span>Strictly speaking, the
+provided tree dataset does not include a vector of counts, but the abundance
+data, measured as cover classes (integers between 1 and 10), may fit the
+essential criteria of 1) being discrete, and 2) having variance that generally
+increases with the mean (you can consider this from first principles: if a
+species had a mean abundance around 1, the variance has to be low because you
+can't get any lower than this given our data; a mean of 5, however, could have
+high variance).<span style="mso-spacerun:yes">&nbsp; </span>A Poisson process is one
+whose mean and variance are equal; we can check to see whether this is true for
+our data.<span style="mso-spacerun:yes">&nbsp; </span>Taking eastern hemlock as an
+example:</p>
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red"><span class="SpellE1"><span class="GramE1">dat</span></span> = <span class="SpellE1">read.csv</span>(<span class="SpellE1">file.choose</span>())
+    <o:p></o:p>
+#choose the <a href="http://plantecology.syr.edu/fridley/bio793/treedata.csv">treedata.csv</a> dataset</span></p>
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">dat2
+= subset(dat,dat$species=="Tsuga canadensis")
+<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">mean(dat2$cover)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">[1]
+4.659517<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">var(dat2$cover)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">[1]
+4.471835<o:p></o:p></span></p>
+
+<p class="MsoNormal">Not perfect but close.<span style="mso-spacerun:yes">&nbsp;
+</span>Let's look at the distribution of counts themselves:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">table(dat2$cover)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">1<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>3<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>4<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>5<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>6<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>7<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>8<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>9<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>10 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">39<span style="mso-spacerun:yes">&nbsp; </span>71 166 110<span style="mso-spacerun:yes">&nbsp;
+</span>92<span style="mso-spacerun:yes">&nbsp; </span>80 108<span style="mso-spacerun:yes">&nbsp; </span>60<span style="mso-spacerun:yes">&nbsp; </span>19<span style="mso-spacerun:yes">&nbsp; </span>1<o:p></o:p></span></p>
+
+<p class="MsoNormal">If these counts were distributed exactly from a Poisson
+process, what would they look like, assuming the same mean (and variance)?</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">bar1
+= barplot(as.vector(table(dat2$cover)),names.arg=seq(1:10))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">points(bar1,dpois(seq(1,10),4.66)*sum(table(dat2$cover)),
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>cex=2,type="b",col="sienna",lwd=2,pch=19)<o:p></o:p></span></p>
+
+<p class="MsoNormal">A couple things about what we did here: rather than use <b style="mso-bidi-font-weight:normal">hist</b>, I plotted a histogram using the
+table function output, because I wanted to see exactly the number of counts in
+each bin from 1 to 10 (this can be frustrating to do exactly with <b style="mso-bidi-font-weight:normal">hist</b>: try it).<span style="mso-spacerun:yes">&nbsp; </span>Then I overlayed the expected values from a
+Poisson distribution with the same mean (=4.66) using the <b style="mso-bidi-font-weight:
+normal">dpois</b> function.<span style="mso-spacerun:yes">&nbsp; </span>Because <b style="mso-bidi-font-weight:normal">dpois</b> returns a probability density, I
+had to multiply these values by the overall count sum to translate them into
+the expected frequencies we see on the bar chart.<span style="mso-spacerun:yes">&nbsp; </span>As you can see, the data look Poisson-ish but
+they're not perfect.<span style="mso-spacerun:yes">&nbsp; </span>(One reason you've
+probably already guessed: our data are bounded at 10, so variance should
+actually go down for the highest values.)</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Now let's
+fit a GLM to these data with just an intercept (overall mean):</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm1
+= glm(cover~1,data=dat2,family=poisson)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">summary(glm1)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm(formula
+= cover ~ 1, family = poisson, data = dat2)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-2.0594<span style="mso-spacerun:yes">&nbsp; </span>-0.8229<span style="mso-spacerun:yes">&nbsp;
+</span>-0.3132<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.0085<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.1430<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error z value
+Pr(&gt;|z|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;
+</span>1.53891<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>0.01696<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>90.73<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>&lt;2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">Signif. codes:<span style="mso-spacerun:yes">&nbsp; </span>0
+‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ </span><span style="font-family:&quot;Courier New&quot;;
+color:blue">0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for poisson family taken to be 1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 749.25<span style="mso-spacerun:yes">&nbsp; </span>on 745<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 749.25<span style="mso-spacerun:yes">&nbsp; </span>on 745<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC:
+3212.2<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 4<o:p></o:p></span></p>
+
+<p class="MsoNormal">The output is similar to <b style="mso-bidi-font-weight:
+normal">lm</b> output, and the standard <b style="mso-bidi-font-weight:normal">summary</b>
+and other attribute functions (<b style="mso-bidi-font-weight:normal">coef</b>,
+<b style="mso-bidi-font-weight:normal">confint</b>, <b style="mso-bidi-font-weight:
+normal">resid</b>, <b style="mso-bidi-font-weight:normal">fitted</b>, etc)
+apply.<span style="mso-spacerun:yes">&nbsp; </span>One major difference is how the
+fitted coefficients are scaled: we were expecting a mean of 4.66 (calculated
+above), but instead got back 1.54.<span style="mso-spacerun:yes">&nbsp; </span>Here
+and in all other cases where the link is not the identity function, the fitted
+coefficients are returned on the scale of the link function, not the scale of
+the original data.<span style="mso-spacerun:yes">&nbsp; </span>To get back the
+appropriately scaled coefficient we apply the inverse of the link function, in
+this case exp (as the default link for Poisson is log):</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">exp(coef(glm1))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Intercept)
+<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp; </span>4.659517<o:p></o:p></span></p>
+
+<p class="MsoNormal">Let's add a continuous predictor variable like elevation to
+generate a simple Poisson regression.<span style="mso-spacerun:yes">&nbsp;
+</span>First we'll graph it:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">with(dat2,plot(elev,cover,main="Hemlock cover vs. elevation", <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>cex=1.5,col="cyan",pch=19))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal">And then we'll fit the new glm and test it against a model
+with only an intercept:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm2
+= glm(cover~elev,data=dat2,family=poisson)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">anova(glm1,glm2,test="Chisq")
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Analysis
+of Deviance Table<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Model 1:
+cover ~ 1<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Model 2:
+cover ~ elev<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp; </span>Resid. Df Resid. Dev Df Deviance P(&gt;|Chi|)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">1<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>745<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>749.25<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">2<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>744<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>749.23<span style="mso-spacerun:yes">&nbsp; </span>1 0.023849<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>0.8773<o:p></o:p></span></p>
+
+<p class="MsoNormal">Note the chi-squared test is typically recommended for
+models with 'known deviance' (Poisson and binomial).<span style="mso-spacerun:yes">&nbsp; </span>Here the model with elevation adds no
+explanatory power (fairly obvious from the graph), but we can still add the
+predicted trend line to our graph:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">x =
+seq(0,1660)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">lines(predict(glm2,list(elev=x),type="response"),lwd=2,col="orange")</span></p>
+
+<p class="MsoNormal">What is crucial here is the <i style="mso-bidi-font-style:
+normal">type</i> argument to <b style="mso-bidi-font-weight:normal">predict</b>:
+"response" re-calculates the coefficients to be on the same scale as
+the original response variable, rather than the scale of the link
+function.<span style="mso-spacerun:yes">&nbsp; </span>Let's now try an ANOVA with
+Poisson error, using disturbance as our predictor:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm3
+= glm(cover~disturb,data=dat2,family=poisson)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">summary(glm3)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm(formula
+= cover ~ disturb, family = poisson, data = dat2)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-2.1794<span style="mso-spacerun:yes">&nbsp; </span>-0.7763<span style="mso-spacerun:yes">&nbsp;
+</span>-0.1980<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.8523<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.2006<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error z value
+Pr(&gt;|z|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>1.48367<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>0.03838<span style="mso-spacerun:yes">&nbsp; </span>38.661<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>&lt;2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;
+</span>0.03204<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>0.04685<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.684<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.4941<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE<span style="mso-spacerun:yes">&nbsp;
+</span>0.08957<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>0.05485<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.633<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.1025<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbVIRGIN<span style="mso-spacerun:yes">&nbsp; </span>0.12184<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>0.05277<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.309<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.0210 *<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Signif.
+codes:<span style="mso-spacerun:yes">&nbsp; </span>0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+‘.’ 0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for poisson family taken to be 1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 749.25<span style="mso-spacerun:yes">&nbsp; </span>on 745<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 742.32<span style="mso-spacerun:yes">&nbsp; </span>on 742<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC:
+3211.3<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 4<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">anova(glm1,glm3,test="Chisq")
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Analysis
+of Deviance Table<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Model 1:
+cover ~ 1<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Model 2:
+cover ~ disturb<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp; </span>Resid. Df Resid. Dev Df Deviance
+P(&gt;|Chi|)<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">1<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>745<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>749.25<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">2<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>742<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>742.32<span style="mso-spacerun:yes">&nbsp; </span>3<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>6.926<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>0.0743 .<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Signif.
+codes:<span style="mso-spacerun:yes">&nbsp; </span>0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+‘.’ 0.1 ‘ ’ 1<o:p></o:p></span></p>
+
+<p class="MsoNormal">There is minor support for the disturbance variable.<span style="mso-spacerun:yes">&nbsp; </span>The <b style="mso-bidi-font-weight:normal">glm</b>
+coefficient table works just like the summary for ANOVA produced by <b style="mso-bidi-font-weight:normal">lm</b>: the level alphabetically first
+(CORPLOG) is used as an intercept, and all subsequent levels are tested against
+the first (thus the remaining coefficients are differences from the mean, not
+means themselves).<span style="mso-spacerun:yes">&nbsp; </span>There appears to be
+some support for higher hemlock cover in 'virgin' forest, and the overall model
+is of borderline significance (AICs are also similar).<span style="mso-spacerun:yes">&nbsp; </span>Would it help to add an interaction with
+elevation?</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm4
+= glm(cover~disturb*elev,data=dat2,family=poisson)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">summary(glm4)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm(formula
+= cover ~ disturb * elev, family = poisson, data = dat2)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;</span><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-2.4042<span style="mso-spacerun:yes">&nbsp; </span>-0.7782<span style="mso-spacerun:yes">&nbsp;
+</span>-0.2072<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.8090<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.0888<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error z
+value Pr(&gt;|z|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1.445e+00<span style="mso-spacerun:yes">&nbsp; </span>1.396e-01<span style="mso-spacerun:yes">&nbsp; </span>10.352<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>&lt;2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2.546e-01<span style="mso-spacerun:yes">&nbsp; </span>1.639e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.554<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.1203<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-3.702e-01<span style="mso-spacerun:yes">&nbsp; </span>2.275e-01<span style="mso-spacerun:yes">&nbsp; </span>-1.628<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.1036<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>9.283e-02<span style="mso-spacerun:yes">&nbsp; </span>2.625e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.354<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.7236<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">elev<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>3.540e-05<span style="mso-spacerun:yes">&nbsp; </span>1.243e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.285<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.7758<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL:elev -2.788e-04<span style="mso-spacerun:yes">&nbsp; </span>1.651e-04<span style="mso-spacerun:yes">&nbsp;
+</span>-1.689<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.0912 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp;
+</span>7.319e-04<span style="mso-spacerun:yes">&nbsp; </span>2.943e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.487<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.0129 *<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN:elev<span style="mso-spacerun:yes">&nbsp;
+</span>2.278e-05<span style="mso-spacerun:yes">&nbsp; </span>2.269e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.100<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.9200<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Signif.
+codes:<span style="mso-spacerun:yes">&nbsp; </span>0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+‘.’ 0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for poisson family taken to be 1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 749.25<span style="mso-spacerun:yes">&nbsp; </span>on 745<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 729.06<span style="mso-spacerun:yes">&nbsp; </span>on 738<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC: 3206<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 4<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">step(glm4)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Start:<span style="mso-spacerun:yes">&nbsp; </span>AIC=3206<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">cover ~
+disturb * elev<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Df Deviance<span style="mso-spacerun:yes">&nbsp; </span>AIC<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">&lt;none&gt;<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>729.06 3206<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-
+disturb:elev<span style="mso-spacerun:yes">&nbsp; </span>3<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>742.06 3213<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<span style="mso-spacerun:yes">&nbsp; </span>glm(formula = cover ~ disturb * elev, family
+= poisson, data = dat2) <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>elev<span style="mso-spacerun:yes">&nbsp;
+</span>disturbLT-SEL:elev<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1.445e+00<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2.546e-01<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-3.702e-01<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>9.283e-02<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3.540e-05<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-2.788e-04<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp; </span>disturbVIRGIN:elev<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>7.319e-04<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2.278e-05<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Degrees
+of Freedom: 745 Total (i.e. Null);<span style="mso-spacerun:yes">&nbsp; </span>738
+Residual<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Null
+Deviance:<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>749.2 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+Deviance: 729.1<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>AIC: 3206<o:p></o:p></span></p>
+
+<p class="MsoNormal">The ANOVA contrasts suggest a significant difference in
+slope with elevation in the plots of prior settlement; the <b style="mso-bidi-font-weight:
+normal">step</b> function shows that the interaction is necessary (large
+increase in AIC when the interaction is removed).</p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><i style="mso-bidi-font-style:normal">GLM extensions for
+overdispersed (discrete) data<o:p></o:p></i></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>The above
+exponential family of error functions cannot account for the case of data
+overdispersion, where the variance is higher than expected from a Poisson or
+binomial processes.<span style="mso-spacerun:yes">&nbsp; </span>To account for these
+cases glm includes 'quasi' exponential functions that add the parameter phi
+(&#966;) to the expected variance equation (Poisson example: variance as
+&#966;&#955; rather than &#955;).<span style="mso-spacerun:yes">&nbsp; </span>The
+expectation is that the fit of &#966; will be greater than 1 (&lt;1 is
+underdispersion).<span style="mso-spacerun:yes">&nbsp; </span>The 'quasipoisson'
+family object can thus account for count data with overdispersion (e.g., many
+zeros but also many very high values), and the 'quasibinomial' family object
+can do the same for binomial data.<span style="mso-spacerun:yes">&nbsp; </span>The
+fitted &#966; value is returned in the summary. <span style="mso-spacerun:yes">&nbsp;</span>One sign of overdispersion is that the
+residual deviance is significantly higher than the residual degrees of
+freedom.<span style="mso-spacerun:yes">&nbsp; </span>That's not true of our glm4
+fitted model, but we'll see what happens with a quasipoisson fit anyway:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm4.qp = update(glm4,family=quasipoisson)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">summary(glm4.qp)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm(formula
+= cover ~ disturb * elev, family = quasipoisson, <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>data = dat2)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-2.4042<span style="mso-spacerun:yes">&nbsp; </span>-0.7782<span style="mso-spacerun:yes">&nbsp;
+</span>-0.2072<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.8090<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.0888<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error t
+value Pr(&gt;|t|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1.445e+00<span style="mso-spacerun:yes">&nbsp; </span>1.357e-01<span style="mso-spacerun:yes">&nbsp; </span>10.649<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>&lt;2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2.546e-01<span style="mso-spacerun:yes">&nbsp; </span>1.593e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.598<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.1104<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-3.702e-01<span style="mso-spacerun:yes">&nbsp; </span>2.211e-01<span style="mso-spacerun:yes">&nbsp; </span>-1.674<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.0945 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>9.283e-02<span style="mso-spacerun:yes">&nbsp; </span>2.552e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.364<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.7161<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">elev<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>3.540e-05<span style="mso-spacerun:yes">&nbsp; </span>1.208e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.293<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.7697<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL:elev -2.788e-04<span style="mso-spacerun:yes">&nbsp; </span>1.605e-04<span style="mso-spacerun:yes">&nbsp;
+</span>-1.738<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.0827 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp;
+</span>7.319e-04<span style="mso-spacerun:yes">&nbsp; </span>2.861e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.558<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.0107 *<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN:elev<span style="mso-spacerun:yes">&nbsp;
+</span>2.278e-05<span style="mso-spacerun:yes">&nbsp; </span>2.205e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.103<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.9178<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Signif.
+codes:<span style="mso-spacerun:yes">&nbsp; </span>0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+‘.’ 0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for quasipoisson family taken to be 0.9449323)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 749.25<span style="mso-spacerun:yes">&nbsp; </span>on 745<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 729.06<span style="mso-spacerun:yes">&nbsp; </span>on 738<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC: NA<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 4<o:p></o:p></span></p>
+
+<p class="MsoNormal">In our case this looks to be a waste of time, since the
+overdispersion parameter was fit at &lt;1.<span style="mso-spacerun:yes">&nbsp;
+</span>Note these error objects are not fit with actual likelihoods, so the
+standard likelihood ratio test for comparing nested models is not
+available.<span style="mso-spacerun:yes">&nbsp; </span><st1:place w:st="on">Crawley</st1:place>
+suggests using F tests instead.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Another,
+often better way of dealing with overdispersion that retains the nice characteristics
+of likelihood (AICs, likelihood ratio tests, use of <b style="mso-bidi-font-weight:
+normal">step</b> or <b style="mso-bidi-font-weight:normal">stepAIC</b>) is
+using a negative binomial (NB) model.<span style="mso-spacerun:yes">&nbsp; </span>NB
+models are handy for discrete data like count data, but where the variance
+increases much faster than the mean (as opposed to the Poisson, where they are
+equal).<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Where the Poisson model has one
+parameter (lambda = mean = var), NB contains an additional parameter k that
+accounts for 'clumping'—particularly handy for count data where there are a preponderance
+of zeros.<span style="mso-spacerun:yes">&nbsp; </span>NB is not accommodated in the
+base <b style="mso-bidi-font-weight:normal">glm</b> function (it is not part of
+the exponential family of distributions) but the MASS library includes the
+otherwise-identical <b style="mso-bidi-font-weight:normal">glm.nb</b>
+function.<span style="mso-spacerun:yes">&nbsp; </span>Here's a try fitting a NB
+model to our standard cover data:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">library(MASS)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">nb1 =
+glm.nb(cover~disturb*elev,data=dat2)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Warning
+messages:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">1: In
+theta.ml(Y, mu, sum(w), w, limit = control$maxit, trace = control$trace
+&gt;<span style="mso-spacerun:yes">&nbsp; </span>:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp; </span>iteration limit reached<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">2: In
+theta.ml(Y, mu, sum(w), w, limit = control$maxit, trace = control$trace
+&gt;<span style="mso-spacerun:yes">&nbsp; </span>:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp; </span>iteration limit reached<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">&gt;
+summary(nb1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm.nb(formula
+= cover ~ disturb * elev, data = dat2, init.theta = 48556.6389, <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>link = log)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-2.4041<span style="mso-spacerun:yes">&nbsp; </span>-0.7781<span style="mso-spacerun:yes">&nbsp;
+</span>-0.2072<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.8089<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.0887<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error z
+value Pr(&gt;|z|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1.445e+00<span style="mso-spacerun:yes">&nbsp; </span>1.396e-01<span style="mso-spacerun:yes">&nbsp; </span>10.351<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>&lt;2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2.546e-01<span style="mso-spacerun:yes">&nbsp; </span>1.639e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.553<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.1203<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-3.702e-01<span style="mso-spacerun:yes">&nbsp; </span>2.275e-01<span style="mso-spacerun:yes">&nbsp; </span>-1.627<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.1036<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>9.283e-02<span style="mso-spacerun:yes">&nbsp; </span>2.625e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.354<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.7236<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">elev<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>3.540e-05<span style="mso-spacerun:yes">&nbsp; </span>1.243e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.285<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.7758<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL:elev -2.788e-04<span style="mso-spacerun:yes">&nbsp; </span>1.651e-04<span style="mso-spacerun:yes">&nbsp;
+</span>-1.689<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.0912 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp;
+</span>7.319e-04<span style="mso-spacerun:yes">&nbsp; </span>2.943e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>2.487<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.0129 *<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN:elev<span style="mso-spacerun:yes">&nbsp;
+</span>2.278e-05<span style="mso-spacerun:yes">&nbsp; </span>2.269e-04<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.100<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.9200<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Signif.
+codes:<span style="mso-spacerun:yes">&nbsp; </span>0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+‘.’ 0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for Negative Binomial(48556.64) family taken to be 1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 749.18<span style="mso-spacerun:yes">&nbsp; </span>on 745<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 728.99<span style="mso-spacerun:yes">&nbsp; </span>on 738<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC: 3208<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 1<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Theta:<span style="mso-spacerun:yes">&nbsp; </span>48557 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Std. Err.:<span style="mso-spacerun:yes">&nbsp; </span>373192 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Warning
+while fitting theta: iteration limit reached <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;</span>2 x log-likelihood:<span style="mso-spacerun:yes">&nbsp; </span>-3190.003<o:p></o:p></span></p>
+
+<p class="MsoNormal">The overdispersion parameter is called 'theta' here (=k). We
+should be a bit wary of the results since the fit did not meet the default
+convergence limits.<span style="mso-spacerun:yes">&nbsp; </span>Nonetheless, the fit
+is very similar to our Poisson model (glm4), and unlike the quasipoisson fit we
+can compare the models via AIC:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">AIC(glm4,nb1)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>df<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>AIC<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm4<span style="mso-spacerun:yes">&nbsp; </span>8 3205.998<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">nb1<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>9 3399.000<o:p></o:p></span></p>
+
+<p class="MsoNormal">There is no support for a NB model here.<span style="mso-spacerun:yes">&nbsp; </span>Given the glm4 model did not suggest
+overdispersion, this makes sense.<span style="mso-spacerun:yes">&nbsp; </span>But
+what if we allowed absences (zero abundance) in our model of hemlock
+abundance?<span style="mso-spacerun:yes">&nbsp; </span>Surely there must be hundreds
+of plots that don't contain hemlock, and this might drastically change our
+model based on Poisson assumptions.<span style="mso-spacerun:yes">&nbsp; </span>We
+can start by creating a new dataset, where plots that do not contain hemlock
+are added in with zero cover values:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">h.plots = unique(as.character(dat2$plotID))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">u.plots = unique(as.character(dat$plotID))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">noh.plots = u.plots[is.element(u.plots,h.plots)==F]
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal">The first line is a vector of plot IDs containing hemlock,
+the second is a vector of all the plots, and the third vector is all plots that
+do not contain hemlock.<span style="mso-spacerun:yes">&nbsp; </span>Now we create a
+data frame of these plots with unique plotIDs (ignoring species):</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat3 =
+subset(dat,is.element(as.character(dat$plotID),noh.plots))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat4 = subset(dat3,duplicated(dat3$plotID)==F)</span><span style="mso-ansi-language:NL" lang="NL">
+<o:p></o:p></span></p>
+
+<p class="MsoNormal">And finally we add these rows to dat2 (containing hemlock)
+after changing the cover values to zero:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat4$cover = 0
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat5 = rbind(dat2,dat4)</span><span style="mso-ansi-language:NL" lang="NL">
+<o:p></o:p></span></p>
+
+<p class="MsoNormal">Now let's look at our cover distribution:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">bar1
+= barplot(as.vector(table(dat5$cover)),names.arg=as.character(seq(0,10)))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">points(bar1,dpois(seq(0,10),mean(dat5$cover))*sum(table(dat5$cover)),
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>cex=2,type="b",col="lightblue",lwd=2,pch=19)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">points(bar1,dnbinom(seq(0,10),mu=mean(dat5$cover),
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>size=(mean(dat5$cover)^2)/(var(dat5$cover)-<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>mean(dat5$cover)))*sum(table(dat5$cover)),<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>type="b",cex=2,col="salmon",lwd=2,pch=19)<o:p></o:p></span></p>
+
+<p class="MsoNormal">The Poisson curve (blue) doesn't cut it, and note that that
+variance of the counts is now nearly twice that of the mean.<span style="mso-spacerun:yes">&nbsp; </span>The orangish curve here is that fit by the
+built-in dnbinom function, with specified values of the mean (calculated from
+the cover vector) and the overdispersion parameter k, which is defined as the
+mean squared divided by (variance – mean).<span style="mso-spacerun:yes">&nbsp;
+</span>We still have way too many zeros even for NB, but is NB a better model
+here?</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">nb2 =
+glm.nb(cover~disturb*elev,data=dat5)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm5
+= glm(cover~disturb*elev,data=dat5,family=poisson)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">AIC(nb2,glm5)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>df<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>AIC<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">nb2<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>9 4788.591<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm5<span style="mso-spacerun:yes">&nbsp; </span>8 5287.842<o:p></o:p></span></p>
+
+<p class="MsoNormal">No contest.<span style="mso-spacerun:yes">&nbsp; </span>But we
+still have a major problem in that our plot diagnostics (and the residual
+deviance compared to residual df) suggests that we've only partly dealt with
+overdispersion:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">plot(nb2)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal">It's no surprise that the left-hand tail of our residuals is
+significantly higher than expected.<span style="mso-spacerun:yes">&nbsp; </span>This
+brings up an important note about overdispersion (mentioned<span style="mso-spacerun:yes">&nbsp; </span>by <st1:place w:st="on">Crawley</st1:place>):
+severe overdispersion suggests there is a hidden factor that you are not
+accounting for in your model.<span style="mso-spacerun:yes">&nbsp; </span>Here, I
+might suggest that the complete absence of hemlock results from a very
+different ecological process than that controlling its abundance once it is
+present.<span style="mso-spacerun:yes">&nbsp; </span>Ideally, if we insisted on
+modeling both absences and abundances simultaneously, we would use a coupled
+model of two components, one predicting presences and absences, and another
+predicting its abundance once it's there.<span style="mso-spacerun:yes">&nbsp;
+</span>We'll do more of this later.</p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<h1>Binary response variables</h1>
+
+<p class="MsoNormal">Occupancy (presence-absence) data involve a response
+variable defined by one of two states; in statistical parlance this is a
+Bernoulli trial (heads or tails), or a binomial process where N=1.<span style="mso-spacerun:yes">&nbsp; </span>In this case we're interested in the
+probability of 'success' (presence) given values of one or more independent
+variables.<span style="mso-spacerun:yes">&nbsp; </span>In R this is done via a <b>glm</b>
+with family=binomial, with the link function either taken as the default
+(link="logit") or the user-specified 'complementary log-log'
+(link="cloglog").<span style="mso-spacerun:yes">&nbsp; </span><st1:place w:st="on">Crawley</st1:place> suggests the choice of the link function should
+be determined by trying them both and taking the fit of lowest model
+deviance.<span style="mso-spacerun:yes">&nbsp; </span>Unlike the Poisson or other
+binomial models of N&gt;1, overdispersion is not possible with a binary
+response variable, so there is no associated overdispersion function for binary
+data in <b>glm</b>.<span style="mso-spacerun:yes">&nbsp; </span></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Let's take
+our overdispersed hemlock count data and covert all abundances to 1, thereby
+creating a presence-absence vector:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat5$pa = dat5$cover
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat5$pa[dat5$pa&gt;0] = 1</span><span style="mso-ansi-language:NL" lang="NL">
+<o:p></o:p></span></p>
+
+<p class="MsoNormal">We've defined a new column in dataset 'dat5' named 'pa',
+containing only 1s and 0s for presences and absences.<span style="mso-spacerun:yes">&nbsp; </span>Let's pick up our above thread and fit an
+ANCOVA with disturbance class and elevation:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">bin.glm1 = glm(pa~disturb*elev,data=dat5,family=binomial)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">summary(bin.glm1)</span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm(formula
+= pa ~ disturb * elev, family = binomial, data = dat5)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-2.6619<span style="mso-spacerun:yes">&nbsp; </span>-0.6417<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>0.5740<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.7278<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.8803<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error z
+value Pr(&gt;|z|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2.4435687<span style="mso-spacerun:yes">&nbsp; </span>0.5939061<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>4.114 3.88e-05 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1.2989502<span style="mso-spacerun:yes">&nbsp; </span>0.7147168<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.817<span style="mso-spacerun:yes">&nbsp;
+</span>0.06915 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-0.7848815<span style="mso-spacerun:yes">&nbsp; </span>0.8840129<span style="mso-spacerun:yes">&nbsp; </span>-0.888<span style="mso-spacerun:yes">&nbsp;
+</span>0.37461<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>7.0985933<span style="mso-spacerun:yes">&nbsp; </span>1.2561157<span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>5.651 1.59e-08 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">elev<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-0.0013617<span style="mso-spacerun:yes">&nbsp; </span>0.0004864<span style="mso-spacerun:yes">&nbsp;
+</span>-2.800<span style="mso-spacerun:yes">&nbsp; </span>0.00511 ** <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbLT-SEL:elev
+-0.0016463<span style="mso-spacerun:yes">&nbsp; </span>0.0006325<span style="mso-spacerun:yes">&nbsp; </span>-2.603<span style="mso-spacerun:yes">&nbsp;
+</span>0.00924 ** <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp; </span>0.0007611<span style="mso-spacerun:yes">&nbsp;
+</span>0.0010745<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.708<span style="mso-spacerun:yes">&nbsp; </span>0.47875<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbVIRGIN:elev
+-0.0054999<span style="mso-spacerun:yes">&nbsp; </span>0.0009433<span style="mso-spacerun:yes">&nbsp; </span>-5.830 5.53e-09 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Signif.
+codes:<span style="mso-spacerun:yes">&nbsp; </span>0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+‘.’ 0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for binomial family taken to be 1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 1307.5<span style="mso-spacerun:yes">&nbsp; </span>on 1067<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 1063.7<span style="mso-spacerun:yes">&nbsp; </span>on 1060<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC:
+1079.7<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 5</span></p>
+
+<p class="MsoNormal">Plenty of evidence that both factors matter. Let's test this
+model with sequential removal of terms:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">step(bin.glm1)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Start:<span style="mso-spacerun:yes">&nbsp; </span>AIC=1079.67<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">pa ~ disturb
+* elev<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Df Deviance<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>AIC<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">&lt;none&gt;<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1063.7 1079.7<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-
+disturb:elev<span style="mso-spacerun:yes">&nbsp; </span>3<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1113.0 1123.0<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<span style="mso-spacerun:yes">&nbsp; </span>glm(formula = pa ~ disturb * elev, family =
+binomial, data = dat5) <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>elev<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2.4435687<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1.2989502<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-0.7848815<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>7.0985933<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-0.0013617<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">disturbLT-SEL:elev<span style="mso-spacerun:yes">&nbsp; </span>disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp; </span>disturbVIRGIN:elev<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-0.0016463<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0.0007611<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>-0.0054999<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Degrees
+of Freedom: 1067 Total (i.e. Null);<span style="mso-spacerun:yes">&nbsp; </span>1060
+Residual<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Null
+Deviance:<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1308 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+Deviance: 1064<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>AIC: 1080</span></p>
+
+<p class="MsoNormal">Strong support for including the interaction.<span style="mso-spacerun:yes">&nbsp; </span>Now let's make sure the logit link function
+is gives the lowest deviance.</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">bin.glm2 = update(bin.glm1,family=binomial(link="cloglog"))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">anova(bin.glm1,bin.glm2)</span><span style="font-family:&quot;Courier New&quot;">
+<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Analysis
+of Deviance Table<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Model 1:
+pa ~ disturb * elev<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Model 2:
+pa ~ disturb * elev<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp; </span>Resid. Df Resid. Dev Df Deviance<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">1<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1060<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1063.7<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">2<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1060<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1086.0<span style="mso-spacerun:yes">&nbsp; </span>0<span style="mso-spacerun:yes">&nbsp; </span>-22.346</span></p>
+
+<p class="MsoNormal">The default logit link is much better (measured as lowest
+deviance; because the same number of parameters are used in both models, this
+is equivalent to comparing their AICs).<span style="mso-spacerun:yes">&nbsp;
+</span>Let's see what the fitted model looks like on an occupancy graph against
+elevation for different subsets of disturbance classes.<span style="mso-spacerun:yes">&nbsp; </span>We'll do this separately by disturbance type:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">x =
+seq(250,2000)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">with(dat5[dat5$disturb=="VIRGIN",],plot(elev,pa,cex=1.5,col="darkgreen",
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent:36.0pt"><span style="font-family:&quot;Courier New&quot;;
+color:red">xlim=c(250,2000)))<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">lines(x,predict(bin.glm1,newdata=list(elev=x,disturb=factor(rep("VIRGIN",length(x)))),
+  <o:p></o:p>
+</span><span style="font-family:&quot;Courier New&quot;;
+color:red">type="response"),lwd=2,col="darkgreen")
+  <o:p></o:p>
+  </span></p>
+
+<p class="MsoNormal">This is the predicted logistic curve for the elevation
+response in VIRGIN stands.<span style="mso-spacerun:yes">&nbsp; </span>We first made
+a new x axis vector, then plotted the presence-elevation data for a hemlock
+dataset restricted to VIRGIN plots, and then overlayed the predicted values
+from our fitted bin.glm1 model at each x value, but only using the coefficients
+specific to VIRGIN plots.<span style="mso-spacerun:yes">&nbsp; </span>Don't forget
+that the 'response' type argument ensures our fitted values are on the scale of
+the original data rather than the logit link function.<span style="mso-spacerun:yes">&nbsp; </span>Let's compare this distribution to that for
+CORPLOG plots:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">with(dat5[dat5$disturb=="CORPLOG",],points(elev,pa+.02,cex=1.5,col="blue"))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">lines(x,predict(bin.glm1,newdata=list(elev=x,disturb=factor(rep("CORPLOG",length(x)))),
+  <o:p></o:p></span><span style="font-family:&quot;Courier New&quot;;
+color:red">type="response"),lwd=2,col="blue")
+  <o:p></o:p>
+  </span></p>
+
+<p class="MsoNormal">Apparently a history of heavy logging has blurred the
+relationship between hemlock presence and elevation.<span style="mso-spacerun:yes">&nbsp; </span>Does this remain true with a history of
+selective cutting?</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">with(dat5[dat5$disturb=="LT-SEL",],points(elev,pa-.02,cex=1.5,col="darkred"))
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">lines(x,predict(bin.glm1,newdata=list(elev=x,disturb=factor(rep("LT-SEL",length(x)))),
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">type="response"),lwd=2,col="darkred")</span></p>
+
+<p class="MsoNormal">The response is intermediate, which seems intuitive.</p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><i style="mso-bidi-font-style:normal">A note on proportion
+data<o:p></o:p></i></p>
+
+<p class="MsoNormal">Although not a common case with species distribution data,
+you may run into a dependent variable where observations are actually
+proportions derived from a set of trials of a certain number of successes and
+failures—i.e., a binomial process where N&gt;1.<span style="mso-spacerun:yes">&nbsp;
+</span>You could simply model this as percentages (a continuous variable
+bounded by 0 and 1), which would be an appropriate case of using <b>glm</b>
+with family=binomial with the default logit link.<span style="mso-spacerun:yes">&nbsp; </span>But if your observations differed in number
+of trials, you'd be throwing away the N associated with each datum.<span style="mso-spacerun:yes">&nbsp; </span>Observations derived from more samples would
+seem intuitively more important in the regression than those from small samples,
+even though their proportions may be the same.<span style="mso-spacerun:yes">&nbsp;
+</span>R can handle this using glm with the binomial(link="logit")
+family, with a dependent variable that is actually a two-vector object, the
+first being the number of 'successes' and the second the number of 'failures'.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>One
+application of this to species distribution data is when surveys include
+differential survey effort per observation.<span style="mso-spacerun:yes">&nbsp;
+</span>For example, in tree inventories, plots may vary in the total number of
+trees (individuals) sampled due to differences in quadrat size (or naturally
+due to environmental or historical factors).<span style="mso-spacerun:yes">&nbsp;
+</span>If you have information on the total number of samples per site and
+similar measure of abundance for individual species, you can model abundance as
+a binomial process of # 'successes' (individuals per species) and # 'failures'
+(individuals that were other species).<span style="mso-spacerun:yes">&nbsp;
+</span>Essentially R will then treat this as a weighted regression, with sites
+of more individuals influencing parameter estimates more than small samples.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Here's an
+example by modeling hemlock cover with respect to total cover.<span style="mso-spacerun:yes">&nbsp; </span>The example is a bit forced (as these are not
+actual samples of individuals) but you get the idea.<span style="mso-spacerun:yes">&nbsp; </span>We start by generating the summed cover of
+all species for each plot:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">sumcover = tapply(dat$cover,dat$plotID,sum)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">coverdat = data.frame(names(sumcover),sumcover)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal">Now we merge these data with our dat5 hemlock object, based
+on plotID:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red;
+mso-ansi-language:NL" lang="NL">dat6 = merge(dat5,coverdat,all.x=T,by.x=1,by.y=1)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal">And create our response variables of hemlock cover
+(successes) and total cover minus hemlock cover (failures):</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">cover.y = cbind(dat6$cover,dat6$sumcover-dat6$cover)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal">We can now model these data as a binomial process of varying
+number of trials per observation:</p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">glm6
+= glm(cover.y~disturb*elev,data=dat6,family=binomial)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:red">summary(glm6)
+    <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Call:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">glm(formula
+= cover.y ~ disturb * elev, family = binomial, data = dat6)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Deviance
+Residuals: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Min<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1Q<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>Median<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3Q<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Max<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">-5.1115<span style="mso-spacerun:yes">&nbsp; </span>-1.4730<span style="mso-spacerun:yes">&nbsp;
+</span>-0.4089<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.4116<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>5.1429<span style="mso-spacerun:yes">&nbsp;
+</span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Coefficients:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Estimate Std. Error z
+value Pr(&gt;|z|)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">(Intercept)<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-2.528e+00<span style="mso-spacerun:yes">&nbsp; </span>1.385e-01 -18.258<span style="mso-spacerun:yes">&nbsp; </span>&lt; 2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2.766e-01<span style="mso-spacerun:yes">&nbsp; </span>1.625e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.702 0.088828 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-2.065e+00<span style="mso-spacerun:yes">&nbsp; </span>2.217e-01<span style="mso-spacerun:yes">&nbsp; </span>-9.312<span style="mso-spacerun:yes">&nbsp;
+</span>&lt; 2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>3.722e-01<span style="mso-spacerun:yes">&nbsp; </span>2.217e-01<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>1.679 0.093245 .<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">elev<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-8.036e-05<span style="mso-spacerun:yes">&nbsp; </span>1.228e-04<span style="mso-spacerun:yes">&nbsp;
+</span>-0.655 0.512737<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbLT-SEL:elev -6.051e-04<span style="mso-spacerun:yes">&nbsp; </span>1.628e-04<span style="mso-spacerun:yes">&nbsp;
+</span>-3.716 0.000202 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbSETTLE:elev<span style="mso-spacerun:yes">&nbsp;
+</span>2.941e-03<span style="mso-spacerun:yes">&nbsp; </span>2.882e-04<span style="mso-spacerun:yes">&nbsp; </span>10.207<span style="mso-spacerun:yes">&nbsp;
+</span>&lt; 2e-16 ***<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">disturbVIRGIN:elev -2.089e-04<span style="mso-spacerun:yes">&nbsp; </span>1.908e-04<span style="mso-spacerun:yes">&nbsp;
+</span>-1.095 0.273590<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">---<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue;
+mso-ansi-language:DE" lang="DE">Signif. codes:<span style="mso-spacerun:yes">&nbsp; </span>0
+‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ </span><span style="font-family:&quot;Courier New&quot;;
+color:blue">0.1 ‘ ’ 1 <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">(Dispersion
+parameter for binomial family taken to be 1)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>Null deviance: 4068<span style="mso-spacerun:yes">&nbsp; </span>on 1067<span style="mso-spacerun:yes">&nbsp;
+</span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Residual
+deviance: 3866<span style="mso-spacerun:yes">&nbsp; </span>on 1060<span style="mso-spacerun:yes">&nbsp; </span>degrees of freedom<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">AIC:
+6241.6<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;;color:blue">Number of
+Fisher Scoring iterations: 5<o:p></o:p></span></p>
+
+<p class="MsoNormal">Note coefficient values are on the logit-transformed scale,
+as above.<span style="mso-spacerun:yes">&nbsp; </span>You can also get
+overdispersion with proportion data.<span style="mso-spacerun:yes">&nbsp; </span>The
+family for this is quasibinomial, and it works just like quasipoisson.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Note that
+there will be occasions where you may wonder whether it makes more sense to
+model observations as binary (0, 1s) or lump them to form counts summarized by
+particular factors (e.g., 47 presences, 80 absences in a particular disturbance
+history class).<span style="mso-spacerun:yes">&nbsp; </span>If your predictor
+variables are factor variables that are common to all occurrences, it may make
+more sense to model these as proportion data based on counts.<span style="mso-spacerun:yes">&nbsp; </span>But if each occurrence has a unique value of
+a continuous variable (e.g., in an ANCOVA with both factor and continuous
+variables), a binary response is logical. </p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><i style="mso-bidi-font-style:normal">Two more points on
+when and when not to use GLMs with species distribution data:<o:p></o:p></i></p>
+
+<p class="MsoNormal">1). If you have abundance measured in percent cover (where
+sample effort is equal for each observation), <st1:place w:st="on">Crawley</st1:place>
+suggests the using <b>lm</b> with an arcsine transformation (sin<sup>-1</sup>sqrt(.01*%cover))
+of the dependent variable. As an exercise, you can covert our cover class data
+back into mean cover percentages (see the metadata) and examine model residuals
+from simple <b>lm</b> regressions.</p>
+
+<p class="MsoNormal">2). Because the use of link functions, even using the
+Gaussian (normal) family, can incorporate transformations of the response
+variable (such as log(y)), one might wonder whether it makes more sense to use <b style="mso-bidi-font-weight:normal">lm</b> with log(y) or <b style="mso-bidi-font-weight:
+normal">glm</b> with link="log".<span style="mso-spacerun:yes">&nbsp;
+</span>This is apparently something of an art, but 
+<st1:place w:st="on">Crawley</st1:place>
+suggests the rule of thumb that if the variance (on x) is constant (assessed,
+e.g., with a plot of the residuals against fitted values), use the log link
+function; if not, transform y.</p>
+
+</div>
+
+
+
+
+</o:smarttagtype></body></html>

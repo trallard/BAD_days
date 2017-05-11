@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <! custom header >
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title> BADays (Bioinformatics Awareness Days)</title>
+  <meta name="description" content="A tutorial for anyone wanting to use SageMathCloud for teaching">
+
+  <link rel="stylesheet" href="/BAD_days/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/BAD_days/">
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <!-- The various JS scripts used in the website -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/ff95ae1185.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+
+</head>
+
+  
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BAD Days</a>
+        </div>
+      </div>
+    </nav>
+
+
+  <div class='container'>
+    <div class="row">
+      <div class='col-sm-10'>
+        <h1 id="bad-days">BAD days</h1>
+<p>Bioinformatics Awareness Days (BAD).</p>
+
+<p>Orignially developed by Luisa Cutillo (2015-2016)</p>
+
+<p>** Add description **
+* Content
+* Purpose
+* Format of the course</p>
+
+<h1 id="working-with-the-material">Working with the material</h1>
+<p>The simplest way to enjoy these materials is to view each lesson online at [<strong>add website</strong>]. In such a case, you could follow along and write your own version of the programs to run with your local R installation.</p>
+
+<p>You can also <strong>download/fork</strong> the whole collections of Notebooks from the GitHub repository. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.</p>
+
+<h1 id="about-the-course">About the course</h1>
+
+<p>The core of this tutorial is built around the <a href="https://jupyter.org">Jupyter Notebooks</a>, an interactive computational environment run in a web browser.</p>
+
+<p>In this particular case we will be using the R programming language for the data exploration/analysis.</p>
+
+<h2 id="what-is-r">What is R?</h2>
+
+<p>R is a free, open-source programming language that has very strong support for statistics. It was originally developed as an open source implementation of the <a href="https://en.wikipedia.org/wiki/S_(programming_language)">S Programming language</a>.
+It is used extensively in research and industry for areas such as data analysis, statistics, machine learning, bioinformatics, simulation, linguistics and much more.</p>
+
+<p>With over <a href="https://cran.r-project.org/web/packages/">8000 freely available add-on packages</a> that provide extensive additional functionality, R will probably have something that can help your research.</p>
+
+<p>Don’t just take our word for it though – here’s what others have to say</p>
+
+<ul>
+  <li><a href="http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html">Why use R? Five reasons</a> - From the ‘Econometrics By Simulation’ blog.</li>
+</ul>
+
+<h1 id="getting-all-set-up">Getting all set up</h1>
+
+<p>Before continuing with the material you will need to install some dependencies. The basic instructions to do so are described below. Please make sure to install the components in the order detailed in this guide.</p>
+
+<h2 id="installing-r">1. Installing R</h2>
+<p>You can find information regarding the latest R version on the <a href="https://www.r-project.org">CRAN website</a>.</p>
+
+<ul>
+  <li>
+    <p>MAC OS-X:
+Get the R binary from https://cran.r-project.org/bin/macosx/. Once downloaded install from the .pkg file.</p>
+  </li>
+  <li>
+    <p>Windows:
+Download the installer from https://cran.r-project.org/bin/windows/base/. Once downloaded run the executable.</p>
+  </li>
+</ul>
+
+<h2 id="installing-anaconda-and-the-notebooks">2. Installing Anaconda and the Notebooks</h2>
+<p>We <em>highly</em> recommend that you install the <a href="https://docs.continuum.io/anaconda/install">Anaconda distribution</a> (or <a href="https://conda.io/miniconda.html">Miniconda</a> alternatively).</p>
+
+<p>You can download and install Anaconda on Windows, OSX and Linux. To ensure that it’s up to date, run (in a terminal)
+<code class="highlighter-rouge">
+conda update conda
+conda update jupyter
+</code>
+<strong>Experienced users</strong>
+If you already have Python installed and prefer not to install Anaconda you can install the notebooks via pip:
+<code class="highlighter-rouge">bash
+pip install jupyter
+</code>
+You have now a notebook server installed on your computer. If you want to run a notebook server you need to open a terminal and run
+<code class="highlighter-rouge">
+jupyter notebook
+</code>
+Alternatively, if you have the Anaconda navigator you can open an instance from there.</p>
+
+<p>For more information on running the notebooks server visit: https://jupyter.readthedocs.io/en/latest/running.html#running</p>
+
+<h2 id="installing-the-r-kernel">3. Installing the R Kernel</h2>
+<p>This course will be using the <a href="https://github.com/IRkernel/IRkernel">IRKernel</a>. This has not been made available as a package from CRAN (yet). So in order to install the Kernel you need to install it via the <code class="highlighter-rouge">devtools</code> package (see <a href="https://irkernel.github.io/installation/">here</a>):
+<code class="highlighter-rouge">R
+install.packages('devtools')
+devtools::install_github('IRkernel/IRkernel')
+# or devtools::install_local('IRkernel-master.tar.gz')
+IRkernel::installspec()  # to register the kernel in the current R installation
+</code></p>
+
+<p>Note you need to do this from an R console (<strong>do not</strong> use R studio if you have this installed).</p>
+
+<h2 id="multiple-packages">4. Multiple packages</h2>
+<p>You will need to install various packages for this course. All of them are available on CRAN. Thus you can install them from a R console by typing
+<code class="highlighter-rouge">R
+install.packages('package_name')
+</code>
+Make sure you have all of the following packages:
+* multtest (note that for the latest versions of R you need to install this from an R console, see the <a href="https://bioconductor.org/packages/release/bioc/html/multtest.html">Bioconductor website</a>)
+<code class="highlighter-rouge">R
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite("multtest")
+</code>
+* xlsx
+* gdata
+* ape</p>
+
+    </div>
+  </div>
+</html>
