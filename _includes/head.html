@@ -22,7 +22,8 @@
   crossorigin="anonymous"></script>
 
   <script src="{{ "/js/jquery.tocify.min.js" | prepend: site.baseurl }}"></script>
-
+  <script src="{{ "/js/jquery-ui.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/tabsets.js" | prepend: site.baseurl }}"></script>
 
       <script>
       $(document).ready(function ()  {
@@ -44,7 +45,7 @@
           options.showAndHide = true;
           options.smoothScroll = true;
           // tocify
-          var toc = $("#TOC").tocify(options).data("toc-tocify");
+          var toc = $("#toc").tocify(options).data("toc-tocify");
       });
       </script>
 </head>
