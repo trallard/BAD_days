@@ -1,4 +1,4 @@
-.highlight .hll { background-color: #ffffcc }
+.highlight .hll { background-color: $primary-light;}
 .highlight .c { color: #606060; font-style: italic } /* Comment */
 .highlight .err { color: #F00000; background-color: #F0A0A0 } /* Error */
 .highlight .k { color: #208090; font-weight: bold } /* Keyword */
@@ -24,7 +24,7 @@
 .highlight .kr { color: #208090; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #6060f0; font-weight: bold } /* Keyword.Type */
 .highlight .m { color: #6000E0; font-weight: bold } /* Literal.Number */
-.highlight .s { background-color: #e0e0ff } /* Literal.String */
+.highlight .s { color: $primary-dark; } /* Literal.String */
 .highlight .na { color: #000070 } /* Name.Attribute */
 .highlight .nb { color: #007020 } /* Name.Builtin */
 .highlight .nc { color: #e090e0; font-weight: bold } /* Name.Class */
@@ -47,12 +47,12 @@
 .highlight .sc { color: #8080F0 } /* Literal.String.Char */
 .highlight .sd { color: #D04020 } /* Literal.String.Doc */
 .highlight .s2 { background-color: #e0e0ff } /* Literal.String.Double */
-.highlight .se { color: #606060; font-weight: bold; background-color: #e0e0ff } /* Literal.String.Escape */
+.highlight .se { color: #606060; font-weight: bold } /* Literal.String.Escape */
 .highlight .sh { background-color: #e0e0ff } /* Literal.String.Heredoc */
 .highlight .si { background-color: #e0e0e0 } /* Literal.String.Interpol */
-.highlight .sx { color: #f08080; background-color: #e0e0ff } /* Literal.String.Other */
-.highlight .sr { color: #000000; background-color: #e0e0ff } /* Literal.String.Regex */
-.highlight .s1 { background-color: #e0e0ff } /* Literal.String.Single */
+.highlight .sx { color: #f08080; } /* Literal.String.Other */
+.highlight .sr { color: #000000;} /* Literal.String.Regex */
+.highlight .s1 { color: $primary-dark; }/* Literal.String.Single */
 .highlight .ss { color: #f0c080 } /* Literal.String.Symbol */
 .highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
 .highlight .vc { color: #c0c0f0 } /* Name.Variable.Class */

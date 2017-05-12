@@ -6876,7 +6876,8 @@ a.list-group-item-danger.active:focus {
   color: #2c3e50; }
 
 body {
-  font-family: "Imprima", sans-serif; }
+  font-family: "Imprima", sans-serif;
+  font-size: 18px; }
 
 h1,
 h2,
@@ -6886,7 +6887,8 @@ h5 {
   font-family: "Pridi", serif; }
 
 .navbar-brand {
-  font-family: "Pridi", serif; }
+  font-family: "Pridi", serif;
+  color: #9162e4; }
 
 .navbar {
   border-radius: 0; }
@@ -6895,7 +6897,14 @@ a {
   color: #9162e4; }
 
 h1 {
-  color: #280680; }
+  color: #280680;
+  font-size: 3.003em; }
+
+h2 {
+  font-size: 2.002em; }
+
+h3 {
+  font-size: 1.335em; }
 
 h2,
 h3,
@@ -6903,8 +6912,25 @@ h4,
 h5 {
   color: #5e35b1; }
 
+pre,
+code {
+  font-size: 15px;
+  color: #222222;
+  background-color: #ecf0f1; }
+
+code {
+  color: #222222;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  background-color: #ecf0f1; }
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: scroll; }
+
 .highlight .hll {
-  background-color: #ffffcc; }
+  background-color: #62efff; }
 
 .highlight .c {
   color: #606060;
@@ -7024,7 +7050,7 @@ h5 {
 
 /* Literal.Number */
 .highlight .s {
-  background-color: #e0e0ff; }
+  color: #008ba3; }
 
 /* Literal.String */
 .highlight .na {
@@ -7129,8 +7155,7 @@ h5 {
 /* Literal.String.Double */
 .highlight .se {
   color: #606060;
-  font-weight: bold;
-  background-color: #e0e0ff; }
+  font-weight: bold; }
 
 /* Literal.String.Escape */
 .highlight .sh {
@@ -7142,17 +7167,15 @@ h5 {
 
 /* Literal.String.Interpol */
 .highlight .sx {
-  color: #f08080;
-  background-color: #e0e0ff; }
+  color: #f08080; }
 
 /* Literal.String.Other */
 .highlight .sr {
-  color: #000000;
-  background-color: #e0e0ff; }
+  color: #000000; }
 
 /* Literal.String.Regex */
 .highlight .s1 {
-  background-color: #e0e0ff; }
+  color: #008ba3; }
 
 /* Literal.String.Single */
 .highlight .ss {
