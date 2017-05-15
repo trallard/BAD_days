@@ -2,26 +2,33 @@
 <html>
 <! custom header >
 {% include head.html %}
-{% include index.html %}
 
 <body data-spy="scroll" data-target="#toc">
+
+  {%include sidebar.html%}
+  <div class='wrap'>
+  {% include index.html %}
+</div>
+<div class='wrap'>
   <div class="container">
-  <div class="row">
+    <div class="row">
 
 
-        <div class="col-sm-8">
-
+      <div class="col-sm-8">
+        <main>
           {{content}}
-        </div>
+        </main>
+      </div>
 
-        <div class="col-sm-1">
-        </div>
-        <!-- sidebar, which will move to the top on a small screen -->
-        <div class="col-sm-3 container-toc">
-          <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
-        </div>
+      <div class="col-sm-1">
+      </div>
+      <!-- sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
       </div>
     </div>
+  </div>
+</div>
 
 </body>
 

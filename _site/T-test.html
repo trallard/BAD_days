@@ -31,28 +31,65 @@
 </head>
 
 
+<body data-spy="scroll" data-target="#toc">
+
+  <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A tutorial for anyone wanting to use SageMathCloud for teaching</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/BAD_days/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+    
+      
+    
+
+    <a class="sidebar-nav-item" href="/archive/v.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. All rights reserved.
+    </p>
+  </div>
+</div>
+
+  <div class='wrap'>
+  <! Top navigation bar>
+
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/BAD_days/index.html">BAD Days</a>
+        <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+        <a class="navbar-brand" href="/BAD_days/index.html">BAD Days</a>
+
         </div>
       </div>
     </nav>
 
-
-<body data-spy="scroll" data-target="#toc">
+</div>
+<div class='wrap'>
   <div class="container">
-  <div class="row">
+    <div class="row">
 
 
-        <div class="col-sm-8">
-
+      <div class="col-sm-8">
+        <main>
           <h1 id="bad-day-1--t-test">BAD Day 1 : T-test</h1>
 
 <h2 id="loading-the-data-set">1. Loading the data set</h2>
@@ -220,16 +257,18 @@ Since we are performing the two-tail test, the single-tail probability has to be
 </span></code></pre>
 </div>
 
-        </div>
+        </main>
+      </div>
 
-        <div class="col-sm-1">
-        </div>
-        <!-- sidebar, which will move to the top on a small screen -->
-        <div class="col-sm-3 container-toc">
-          <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
-        </div>
+      <div class="col-sm-1">
+      </div>
+      <!-- sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
       </div>
     </div>
+  </div>
+</div>
 
 </body>
 
