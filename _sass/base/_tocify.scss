@@ -1,62 +1,60 @@
-/*
- * jquery.tocify.css 1.9.0
- * Author: @gregfranko
- */
+/*!
+ * Bootstrap Table of Contents v<%= version %> (http://afeld.github.io/bootstrap-toc/)
+ * Copyright 2015 Aidan Feldman
+ * Licensed under MIT (https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md) */
 
-/* The Table of Contents container element */
-.tocify {
-    width: 20%;
-    max-height: 90%;
-    overflow: auto;
-    margin-left: 2%;
-    position: fixed;
-    border: 1px solid #ccc;
-    webkit-border-radius: 6px;
-    moz-border-radius: 6px;
-    border-radius: 6px;
+/* modified from https://github.com/twbs/bootstrap/blob/94b4076dd2efba9af71f0b18d4ee4b163aa9e0dd/docs/assets/css/src/docs.css#L548-L601 */
+
+/* All levels of nav */
+nav[data-toggle='toc'] .nav > li > a {
+  display: block;
+  padding: 4px 20px;
+  font-size: 0.96em;
+  font-weight: 500;
+  color: $gray;
+}
+nav[data-toggle='toc'] .nav > li > a:hover,
+nav[data-toggle='toc'] .nav > li > a:focus {
+  padding-left: 19px;
+  color: $secondary-light;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid $secondary-light;
+}
+nav[data-toggle='toc'] .nav > .active > a,
+nav[data-toggle='toc'] .nav > .active:hover > a,
+nav[data-toggle='toc'] .nav > .active:focus > a {
+  padding-left: 18px;
+  font-weight: bold;
+  color: $secondary;
+  background-color: transparent;
+  border-left: 2px solid $primary;
 }
 
-/* The Table of Contents is composed of multiple nested unordered lists.  These styles remove the default styling of an unordered list because it is ugly. */
-.tocify ul, .tocify li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    line-height: 30px;
+/* Nav: second level (shown on .active) */
+nav[data-toggle='toc'] .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  padding-bottom: 10px;
+}
+nav[data-toggle='toc'] .nav .nav > li > a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  font-size: 0.9em;
+  font-weight: normal;
+}
+nav[data-toggle='toc'] .nav .nav > li > a:hover,
+nav[data-toggle='toc'] .nav .nav > li > a:focus {
+  padding-left: 29px;
+}
+nav[data-toggle='toc'] .nav .nav > .active > a,
+nav[data-toggle='toc'] .nav .nav > .active:hover > a,
+nav[data-toggle='toc'] .nav .nav > .active:focus > a {
+  padding-left: 28px;
+  font-weight: 500;
 }
 
-/* Top level header elements */
-.tocify-header {
-    text-indent: 10px;
-}
-
-/* Top level subheader elements.  These are the first nested items underneath a header element. */
-.tocify-subheader {
-    text-indent: 20px;
-    display: none;
-}
-
-/* Makes the font smaller for all subheader elements. */
-.tocify-subheader li {
-    font-size: 12px;
-}
-
-/* Further indents second level subheader elements. */
-.tocify-subheader .tocify-subheader {
-    text-indent: 30px;
-}
-
-/* Further indents third level subheader elements. You can continue this pattern if you have more nested elements. */
-.tocify-subheader .tocify-subheader .tocify-subheader {
-    text-indent: 40px;
-}
-
-/* Twitter Bootstrap Override Style */
-.nav-list > li > a, .nav-list .nav-header {
-    margin: 0px;
-}
-
-/* Twitter Bootstrap Override Style */
-.nav-list > li > a {
-    padding: 5px;
+/* from https://github.com/twbs/bootstrap/blob/e38f066d8c203c3e032da0ff23cd2d6098ee2dd6/docs/assets/css/src/docs.css#L631-L634 */
+nav[data-toggle='toc'] .nav > .active > ul {
+  display: block;
 }

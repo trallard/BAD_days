@@ -1,51 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <! custom header >
-  {% include head.html %}
-  {% include index.html %}
+<! custom header >
+{% include head.html %}
+{% include index.html %}
 
+<body data-spy="scroll" data-target="#toc">
   <div class="container">
-        <div class="row">
+  <div class="row">
 
 
-          <div class="col-lg-1 col-md-2">
-            <div id="TOC" class='tocify'></div>
-          </div>
+        <div class="col-sm-8">
 
-            <div class="toc-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          {{content}}
+        </div>
 
-        {{content}}
+        <div class="col-sm-1">
+        </div>
+        <!-- sidebar, which will move to the top on a small screen -->
+        <div class="col-sm-3 container-toc">
+          <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+        </div>
+      </div>
     </div>
-    <!-- tabsets -->
 
-  </div>
-</div>
+</body>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-<script>
-$(document).ready(function ()  {
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
+
 </html>

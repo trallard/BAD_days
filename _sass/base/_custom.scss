@@ -11,10 +11,12 @@ h5{
   font-family: $title-font;
 }
 
-.navbar-brand{
+.navbar-inverse .navbar-brand{
   font-family: $title-font;
-  color: $secondary-light;
+  color: $black;
+  font-weight: bold;
 }
+
 
 .navbar{
   border-radius: 0;
@@ -58,10 +60,4 @@ pre{
   white-space: pre-wrap;
     word-wrap: break-word;
     overflow-x: scroll;
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <! custom header >
-  <head>
+<! custom header >
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width initial-scale=1">
@@ -9,13 +9,13 @@
   <title> BADays (Bioinformatics Awareness Days)</title>
   <meta name="description" content="A tutorial for anyone wanting to use SageMathCloud for teaching">
 
+  <!-- Style sheets -->
   <link rel="stylesheet" href="/BAD_days/css/main.css">
   <link type="text/css" href="/BAD_days/css/jquery.tocify.css">
-  <link type="text/css" href="/BAD_days/js/jquery.tocify.min.js">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
   <link rel="canonical" href="http://localhost:4000/BAD_days/">
 
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
   <!-- The various JS scripts used in the website -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -24,36 +24,13 @@
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
 
-  <script src="/BAD_days/js/jquery.tocify.min.js"></script>
-  <script src="/BAD_days/js/jquery-ui.min.js"></script>
-<script src="/BAD_days/js/tabsets.js"></script>
+<!-- add after bootstrap.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+<link src="/BAD_days/js/toc-custom.css">
 
-      <script>
-      $(document).ready(function ()  {
-          // move toc-ignore selectors from section div to header
-          $('div.section.toc-ignore')
-              .removeClass('toc-ignore')
-              .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-          // establish options
-          var options = {
-            selectors: "h1,h2",
-            theme: "bootstrap3",
-            context: '.toc-content',
-            hashGenerator: function (text) {
-              return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-            },
-            ignoreSelector: ".toc-ignore",
-            scrollTo: 0
-          };
-          options.showAndHide = true;
-          options.smoothScroll = true;
-          // tocify
-          var toc = $("#toc").tocify(options).data("toc-tocify");
-      });
-      </script>
 </head>
 
-  
+
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -63,32 +40,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">BAD Days</a>
+          <a class="navbar-brand" href="/BAD_days/index.html">BAD Days</a>
         </div>
       </div>
     </nav>
 
 
-
-
-
-    <!-- code folding -->
-
-
+<body data-spy="scroll" data-target="#toc">
   <div class="container">
-        <div class="row">
+  <div class="row">
 
 
-          <div class="col-lg-1 col-md-2">
-            <div id="TOC" class='tocify'></div>
-          </div>
+        <div class="col-sm-8">
 
-            <div class="toc-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-        <h1 id="bad-days">BAD days</h1>
+          <h1> BAD days </h1>
 <p>Bioinformatics Awareness Days (BAD).</p>
 
-<p>Orignially developed by Luisa Cutillo (2015-2016)</p>
+<p>Originally developed by Luisa Cutillo (2015-2016)</p>
 
 <p>** Add description **
 * Content
@@ -197,37 +165,18 @@ conda update jupyter
   <li>ape</li>
 </ul>
 
+        </div>
+
+        <div class="col-sm-1">
+        </div>
+        <!-- sidebar, which will move to the top on a small screen -->
+        <div class="col-sm-3 container-toc">
+          <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+        </div>
+      </div>
     </div>
-    <!-- tabsets -->
 
-  </div>
-</div>
+</body>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-<script>
-$(document).ready(function ()  {
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
+
 </html>

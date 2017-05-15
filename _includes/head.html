@@ -6,13 +6,13 @@
   <title> BADays (Bioinformatics Awareness Days)</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
+  <!-- Style sheets -->
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link type="text/css" href="{{ "/css/jquery.tocify.css" | prepend: site.baseurl }}">
-  <link type="text/css" href="{{ "/js/jquery.tocify.min.js" | prepend: site.baseurl }}">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
 
   <!-- The various JS scripts used in the website -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -21,31 +21,8 @@
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
 
-  <script src="{{ "/js/jquery.tocify.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/js/jquery-ui.min.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/tabsets.js" | prepend: site.baseurl }}"></script>
+<!-- add after bootstrap.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+<link src="{{ "/js/toc-custom.css" | prepend: site.baseurl }}">
 
-      <script>
-      $(document).ready(function ()  {
-          // move toc-ignore selectors from section div to header
-          $('div.section.toc-ignore')
-              .removeClass('toc-ignore')
-              .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-          // establish options
-          var options = {
-            selectors: "h1,h2",
-            theme: "bootstrap3",
-            context: '.toc-content',
-            hashGenerator: function (text) {
-              return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-            },
-            ignoreSelector: ".toc-ignore",
-            scrollTo: 0
-          };
-          options.showAndHide = true;
-          options.smoothScroll = true;
-          // tocify
-          var toc = $("#toc").tocify(options).data("toc-tocify");
-      });
-      </script>
 </head>
