@@ -1,6 +1,6 @@
 # Site settings
 title: BAD days
-description: A tutorial for anyone wanting to use SageMathCloud for teaching
+description: Bioinformatics Awareness Days (BAD days)
 baseurl: "/BAD_days"
 url: "http://trallard.github.io" # the base hostname & protocol for your site
 
@@ -9,4 +9,4 @@ markdown: kramdown
 
 # Additional gems
 #gems:
-  #- 
+  #-
