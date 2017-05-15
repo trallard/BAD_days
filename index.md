@@ -3,12 +3,8 @@ layout: default
 permalink: /index.html
 ---
 
-<h1> BAD days </h1>
-Bioinformatics Awareness Days (BAD).
 
-Originally developed by Luisa Cutillo (2015-2016)
-
-** Add description **
+# About this course (Luisa)
 * Content
 * Purpose
 * Format of the course

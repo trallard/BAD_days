@@ -16,10 +16,11 @@ nav[data-toggle='toc'] .nav > li > a {
 nav[data-toggle='toc'] .nav > li > a:hover,
 nav[data-toggle='toc'] .nav > li > a:focus {
   padding-left: 19px;
-  color: $secondary-light;
+  color: $secondary;
   text-decoration: none;
   background-color: transparent;
-  border-left: 1px solid $secondary-light;
+  border-left: 1px solid $primary;
+  text-decoration: underline;
 }
 nav[data-toggle='toc'] .nav > .active > a,
 nav[data-toggle='toc'] .nav > .active:hover > a,

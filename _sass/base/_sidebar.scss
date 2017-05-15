@@ -26,7 +26,7 @@
  *
  * Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
  */
-$bar-width: 25rem;
+$bar-width: 20rem;
 /* Style and "hide" the sidebar */
 .sidebar {
   position: fixed;
@@ -89,7 +89,7 @@ a.sidebar-nav-item:focus {
 
 /* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
 .sidebar-checkbox {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -99,7 +99,7 @@ a.sidebar-nav-item:focus {
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
-  top:  2.0rem;
+  top:  2.5rem;
   left: 1rem;
   display: block;
   padding: .25rem .75rem;

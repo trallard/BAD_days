@@ -190,3 +190,5 @@ print(t.student)
 t.welch <- t.test(sample.ALL,sample.AML, var.equal=FALSE)
 print(t.welch)
 ```
+
+## <a href = "{{site.baseurl}}/index.html"> Main tutorial </a>
