@@ -6884,7 +6884,8 @@ body {
 .navbar-inverse .navbar-brand {
   font-family: "Pridi", serif;
   color: #000;
-  font-weight: bold; }
+  font-weight: normal;
+  padding-left: 10rem; }
 
 .navbar {
   border-radius: 0; }
@@ -7266,66 +7267,6 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
 nav[data-toggle='toc'] .nav > .active > ul {
   display: block; }
 
-body {
-  font-family: "Imprima", sans-serif;
-  font-size: 18px;
-  overflow-x: hidden; }
-
-/***Nav bar ***/
-.navbar-inverse .navbar-brand {
-  font-family: "Pridi", serif;
-  color: #000;
-  font-weight: bold; }
-
-.navbar {
-  border-radius: 0; }
-
-/*** Links ***/
-a {
-  color: #9162e4; }
-
-/***Headings ***/
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Pridi", serif; }
-
-h1 {
-  color: #280680;
-  font-size: 3.003em; }
-
-h2 {
-  font-size: 2.002em; }
-
-h3 {
-  font-size: 1.335em; }
-
-h2,
-h3,
-h4,
-h5 {
-  color: #5e35b1; }
-
-/**** Code ***/
-pre,
-code {
-  font-size: 15px;
-  color: #222222;
-  background-color: #ecf0f1; }
-
-code {
-  color: #222222;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  background-color: #ecf0f1; }
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-x: scroll; }
-
 /*** Side navigation ***/
 /*
  * Wrapper
@@ -7357,22 +7298,20 @@ pre {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -14rem;
-  width: 14rem;
+  left: -25rem;
+  width: 25rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: .875rem;
-  /* 15px */
+  font-family: "Imprima", sans-serif;
+  font-size: 1.2em;
   color: rgba(255, 255, 255, 0.6);
-  background-color: #202020;
+  background-color: #280680;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
 
 @media (min-width: 30em) {
   .sidebar {
-    font-size: .75rem;
-    /* 14px */ } }
+    font-size: 1.5rem; } }
 /* Sidebar content */
 .sidebar a {
   font-weight: normal;
@@ -7396,9 +7335,8 @@ pre {
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: transparent; }
+  text-decoration: underline;
+  text-decoration-color: #00bcd4; }
 
 @media (min-width: 48em) {
   .sidebar-item {
@@ -7418,19 +7356,19 @@ a.sidebar-nav-item:focus {
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
-  top: .8rem;
+  top: 2.0rem;
   left: 1rem;
   display: block;
   padding: .25rem .75rem;
-  color: #505050;
+  color: #000;
   background-color: #fff;
   border-radius: .25rem;
   cursor: pointer; }
 
 .sidebar-toggle:before {
   display: inline-block;
-  width: 1rem;
-  height: .75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   content: "";
   background-image: -webkit-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
   background-image: -moz-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
@@ -7451,7 +7389,7 @@ a.sidebar-nav-item:focus {
   background-image: -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
   background-image: linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%); }
 
-@media (min-width: 30.1em) {
+@media (min-width: 40em) {
   .sidebar-toggle {
     position: fixed; } }
 @media print {
@@ -7482,15 +7420,15 @@ a.sidebar-nav-item:focus {
   transition: transform .3s ease-in-out; }
 
 #sidebar-checkbox:checked + .sidebar {
-  z-index: 10;
+  z-index: 20;
   visibility: visible; }
 
 #sidebar-checkbox:checked ~ .sidebar,
 #sidebar-checkbox:checked ~ .wrap,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  -webkit-transform: translateX(14rem);
-  -ms-transform: translateX(14rem);
-  transform: translateX(14rem); }
+  -webkit-transform: translateX(25rem);
+  -ms-transform: translateX(25rem);
+  transform: translateX(25rem); }
 
 /*
  * Overlay sidebar

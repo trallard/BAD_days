@@ -8,7 +8,8 @@ body{
 .navbar-inverse .navbar-brand{
   font-family: $title-font;
   color: $black;
-  font-weight: bold;
+  font-weight: normal;
+  padding-left: 10rem;
 }
 
 .navbar{
