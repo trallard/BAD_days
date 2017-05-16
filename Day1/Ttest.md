@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 permalink: /T-test.html
 ---
 #  BAD Day 1 : T-test

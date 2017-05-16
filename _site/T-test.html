@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<! custom header >
+<!--custom header -->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,25 +26,71 @@
 
 <!-- add after bootstrap.min.js -->
 <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
-<link src="/BAD_days/js/custom-scripts.css">
+<link src="/BAD_days/js/custom-scripts.js">
 
 </head>
 
 
-<!-- Scroller for TOC-->
+<!-- scroller for TOC-->
 <body data-spy="scroll" data-target="#toc">
 
-<!-- Main content needs to be in a wrap for
-when the sidebar is displayed-->
+<!-- TOC-->
+  <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Bioinformatics Awareness Days (BAD days)</p>
+
+    <p> Developed by Luisa Cutillo and the <a href='http://rse.shef.ac.uk'> RSE team
+    </a> at the University of Sheffield</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/BAD_days/">Home</a>
+
+    
+
+    
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/1-outline/">Day 1 outline</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+
+
+    <a class="sidebar-nav-item" href="https://github.com/trallard/BAD_days">GitHub repository</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      The University of Sheffield &copy; 2017. CC-BY
+    </p>
+  </div>
+</div>
+
+
+<!--main content needs to be in a wrap for
+when the sidebar is displayed-->
   <div class='wrap'>
 
-<!-- nav bar-->
-<! Top navigation bar>
+<!-- navbar -->
+  <! Top navigation bar>
 
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
         <a class="navbar-brand" href="/BAD_days/index.html">BAD Days</a>
 
@@ -57,7 +103,7 @@ when the sidebar is displayed-->
   <div class="container">
     <div class="row">
 
-
+<!--- Main content--->
       <div class="col-sm-8">
         <main>
           <h1 id="bad-day-1--t-test">BAD Day 1 : T-test</h1>
@@ -234,10 +280,15 @@ Since we are performing the two-tail test, the single-tail probability has to be
 
       <div class="col-sm-1">
       </div>
-    
+      <!-- TOC sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+      </div>
     </div>
   </div>
 </div>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
 </body>
 

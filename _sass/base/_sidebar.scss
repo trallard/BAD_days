@@ -26,10 +26,12 @@
  *
  * Source: http://css-tricks.com/off-canvas-menu-with-css-target/#comment-207504
  */
+
 $bar-width: 20rem;
+
 /* Style and "hide" the sidebar */
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: -$bar-width;
@@ -73,8 +75,8 @@ $bar-width: 20rem;
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: underline;
-  text-decoration-color: $primary;
+  text-decoration: none;
+  color: $primary;
 }
 
 @media (min-width: 48em) {
@@ -89,7 +91,7 @@ a.sidebar-nav-item:focus {
 
 /* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
 .sidebar-checkbox {
-  position: fixed;
+  position: absolute;
   opacity: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -202,9 +204,4 @@ a.sidebar-nav-item:focus {
 }
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: .25rem 0 .5rem rgba(0,0,0,.1);
-}
-
-/* Only one tweak for a reverse layout */
-.layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
 }
