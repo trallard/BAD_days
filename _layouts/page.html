@@ -3,24 +3,22 @@
 <! custom header >
 {% include head.html %}
 
-<!-- scroller for TOC-->
+<!-- Scroller for TOC-->
 <body data-spy="scroll" data-target="#toc">
 
-<!-- TOC-->
-  {%include sidebar.html%}
-
-<!--main content needs to be in a wrap for
+<!-- Main content needs to be in a wrap for
 when the sidebar is displayed-->
+
   <div class='wrap'>
 
-<!-- navbar -->
-  {% include nav.html %}
+<!-- nav bar-->
+{% include nav.html %}
 </div>
 <div class='wrap'>
   <div class="container">
     <div class="row">
 
-<!--- Main content--->
+
       <div class="col-sm-8">
         <main>
           {{content}}
@@ -29,10 +27,7 @@ when the sidebar is displayed-->
 
       <div class="col-sm-1">
       </div>
-      <!-- TOC sidebar, which will move to the top on a small screen -->
-      <div class="col-sm-3 container-toc">
-        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
-      </div>
+    
     </div>
   </div>
 </div>

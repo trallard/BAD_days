@@ -3,10 +3,32 @@ title: BAD days
 description: Bioinformatics Awareness Days (BAD days)
 baseurl: "/BAD_days"
 url: "http://trallard.github.io" # the base hostname & protocol for your site
+github:
+  repo: "https://github.com/trallard/BAD_days"
+
+# About
+author:
+  name: Tania Allard
+
+
 
 # Build settings
 markdown: kramdown
+include: ['_pages']
+exclude:
+  - .gitignore
+  - README.md
+
+# to ensure the links work properly
+permalink: pretty
+relative_permalinks: true
 
 # Additional gems
-#gems:
-  #-
+gems:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SASS directory
+sass:
+  style: compressed
+  sass_dir: _sass

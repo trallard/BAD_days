@@ -1,3 +1,9 @@
+---
+layout: page
+permalink: /1-outline/
+title: Day 1 outline
+---
+
 # BAD Day 1
 
 **Description**
