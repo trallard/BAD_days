@@ -3,16 +3,15 @@ layout: default
 permalink: /index.html
 ---
 
-
 # About this course (Luisa)
 * Content
 * Purpose
 * Format of the course
 
 # Working with the material
-The simplest way to enjoy these materials is to view each lesson online at [**add website**]. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
+The simplest way to enjoy these materials is to view each lesson online here. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
 
-You can also **download/fork** the whole collections of Notebooks from the GitHub repository. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
+You can also **download/fork** the whole collections of Notebooks from the [GitHub repository](https://github.com/trallard/BAD_days). That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
 
 # About the course
 
