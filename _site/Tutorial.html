@@ -186,7 +186,7 @@ gene expression data collected by Golub et al. (1999) are among the most
 classical in bioinformatics. A selection of the set is called <code class="highlighter-rouge">golub</code> which is
 contained in the <code class="highlighter-rouge">multtest</code> package loaded before.</p>
 
-<p>The data consist of gene expression values of 3051 genes (‘row’s) from 38 leukemia
+<p>The data consist of gene expression values of 3051 genes (rows) from 38 leukemia
 patients Pre-processing was done as described in Dudoit et al. (2002). The R
 code for pre-processing is available in the file ../doc/golub.R.</p>
 
@@ -208,7 +208,7 @@ http://www-genome.wi.mit.edu/MPR/ .</p>
 </span><span class="err">#</span><span class="w"> </span><span class="o">?</span><span class="n">golub</span></code></pre></figure>
 
 <p>Data set values:
-- <code class="highlighter-rouge">golub</code>: matrix of gene expression levels for the 38 tumor mRNA samples, ‘row’s
+- <code class="highlighter-rouge">golub</code>: matrix of gene expression levels for the 38 tumor mRNA samples, rows
 correspond to genes (3051 genes) and columns to mRNA samples.
 - <code class="highlighter-rouge">golub.cl</code>: numeric vector indicating the tumor class, 27 acute lymphoblastic
 leukemia (ALL) cases (code 0) and 11 acute myeloid leukemia (AML) cases (code
@@ -223,27 +223,11 @@ Name, respectively.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Checking the dimension of the data
 </span><span class="nf">dim</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
 
-<p>&lt;ol class=list-inline&gt;
-	&lt;li&gt;3051&lt;/li&gt;
-	&lt;li&gt;38&lt;/li&gt;
-&lt;/ol&gt;</p>
-
 <p><br /></p>
 <font color="#00bcd4"> In [6]: </font>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># we will have a look at the first 'row's contained in the data set
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># we will have a look at the first rows contained in the data set
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
-
-<table class="table table-striped table-responsive table-hover">
-<tbody>
-	<tr><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
-</tbody>
-</table>
 
 <p>The gene names are collected in the matrix <code class="highlighter-rouge">golub.gnames</code> of which the columns
 correspond to the gene index, ID, and Name, respectively.</p>
@@ -252,20 +236,9 @@ correspond to the gene index, ID, and Name, respectively.</p>
 <font color="#00bcd4"> In [7]: </font>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Adding 3051 gene names
-</span><span class="s1">'row'</span><span class="n">.names</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">golub.gnames</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span><span class="n">row.names</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">golub.gnames</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="w">
 
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
-
-<table>
-<tbody>
-	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr><th scope="row">AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr><th scope="row">AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr><th scope="row">AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
-</tbody>
-</table>
 
 <p>Twenty seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and
 eleven as acute myeloid leukemia (AML). The tumor class is given by the numeric
@@ -278,18 +251,6 @@ vector golub.cl, where ALL is indicated by 0 and AML by 1.</p>
 
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
 
-<table class="table table-inverse">
-<thead><tr><th></th><th scope="col">0</th>&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;⋯&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;</tr></thead>
-<tbody>
-	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr>&lt;th scope='row&gt;AFFX-HUMISGF3A/M97935_3_at&lt;/th&gt;<td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr><th scope="row">AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr><th scope="row">AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr><th scope="row">AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
-</tbody>
-</table>
-
 <h2 id="creating-the-exploratory-plots">Creating the exploratory plots</h2>
 
 <h3 id="plotting-the-value-of-gene-ccnd3-in-all-nrna-samples-m92287at">1.1. Plotting the value of gene (CCND3) in all nRNA samples (M92287_at)</h3>
@@ -297,8 +258,8 @@ vector golub.cl, where ALL is indicated by 0 and AML by 1.</p>
 <p>We shall first have a look at the expression values of a gener with manufacurer
 name <code class="highlighter-rouge">M92278_at</code>, which is known in biology as “CCND3 Cyclin D3”.</p>
 
-<p>The expression values of this gene are collected in ‘row’ 1042 of golub. To load
-the data and to obtain the relevant information from ‘row’ 1042 of golub.gnames,
+<p>The expression values of this gene are collected in row 1042 of golub. To load
+the data and to obtain the relevant information from row 1042 of golub.gnames,
 use the following:</p>
 
 <p><br /></p>
@@ -343,7 +304,7 @@ and the horizontal axis the index of the patients.</p>
 <p><br /></p>
 <font color="#00bcd4"> In [13]: </font>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">golub</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">golub</span><span class="p">[,</span><span class="m">38</span><span class="p">],</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Patient 1 (ALL)'</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Patient 38 (AML)'</span><span class="p">)</span><span class="w">
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">golub</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">golub</span><span class="p">[,</span><span class="m">38</span><span class="p">],</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Patient 1 (ALL)'</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Patient 38 (AML)'</span><span class="p">)</span><span class="w"> 
 </span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'mediumpurple'</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="m">3</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_23_0.png" alt="png" /></p>
@@ -376,16 +337,6 @@ Z36714_AT</code> genes in three randomly chosen AML and ALL patients</p>
 </span><span class="c1"># having a look at the data set chosen
 </span><span class="n">mygenelist</span></code></pre></figure>
 
-<table>
-<thead><tr><th></th>&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;</tr></thead>
-<tbody>
-	<tr><th scope="row">D13639_at</th><td> 2.09511</td><td> 1.71953</td><td>-1.46227</td><td>-0.92935</td><td>-0.11091</td><td> 1.15591</td></tr>
-	<tr><th scope="row">M92287_at</th><td> 2.10892</td><td> 1.52405</td><td> 1.96403</td><td> 0.73784</td><td> 0.49470</td><td> 1.12058</td></tr>
-	<tr><th scope="row">U11791_at</th><td>-0.11439</td><td>-0.72887</td><td>-0.39674</td><td>-0.94364</td><td> 0.05047</td><td> 0.05905</td></tr>
-	<tr><th scope="row">Z36714_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.46227</td><td>-1.39906</td><td>-1.34579</td><td>-1.32403</td></tr>
-</tbody>
-</table>
-
 <p><br /></p>
 <font color="#00bcd4"> In [28]: </font>
 
@@ -416,7 +367,7 @@ stacked bars
 <p><br /></p>
 <font color="#00bcd4"> In [30]: </font>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># custom colours
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># custom colours 
 </span><span class="n">colours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'lightblue'</span><span class="p">,</span><span class="w">  </span><span class="s1">'mediumpurple'</span><span class="p">,</span><span class="w"> </span><span class="s1">'lavender'</span><span class="p">,</span><span class="w"> </span><span class="s1">'midnightblue'</span><span class="p">)</span><span class="w">
 
 </span><span class="n">barplot</span><span class="p">(</span><span class="n">mygenelist</span><span class="p">,</span><span class="w"> </span><span class="n">horiz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colours</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
@@ -440,14 +391,14 @@ example above.</p>
 <font color="#00bcd4"> In [32]: </font>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Calculating the mean of the chosen genes from patient 1 to 27 and 28 to 38
-</span><span class="n">ALLmean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s1">'row'</span><span class="n">Means</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">85</span><span class="p">,</span><span class="m">1042</span><span class="p">,</span><span class="m">1212</span><span class="p">,</span><span class="m">2240</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">27</span><span class="p">)])</span><span class="w">
-</span><span class="n">AMLmean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s1">'row'</span><span class="n">Means</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">85</span><span class="p">,</span><span class="m">1042</span><span class="p">,</span><span class="m">1212</span><span class="p">,</span><span class="m">2240</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">28</span><span class="o">:</span><span class="m">38</span><span class="p">)])</span><span class="w">
+</span><span class="n">ALLmean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rowMeans</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">85</span><span class="p">,</span><span class="m">1042</span><span class="p">,</span><span class="m">1212</span><span class="p">,</span><span class="m">2240</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">27</span><span class="p">)])</span><span class="w">
+</span><span class="n">AMLmean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rowMeans</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">85</span><span class="p">,</span><span class="m">1042</span><span class="p">,</span><span class="m">1212</span><span class="p">,</span><span class="m">2240</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">28</span><span class="o">:</span><span class="m">38</span><span class="p">)])</span><span class="w">
 
 </span><span class="c1"># Combining the mean matrices previously calculated
 </span><span class="n">dataheight</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">ALLmean</span><span class="p">,</span><span class="w"> </span><span class="n">AMLmean</span><span class="p">)</span><span class="w">
 
-</span><span class="c1"># Plotting
-</span><span class="n">barx</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">beside</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">horiz</span><span class="o">=</span><span class="nb">F</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="w"> </span><span class="n">colours</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span><span class="w">
+</span><span class="c1"># Plotting 
+</span><span class="n">barx</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">beside</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">horiz</span><span class="o">=</span><span class="nb">F</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="w"> </span><span class="n">colours</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span><span class="w"> 
                 </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Gene expression level'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
@@ -470,8 +421,8 @@ example above.</p>
 <p><br /></p>
 <font color="#00bcd4"> In [None]: </font>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># creating a panel of 2 plots displayed in 1 'row'
-</span><span class="n">par</span><span class="p">(</span><span class="n">mf</span><span class="s1">'row'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span><span class="w">
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># creating a panel of 2 plots displayed in 1 row
+</span><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span><span class="w">
 
 </span><span class="c1"># Plot with the SD
 </span><span class="n">datasdend</span><span class="o">&lt;-</span><span class="nf">abs</span><span class="p">(</span><span class="n">dataheight</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">datasd</span><span class="p">)</span><span class="w">
@@ -479,7 +430,7 @@ example above.</p>
 </span><span class="n">barx</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">beside</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">horiz</span><span class="o">=</span><span class="nb">F</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="w"> </span><span class="n">colours</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span><span class="w">
                </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Data +  SD'</span><span class="p">)</span><span class="w">
 
-</span><span class="n">ar</span><span class="s1">'row'</span><span class="n">s</span><span class="p">(</span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">datasdend</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="o">=</span><span class="m">0.15</span><span class="p">,</span><span class="w">
+</span><span class="n">arrows</span><span class="p">(</span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">datasdend</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="o">=</span><span class="m">0.15</span><span class="p">,</span><span class="w"> 
        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colours</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span><span class="w">
 
@@ -489,7 +440,7 @@ example above.</p>
 </span><span class="n">barx</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">beside</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">horiz</span><span class="o">=</span><span class="nb">F</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="n">colours</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span><span class="w">
                </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Data + SE'</span><span class="p">)</span><span class="w">
 
-</span><span class="n">ar</span><span class="s1">'row'</span><span class="n">s</span><span class="p">(</span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">datasdend</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span><span class="w">
+</span><span class="n">arrows</span><span class="p">(</span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">dataheight</span><span class="p">,</span><span class="w"> </span><span class="n">barx</span><span class="p">,</span><span class="w"> </span><span class="n">datasdend</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="o">=</span><span class="m">90</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span><span class="w">
        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
@@ -536,7 +487,7 @@ different experimental conditions or patients groups.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># data(golub, package = "multtest")
 </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">golub.cl</span><span class="p">,</span><span class="n">levels</span><span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"ALL"</span><span class="p">,</span><span class="s2">"AML"</span><span class="p">))</span><span class="w">
 
-</span><span class="n">stripchart</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">gol.fac</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"jitter"</span><span class="p">,</span><span class="w">
+</span><span class="n">stripchart</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">gol.fac</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"jitter"</span><span class="p">,</span><span class="w"> 
            </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="s1">'darkgrey'</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">)</span></code></pre></figure>
 
 <p>To produce two adjacent stripcharts one for the ALL and one for the AML
@@ -555,19 +506,19 @@ a plot is called a histogram.</p>
 <p><br /></p>
 <font color="#00bcd4"> In [None]: </font>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">par</span><span class="p">(</span><span class="n">mf</span><span class="s1">'row'</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span><span class="w">
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span><span class="w">
 
-</span><span class="n">hist</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">],</span><span class="w">
+</span><span class="n">hist</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">],</span><span class="w"> 
      </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'lightblue'</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'white'</span><span class="p">,</span><span class="w">
     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Golub[1042], ALL'</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ALL'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span><span class="w">
 
-</span><span class="n">hist</span><span class="p">(</span><span class="n">golub</span><span class="p">,</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w">
+</span><span class="n">hist</span><span class="p">(</span><span class="n">golub</span><span class="p">,</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> 
     </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'white'</span><span class="p">,</span><span class="w">
     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s1">'Golub'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span><span class="w">
 
-</span><span class="n">hist</span><span class="p">(</span><span class="n">golub</span><span class="p">[,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"AML"</span><span class="p">],</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w">
+</span><span class="n">hist</span><span class="p">(</span><span class="n">golub</span><span class="p">[,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"AML"</span><span class="p">],</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> 
      </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'white'</span><span class="p">,</span><span class="w">
     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Golub, AML'</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'AML'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span><span class="w">
@@ -600,7 +551,7 @@ boxplots adjacent to each other:</p>
 <font color="#00bcd4"> In [None]: </font>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Even though we are creating two boxplots we only need one major graph
-</span><span class="n">par</span><span class="p">(</span><span class="n">mf</span><span class="s1">'row'</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span><span class="w">
+</span><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span><span class="w">
 </span><span class="n">boxplot</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">gol.fac</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'lightblue'</span><span class="p">,</span><span class="w"> </span><span class="s1">'mediumpurple'</span><span class="p">))</span></code></pre></figure>
 
 <p>It can be observed that the gene expression values for ALL are larger than those
@@ -665,7 +616,7 @@ drawn.</p>
 <p><br /></p>
 <font color="#00bcd4"> In [None]: </font>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydata</span><span class="o">&lt;-</span><span class="n">read.delim</span><span class="p">(</span><span class="s2">"./NeuralStemCellData.tab.txt"</span><span class="p">,</span><span class="w"> </span><span class="s1">'row'</span><span class="n">.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydata</span><span class="o">&lt;-</span><span class="n">read.delim</span><span class="p">(</span><span class="s2">"./NeuralStemCellData.tab.txt"</span><span class="p">,</span><span class="w"> </span><span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span></code></pre></figure>
 
 <p><br /></p>
 <font color="#00bcd4"> In [None]: </font>

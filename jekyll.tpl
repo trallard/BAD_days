@@ -43,15 +43,20 @@ permalink: "{{resources['metadata']['name']}}.html"
 {% endblock headingcell %}
 
 
-
-
-
 {% block data_text scoped %}
 {{ output.text | indent }}
 {% endblock data_text %}
 
 
-
 {% block traceback_line %}
 {{ line | indent | strip_ansi }}
 {% endblock traceback_line %}
+
+
+{% block data_latex %}
+{{ output.latex }}
+{% endblock data_latex %}
+
+{% block data_html %}
+{{ output.html }}
+{% endblock data_html %}

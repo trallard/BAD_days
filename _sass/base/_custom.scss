@@ -90,3 +90,10 @@ table{
   border: 1px solid lighten($primary, 5%);
   background-color: transparent;
 }
+
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
