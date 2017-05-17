@@ -4,6 +4,9 @@
 <loc>http://localhost:4000/BAD_days/1-outline/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/BAD_days/Day1-tutorial.html</loc>
+</url>
+<url>
 <loc>http://localhost:4000/BAD_days/T-test.html</loc>
 </url>
 <url>
@@ -12,10 +15,6 @@
 <url>
 <loc>http://localhost:4000/BAD_days/Day1/Note2.pdf</loc>
 <lastmod>2017-05-09T13:55:46+01:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/BAD_days/Day1/Ttest.html</loc>
-<lastmod>2017-05-16T09:18:11+01:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/BAD_days/Day2/BAD_DAY2/presentations/AoV_R_Notebook.html</loc>
