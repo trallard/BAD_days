@@ -91,9 +91,14 @@ table{
   background-color: transparent;
 }
 
-
-.list-inline {
-  padding-left: 0;
-  list-style: none;
-  margin-left: -5px;
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
 }

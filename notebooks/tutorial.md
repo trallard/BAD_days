@@ -6,7 +6,7 @@ tags:
 
 permalink: "Tutorial.html"
 ---
-# <font color="#4682B4"> BAD Day 1: Tutorial  </font>
+# BAD Day 1: Tutorial
 
 # 0. Source/install the needed packages
 
@@ -24,13 +24,13 @@ install.packages("ape")
 
     
     The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpePD3cW/downloaded_packages
+    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpcogYw9/downloaded_packages
     
     The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpePD3cW/downloaded_packages
+    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpcogYw9/downloaded_packages
     
     The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpePD3cW/downloaded_packages
+    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpcogYw9/downloaded_packages
 
 
 <br>
@@ -51,10 +51,10 @@ biocLite("multtest");
 
     
     The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpePD3cW/downloaded_packages
+    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpcogYw9/downloaded_packages
 
 
-    Old packages: 'devtools', 'R6'
+    Old packages: 'devtools', 'pbdZMQ', 'R6', 'tidyr'
 
 
 
@@ -76,7 +76,7 @@ class prediction by gene expression monitoring, Science, Vol. 286:531-537.
 http://www-genome.wi.mit.edu/MPR/ .
 
 <br>
-<font color ='#00bcd4'> In [4]: </font>
+<font color ='#00bcd4'> In [2]: </font>
 
 {% highlight R %}
 require(multtest);
@@ -89,6 +89,40 @@ data(golub);
 # ?golub
 {% endhighlight %}
 
+    Loading required package: multtest
+    Loading required package: BiocGenerics
+    Loading required package: parallel
+    
+    Attaching package: ‘BiocGenerics’
+    
+    The following objects are masked from ‘package:parallel’:
+    
+        clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+        clusterExport, clusterMap, parApply, parCapply, parLapply,
+        parLapplyLB, parRapply, parSapply, parSapplyLB
+    
+    The following objects are masked from ‘package:stats’:
+    
+        IQR, mad, xtabs
+    
+    The following objects are masked from ‘package:base’:
+    
+        anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
+        duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
+        is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
+        paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
+        Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
+        unique, unsplit, which, which.max, which.min
+    
+    Loading required package: Biobase
+    Welcome to Bioconductor
+    
+        Vignettes contain introductory material; view with
+        'browseVignettes()'. To cite Bioconductor, see
+        'citation("Biobase")', and for packages 'citation("pkgname")'.
+    
+
+
 Data set values:
 - `golub`: matrix of gene expression levels for the 38 tumor mRNA samples, rows
 correspond to genes (3051 genes) and columns to mRNA samples.
@@ -100,7 +134,7 @@ expression matrix golub. The three columns correspond to the gene index, ID, and
 Name, respectively.
 
 <br>
-<font color ='#00bcd4'> In [5]: </font>
+<font color ='#00bcd4'> In [3]: </font>
 
 {% highlight R %}
 # Checking the dimension of the data
@@ -108,11 +142,15 @@ dim(golub)
 {% endhighlight %}
 
 
+<ol class="list-inline">
+	<li>3051</li>
+	<li>38</li>
+</ol>
 
 
 
 <br>
-<font color ='#00bcd4'> In [6]: </font>
+<font color ='#00bcd4'> In [4]: </font>
 
 {% highlight R %}
 # we will have a look at the first rows contained in the data set
@@ -120,6 +158,16 @@ head(golub)
 {% endhighlight %}
 
 
+<table>
+<tbody>
+	<tr><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
+	<tr><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
+	<tr><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
+	<tr><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
+	<tr><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
+	<tr><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
+</tbody>
+</table>
 
 
 
@@ -127,7 +175,7 @@ The gene names are collected in the matrix `golub.gnames` of which the columns
 correspond to the gene index, ID, and Name, respectively.
 
 <br>
-<font color ='#00bcd4'> In [7]: </font>
+<font color ='#00bcd4'> In [5]: </font>
 
 {% highlight R %}
 # Adding 3051 gene names
@@ -137,6 +185,50 @@ head(golub)
 {% endhighlight %}
 
 
+<table>
+<tbody>
+	<tr"><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th"><td">-1.45769</td"><td">-1.39420</td"><td">-1.42779</td"><td">-1.40715</td"><td">-1.42668</td"><td">-1.21719</td"><td">-1.37386</td"><td">-1.36832</td"><td">-1.47649</td"><td">-1.21583</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.29865</td"><td">-1.26183</td"><td">-1.44434</td"><td"> 1.10147</td"><td">-1.34158</td"><td">-1.22961</td"><td">-0.75919</td"><td">0.84905 </td"><td">-0.66465</td"></tr">
+	<tr"><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th"><td">-0.75161</td"><td">-1.26278</td"><td">-0.09052</td"><td">-0.99596</td"><td">-1.24245</td"><td">-0.69242</td"><td">-1.37386</td"><td">-0.50803</td"><td">-1.04533</td"><td">-0.81257</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.05094</td"><td">-1.26183</td"><td">-1.25918</td"><td"> 0.97813</td"><td">-0.79357</td"><td">-1.22961</td"><td">-0.71792</td"><td">0.45127 </td"><td">-0.45804</td"></tr">
+	<tr"><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th"><td"> 0.45695</td"><td">-0.09654</td"><td"> 0.90325</td"><td">-0.07194</td"><td"> 0.03232</td"><td"> 0.09713</td"><td">-0.11978</td"><td"> 0.23381</td"><td"> 0.23987</td"><td"> 0.44201</td"><td">⋯       </td"><td">-0.43377</td"><td">-0.10823</td"><td">-0.29385</td"><td"> 0.05067</td"><td"> 1.69430</td"><td">-0.12472</td"><td"> 0.04609</td"><td"> 0.24347</td"><td">0.90774 </td"><td"> 0.46509</td"></tr">
+	<tr"><th scope="row">AFFX-HUMRGE/M10098_5_at</th"><td"> 3.13533</td"><td"> 0.21415</td"><td"> 2.08754</td"><td"> 2.23467</td"><td"> 0.93811</td"><td"> 2.24089</td"><td"> 3.36576</td"><td"> 1.97859</td"><td"> 2.66468</td"><td">-1.21583</td"><td">⋯       </td"><td"> 0.29598</td"><td">-1.29865</td"><td"> 2.76869</td"><td"> 2.08960</td"><td"> 0.70003</td"><td"> 0.13854</td"><td"> 1.75908</td"><td"> 0.06151</td"><td">1.30297 </td"><td"> 0.58186</td"></tr">
+	<tr"><th scope="row">AFFX-HUMRGE/M10098_M_at</th"><td"> 2.76569</td"><td">-1.27045</td"><td"> 1.60433</td"><td"> 1.53182</td"><td"> 1.63728</td"><td"> 1.85697</td"><td"> 3.01847</td"><td"> 1.12853</td"><td"> 2.17016</td"><td">-1.21583</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.29865</td"><td"> 2.00518</td"><td"> 1.17454</td"><td">-1.47218</td"><td">-1.34158</td"><td"> 1.55086</td"><td">-1.18107</td"><td">1.01596 </td"><td"> 0.15788</td"></tr">
+	<tr"><th scope="row">AFFX-HUMRGE/M10098_3_at</th"><td"> 2.64342</td"><td"> 1.01416</td"><td"> 1.70477</td"><td"> 1.63845</td"><td">-0.36075</td"><td"> 1.73451</td"><td"> 3.36576</td"><td"> 0.96870</td"><td"> 2.72368</td"><td">-1.21583</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.29865</td"><td"> 1.73780</td"><td"> 0.89347</td"><td">-0.52883</td"><td">-1.22168</td"><td"> 0.90832</td"><td">-1.39906</td"><td">0.51266 </td"><td"> 1.36249</td"></tr">
+</tbody>
+</table>
+
+
+
+<br>
+<font color ='#00bcd4'> In [7]: </font>
+
+{% highlight R %}
+# Let's just have a look at the top 20 genes ID's contained in golub.gnames
+head(golub.gnames[,2], n = 20)
+{% endhighlight %}
+
+
+<ol class="list-inline">
+	<li>'AFFX-HUMISGF3A/M97935_MA_at (endogenous control)'</li>
+	<li>'AFFX-HUMISGF3A/M97935_MB_at (endogenous control)'</li>
+	<li>'AFFX-HUMISGF3A/M97935_3_at (endogenous control)'</li>
+	<li>'AFFX-HUMRGE/M10098_5_at (endogenous control)'</li>
+	<li>'AFFX-HUMRGE/M10098_M_at (endogenous control)'</li>
+	<li>'AFFX-HUMRGE/M10098_3_at (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_5_at (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_M_at (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_5_at (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_M_at (endogenous control)'</li>
+	<li>'AFFX-HUMTFRR/M11507_5_at (endogenous control)'</li>
+	<li>'AFFX-HUMTFRR/M11507_M_at (endogenous control)'</li>
+	<li>'AFFX-HUMTFRR/M11507_3_at (endogenous control)'</li>
+	<li>'AFFX-M27830_5_at (endogenous control)'</li>
+	<li>'AFFX-M27830_M_at (endogenous control)'</li>
+	<li>'AFFX-M27830_3_at (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_3_st (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_M_st (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_3_st (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_M_st (endogenous control)'</li>
+</ol>
 
 
 
@@ -154,6 +246,71 @@ head(golub)
 {% endhighlight %}
 
 
+<table>
+<thead"><tr"><th"></th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">⋯</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"></tr"></thead">
+<tbody>
+	<tr"><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th"><td">-1.45769</td"><td">-1.39420</td"><td">-1.42779</td"><td">-1.40715</td"><td">-1.42668</td"><td">-1.21719</td"><td">-1.37386</td"><td">-1.36832</td"><td">-1.47649</td"><td">-1.21583</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.29865</td"><td">-1.26183</td"><td">-1.44434</td"><td"> 1.10147</td"><td">-1.34158</td"><td">-1.22961</td"><td">-0.75919</td"><td">0.84905 </td"><td">-0.66465</td"></tr">
+	<tr"><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th"><td">-0.75161</td"><td">-1.26278</td"><td">-0.09052</td"><td">-0.99596</td"><td">-1.24245</td"><td">-0.69242</td"><td">-1.37386</td"><td">-0.50803</td"><td">-1.04533</td"><td">-0.81257</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.05094</td"><td">-1.26183</td"><td">-1.25918</td"><td"> 0.97813</td"><td">-0.79357</td"><td">-1.22961</td"><td">-0.71792</td"><td">0.45127 </td"><td">-0.45804</td"></tr">
+	<tr"><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th"><td"> 0.45695</td"><td">-0.09654</td"><td"> 0.90325</td"><td">-0.07194</td"><td"> 0.03232</td"><td"> 0.09713</td"><td">-0.11978</td"><td"> 0.23381</td"><td"> 0.23987</td"><td"> 0.44201</td"><td">⋯       </td"><td">-0.43377</td"><td">-0.10823</td"><td">-0.29385</td"><td"> 0.05067</td"><td"> 1.69430</td"><td">-0.12472</td"><td"> 0.04609</td"><td"> 0.24347</td"><td">0.90774 </td"><td"> 0.46509</td"></tr">
+	<tr"><th scope="row">AFFX-HUMRGE/M10098_5_at</th"><td"> 3.13533</td"><td"> 0.21415</td"><td"> 2.08754</td"><td"> 2.23467</td"><td"> 0.93811</td"><td"> 2.24089</td"><td"> 3.36576</td"><td"> 1.97859</td"><td"> 2.66468</td"><td">-1.21583</td"><td">⋯       </td"><td"> 0.29598</td"><td">-1.29865</td"><td"> 2.76869</td"><td"> 2.08960</td"><td"> 0.70003</td"><td"> 0.13854</td"><td"> 1.75908</td"><td"> 0.06151</td"><td">1.30297 </td"><td"> 0.58186</td"></tr">
+	<tr"><th scope="row">AFFX-HUMRGE/M10098_M_at</th"><td"> 2.76569</td"><td">-1.27045</td"><td"> 1.60433</td"><td"> 1.53182</td"><td"> 1.63728</td"><td"> 1.85697</td"><td"> 3.01847</td"><td"> 1.12853</td"><td"> 2.17016</td"><td">-1.21583</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.29865</td"><td"> 2.00518</td"><td"> 1.17454</td"><td">-1.47218</td"><td">-1.34158</td"><td"> 1.55086</td"><td">-1.18107</td"><td">1.01596 </td"><td"> 0.15788</td"></tr">
+	<tr"><th scope="row">AFFX-HUMRGE/M10098_3_at</th"><td"> 2.64342</td"><td"> 1.01416</td"><td"> 1.70477</td"><td"> 1.63845</td"><td">-0.36075</td"><td"> 1.73451</td"><td"> 3.36576</td"><td"> 0.96870</td"><td"> 2.72368</td"><td">-1.21583</td"><td">⋯       </td"><td">-1.08902</td"><td">-1.29865</td"><td"> 1.73780</td"><td"> 0.89347</td"><td">-0.52883</td"><td">-1.22168</td"><td"> 0.90832</td"><td">-1.39906</td"><td">0.51266 </td"><td"> 1.36249</td"></tr">
+</tbody>
+</table>
+
+
+
+Note that sometimes it is better to construct a factor which indicates the tumor
+class of the patients. Such a factor could be used for instance to separate the
+tumor groups for plotting purposes.  The factor (`gol.fac`) can be contructed as
+follows.
+
+<br>
+<font color ='#00bcd4'> In [50]: </font>
+
+{% highlight R %}
+gol.fac <-  factor(golub.cl, levels = 0:1, labels = c("AML", "ALL"))
+{% endhighlight %}
+
+Obviously, the labels corre-
+spond to the two tumor classes. The evaluation of gol.fac=="ALL" returns
+TRUE for the ¯rst twenty seven values and FALSE for the remaining eleven,
+which is useful as a column index for selecting the expression values of the
+ALL patients. The expression values of gene CCND3 Cyclin D3 from the
+ALL patients can now be printed to the screen, as follows.
+
+<br>
+<font color ='#00bcd4'> In [51]: </font>
+
+{% highlight R %}
+golub[1042, gol.fac == "ALL"]
+{% endhighlight %}
+
+
+<dl class="dl-horizontal">
+	<dt>1</dt>
+		<dd>0.88941</dd>
+	<dt>1</dt>
+		<dd>1.45014</dd>
+	<dt>1</dt>
+		<dd>0.42904</dd>
+	<dt>1</dt>
+		<dd>0.82667</dd>
+	<dt>1</dt>
+		<dd>0.63637</dd>
+	<dt>1</dt>
+		<dd>1.0225</dd>
+	<dt>1</dt>
+		<dd>0.12758</dd>
+	<dt>1</dt>
+		<dd>-0.74333</dd>
+	<dt>1</dt>
+		<dd>0.73784</dd>
+	<dt>1</dt>
+		<dd>0.4947</dd>
+	<dt>1</dt>
+		<dd>1.12058</dd>
+</dl>
 
 
 
@@ -169,7 +326,7 @@ the data and to obtain the relevant information from row 1042 of golub.gnames,
 use the following:
 
 <br>
-<font color ='#00bcd4'> In [9]: </font>
+<font color ='#00bcd4'> In [8]: </font>
 
 {% highlight R %}
 mygene <- golub[1042, ]
@@ -179,28 +336,29 @@ The data has now been stored in the `golub` matrix. We will now plot the
 expression values od the gene CCND3 Cyclin D3.
 
 <br>
-<font color ='#00bcd4'> In [10]: </font>
+<font color ='#00bcd4'> In [9]: </font>
 
 {% highlight R %}
 plot(mygene)
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_16_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_21_0.png)
 
 
 In the previous plot we just used the default plotting preferences within R base
 plotting.We can do some improvements so that the plot is easily understood.
 
 <br>
-<font color ='#00bcd4'> In [11]: </font>
+<font color ='#00bcd4'> In [37]: </font>
 
 {% highlight R %}
-plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3')
+plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3', 
+    main = ' Gene expression values of CCND3 Cyclin D3')
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_18_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_23_0.png)
 
 
 In this plot the vertical axis corresponds to the size of the expression values
@@ -209,21 +367,21 @@ and the horizontal axis the index of the patients.
 ### 1.2\. Gene expression between patient 1 (ALL) and patient 38 (AML)
 
 <br>
-<font color ='#00bcd4'> In [12]: </font>
+<font color ='#00bcd4'> In [11]: </font>
 
 {% highlight R %}
 plot(golub[,1], golub[,38])
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_21_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_26_0.png)
 
 
 Adding diagonal lines to the plot and changing axes labels
 
 
 <br>
-<font color ='#00bcd4'> In [13]: </font>
+<font color ='#00bcd4'> In [12]: </font>
 
 {% highlight R %}
 plot(golub[,1], golub[,38], xlab = 'Patient 1 (ALL)', ylab = 'Patient 38 (AML)') 
@@ -231,14 +389,14 @@ abline(a = 0, b = 1, col = 'mediumpurple', lwd =3)
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_23_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_28_0.png)
 
 
 ### 1.3\. Scatter plots to detect independence
 
 
 <br>
-<font color ='#00bcd4'> In [14]: </font>
+<font color ='#00bcd4'> In [13]: </font>
 
 {% highlight R %}
 mysamplist <- golub[, c(1:15)]
@@ -246,23 +404,23 @@ colnames(mysamplist) = c(1:15)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [15]: </font>
+<font color ='#00bcd4'> In [14]: </font>
 
 {% highlight R %}
 plot(as.data.frame(mysamplist), pch='.')
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_26_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_31_0.png)
 
 
 ### 1.4\. Bar plot of 4 cyclin genes expression values in 3 ALL and AML patients
 
 We will analyse the expression values of the `D13639_at, M92287_at, U11791_at,
-Z36714_AT` genes in three randomly chosen AML and ALL patients
+Z36714_AT` genes in three chosen AML and ALL patients
 
 <br>
-<font color ='#00bcd4'> In [27]: </font>
+<font color ='#00bcd4'> In [15]: </font>
 
 {% highlight R %}
 mygenelist <- golub[c(85, 1042, 1212, 2240), c(1:3, 36:38)]
@@ -272,19 +430,47 @@ mygenelist
 {% endhighlight %}
 
 
+<table>
+<thead"><tr"><th"></th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">0</th"><th scope="col">1</th"><th scope="col">1</th"><th scope="col">1</th"></tr"></thead">
+<tbody>
+	<tr"><th scope="row">D13639_at</th"><td"> 2.09511</td"><td"> 1.71953</td"><td">-1.46227</td"><td">-0.92935</td"><td">-0.11091</td"><td"> 1.15591</td"></tr">
+	<tr"><th scope="row">M92287_at</th"><td"> 2.10892</td"><td"> 1.52405</td"><td"> 1.96403</td"><td"> 0.73784</td"><td"> 0.49470</td"><td"> 1.12058</td"></tr">
+	<tr"><th scope="row">U11791_at</th"><td">-0.11439</td"><td">-0.72887</td"><td">-0.39674</td"><td">-0.94364</td"><td"> 0.05047</td"><td"> 0.05905</td"></tr">
+	<tr"><th scope="row">Z36714_at</th"><td">-1.45769</td"><td">-1.39420</td"><td">-1.46227</td"><td">-1.39906</td"><td">-1.34579</td"><td">-1.32403</td"></tr">
+</tbody>
+</table>
 
+
+
+<br>
+<font color ='#00bcd4'> In [26]: </font>
+
+{% highlight R %}
+barplot(mygenelist)
+box()
+{% endhighlight %}
+
+
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_34_0.png)
+
+
+The plot is not very easy to read, so we will add some colurs and a legend so we
+know which gene each bar segment corresponds to.
 
 
 <br>
 <font color ='#00bcd4'> In [28]: </font>
 
 {% highlight R %}
-barplot(mygenelist, legend = T)
+# custom colours 
+colours = c('lightblue',  'mediumpurple', 'lavender', 'midnightblue')
+
+barplot(mygenelist, col = colours, legend = TRUE)
 box()
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_29_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_36_0.png)
 
 
 In this case the patients are indicated on the `X` axis (0 and 1 respectively)
@@ -294,7 +480,7 @@ We can make some improvements to the plots.
 Let's have a look at the `barplot` arguments:
 
 <br>
-<font color ='#00bcd4'> In [19]: </font>
+<font color ='#00bcd4'> In [17]: </font>
 
 {% highlight R %}
 ?barplot
@@ -309,19 +495,16 @@ stacked bars
 - `col`: colour choices
 
 <br>
-<font color ='#00bcd4'> In [30]: </font>
+<font color ='#00bcd4'> In [35]: </font>
 
 {% highlight R %}
-# custom colours 
-colours = c('lightblue',  'mediumpurple', 'lavender', 'midnightblue')
-
 barplot(mygenelist, horiz = TRUE, col = colours, legend = TRUE,
-       ylab = 'Patient', xlab = 'Gene expression level')
+       ylab = 'Patient', xlab = 'Gene expression level', main  = 'Cycline genes expression')
 box()
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_33_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_40_0.png)
 
 
 In the plot above we presented the barplots horizontally and added some colours,
@@ -335,8 +518,13 @@ In the following we will compute the mean for the expression values of both the
 ALL and AML patients. We will be using the same 4 cycline genes used in the
 example above.
 
+First we will compute the ALL and AML for all the patients. Once the means are
+computed they are combined into asingle data frame.
+
+Finally, the means are plotted using the `barplot` function.
+
 <br>
-<font color ='#00bcd4'> In [32]: </font>
+<font color ='#00bcd4'> In [36]: </font>
 
 {% highlight R %}
 # Calculating the mean of the chosen genes from patient 1 to 27 and 28 to 38
@@ -348,18 +536,37 @@ dataheight <- cbind(ALLmean, AMLmean)
 
 # Plotting 
 barx <- barplot(dataheight, beside=T, horiz=F, col= colours, ylim=c(-2,2.5), 
-                legend = TRUE, ylab = 'Gene expression level')
+                legend = TRUE, ylab = 'Gene expression level', main = 'Cycline genes mean expression
+in AML and ALL patients')
 box()
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_36_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_43_0.png)
 
 
 ### 1.6\. Adding error bars to the previous plot
 
+
+In the previous section we computed the mean expression level for 4 cycline
+genes between the AML and ALL patients. Sometimes it is useful to add error bars
+to the plots (as the one above) to convey the uncertainty in the data presented.
+
+For such a purpose we often use the **Standard Deviation**:
+
+
+$$ \sigma = \sqrt{\frac{\sum_{i=1}^{n}\left(x_i -\mu \right)^2}{N}}$$
+
+
+which in turn tells us how much the values in a certain group tend to deviate
+from their mean value.
+
+Let's start calculating the Standard Deviation of the data.
+
+
+
 <br>
-<font color ='#00bcd4'> In [None]: </font>
+<font color ='#00bcd4'> In [54]: </font>
 
 {% highlight R %}
 # Calculating the SD
@@ -368,13 +575,42 @@ nALL=length(c(1:27))
 AMLsd <- apply(golub[c(85,1042,1212,2240),c(28:38)], 1, sd)
 nAML=length(c(28:38))
 
+# Combining the data
 datasd <- cbind(ALLsd, AMLsd)
-datase <- cbind(ALLsd/sqrt(nALL), AMLsd/sqrt(nAML))
+
 
 {% endhighlight %}
 
+Another measure used to quantify the deviation is the **standard error**, which
+qutifies the variability in the **_means_** of our groups instead of reporting
+the variability among the data points.
+
+A relatively straigtforward way to compute this is by assuming if we were to
+repeat a  given experiment many many times, then it would roughly follow a
+normal distribution. **Note – this is a big assumption**.  hence, if we assuemt
+hat the means follow a nosmal distribution, then the standard error (_a.k.a.
+variability of group means_) can be defined as:
+
+$$ SE  = \frac{SD}{\sqrt{n}} $$
+
+which in layman terms can be read as  “take the general variability of the
+points around their group means (the standard deviation), and scale this number
+by the number of points that you’ve collected”.
+
+Since we have already computed the SD we can now compute the standard error
+(SE).
+
 <br>
-<font color ='#00bcd4'> In [None]: </font>
+<font color ='#00bcd4'> In [55]: </font>
+
+{% highlight R %}
+datase <- cbind(ALLsd/sqrt(nALL), AMLsd/sqrt(nAML))
+{% endhighlight %}
+
+Now we can create a plot of the mean data as well as the SE and SD.
+
+<br>
+<font color ='#00bcd4'> In [63]: </font>
 
 {% highlight R %}
 # creating a panel of 2 plots displayed in 1 row
@@ -383,26 +619,34 @@ par(mfrow = c(1,2))
 # Plot with the SD
 datasdend<-abs(dataheight) + abs(datasd)
 datasdend[c(3,4),] = - datasdend[c(3,4),]
-barx <- barplot(dataheight, beside=T, horiz=F, col= colours, ylim=c(-2,2.5),
+barx <- barplot(dataheight, beside=T, horiz=F, col = colours, ylim=c(-2,2.5),
                main = 'Data +  SD')
 
-arrows(barx, dataheight, barx, datasdend, angle=90, lwd=5, length=0.15, 
-       col = colours)
+arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15, 
+       col = 'magenta')
 box()
 
 # Plot with the se: error associated to the mean!
 datasdend<-abs(dataheight) + abs(datase)
 datasdend[c(3,4),] = -datasdend[c(3,4),]
-barx <- barplot(dataheight, beside=T, horiz=F, col =colours, ylim=c(-2,2.5),
+barx <- barplot(dataheight, beside=T, horiz=F, col = colours, ylim=c(-2,2.5),
                main = 'Data + SE')
 
-arrows(barx, dataheight, barx, datasdend, angle=90, lwd=2, length=0.2,
-       col = 1)
+arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15,
+       col = 'magenta')
 box()
 {% endhighlight %}
 
-## 2. Exploring some types of plots
 
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_49_0.png)
+
+
+Note that the error bars for the SE are smaller than those for the SD. This is
+no coincidence! As we increase N (in the SE equation), we will decrease the
+error. Hence the standard error will **always** be smaller than the SD.
+
+## 2. Data representation
+This section presents some essential manners to display and visualize  data.
 
 ### 2.1 Frequency table
 Discrete data occur when the values naturally fall into categories. A frequency
@@ -419,20 +663,33 @@ sequence ”X94991.1” of the species homo sapiens from GenBank, to construct a
 pie from a frequency table of the four nucleotides .
 
 <br>
-<font color ='#00bcd4'> In [None]: </font>
+<font color ='#00bcd4'> In [22]: </font>
 
 {% highlight R %}
 library('ape')
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [None]: </font>
+<font color ='#00bcd4'> In [65]: </font>
 
 {% highlight R %}
 v = read.GenBank(c("X94991.1"),as.character = TRUE)
 
 pie(table(v$X94991.1), col = colours)
+
+# prints the data as a table 
+table(read.GenBank(c("X94991.1"),as.character=TRUE))
 {% endhighlight %}
+
+
+    
+      a   c   g   t 
+    410 789 573 394 
+
+
+
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/tutorial_files/tutorial_53_1.png)
+
 
 ### 2.2 Stripcharts
 
