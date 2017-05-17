@@ -70,3 +70,23 @@ pre{
     word-wrap: break-word;
     overflow-x: scroll;
 }
+
+
+img{
+  width: 100%;
+  height: auto;
+}
+
+table{
+  width: 100%;
+  display: block;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: $gray-lighter;
+}
+
+.table-hover > tbody > tr:hover {
+  border: 1px solid lighten($primary, 5%);
+  background-color: transparent;
+}

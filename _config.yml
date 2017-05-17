@@ -17,6 +17,8 @@ include: ['_pages']
 exclude:
   - .gitignore
   - README.md
+  - jekyll.py
+  - jekyll.tpl
 
 # to ensure the links work properly
 permalink: pretty
