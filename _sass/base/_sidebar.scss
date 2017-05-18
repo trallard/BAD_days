@@ -39,7 +39,7 @@ $bar-width: 20rem;
   visibility: hidden;
   overflow-y: auto;
   font-family: $base-font;
-  font-size: 1.2em;
+  font-size: 1em;
   color: rgba(255,255,255,.6);
   background-color: $secondary-dark;
   -webkit-transition: all .3s ease-in-out;
@@ -47,7 +47,7 @@ $bar-width: 20rem;
 }
 @media (min-width: 30em) {
   .sidebar {
-    font-size: 1.5rem;
+    font-size: 1em;
   }
 }
 
@@ -81,7 +81,7 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
   .sidebar-item {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   .sidebar-nav-item {
     padding-left:  1.5rem;
@@ -101,7 +101,7 @@ a.sidebar-nav-item:focus {
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
-  top:  2.5rem;
+  top:  1.5rem;
   left: 1rem;
   display: block;
   padding: .25rem .75rem;
