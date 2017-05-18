@@ -1,21 +1,17 @@
 body{
   font-family: $base-font;
-  font-size: 18px;
   overflow-x: hidden;
 }
 
 /***Nav bar ***/
 .navbar-inverse .navbar-brand{
   font-family: $title-font;
-  color: $black;
   font-weight: normal;
   padding-left: 10rem;
-  font-size: 2.5em;
 }
 
 .navbar{
   border-radius: 0;
-  min-height: 70px;
 }
 
 /*** Links ***/
@@ -37,12 +33,9 @@ h5{
 
 h1{
   color: $secondary-dark;
-  font-size: 3.003em;
 }
 
-h2{font-size: 2.002em; }
 
-h3{font-size: 1.335em;}
 h2,
 h3,
 h4,
