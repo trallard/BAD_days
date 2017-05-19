@@ -12,6 +12,7 @@ title: Day 1 outline
 This tutorial session will provide a brief introduction to Data Science and data manipulation using R and the Jupyter notebooks.
 
 Briefly, the topics covered are:
+
 * A brief introduction to Data Science
 * R for exploratory data Analysis
 * Hands on data: how to produce good graphics
