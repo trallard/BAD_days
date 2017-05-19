@@ -16,14 +16,15 @@ when the sidebar is displayed-->
 <!-- navbar -->
   {% include nav.html %}
 </div>
-<div class="edge-header cyan darken-2">
-  <div class='container'>
-  <h1 class='white-text'> Bad Days </h1>
-  <p class='white-text'> Add description here </p>
-</div>
-</div>
+
 
 <div class='wrap'>
+  <div class="edge-header cyan darken-1">
+    <div class='container'>
+    <h1 class='white-text'> Bad Days </h1>
+    <p class='white-text'> Add description here </p>
+  </div>
+  </div>
   <div class="container">
     <div class="row">
 
@@ -36,14 +37,16 @@ when the sidebar is displayed-->
 
       <div class="col-sm-1">
       </div>
-      
+
     </div>
   </div>
+
+  {%include modules.html %}
 </div>
 
 <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-{%include modules.html %}
+
 </body>
 
 

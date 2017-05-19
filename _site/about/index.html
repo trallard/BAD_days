@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!DOCTYPE html>
-<html>
 <!--custom header -->
 <head>
   <meta charset="utf-8">
@@ -60,16 +58,71 @@
 </head>
 
 
-<!-- Scroller for TOC-->
+<!-- scroller for TOC-->
 <body data-spy="scroll" data-target="#toc">
 
-<!-- Main content needs to be in a wrap for
-when the sidebar is displayed-->
+<!-- sidebar-->
+  <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Bioinformatics Awareness Days (BAD days)</p>
+
+    <p> Developed by Luisa Cutillo and the <a href='http://rse.shef.ac.uk'> RSE team
+    </a> at the University of Sheffield</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/BAD_days/">Home</a>
+
+    
+
+    
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/1-outline/">Day 1 outline</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+
+
+    <a class="sidebar-nav-item" href="https://github.com/trallard/BAD_days">GitHub repository</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      The University of Sheffield &copy; 2017. CC-BY
+    </p>
+  </div>
+</div>
+
+
+<!--main content needs to be in a wrap for
+when the sidebar is displayed-->
   <div class='wrap'>
 
-<!-- nav bar-->
-<!--Top navigation bar-->
+<!-- navbar -->
+  <!--Top navigation bar-->
 
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -85,17 +138,10 @@ when the sidebar is displayed-->
   <div class="container">
     <div class="row">
 
-
+<!--- Main content--->
       <div class="col-sm-8">
         <main>
-          <h1 id="about-this-course-luisa">About this course (Luisa)</h1>
-<ul>
-  <li>Content</li>
-  <li>Purpose</li>
-  <li>Format of the course</li>
-</ul>
-
-<h1 id="working-with-the-material">Working with the material</h1>
+          <h1 id="working-with-the-material">Working with the material</h1>
 <p>The simplest way to enjoy these materials is to view each lesson online here. In such a case, you could follow along and write your own version of the programs to run with your local R installation.</p>
 
 <p>You can also <strong>download/fork</strong> the whole collections of Notebooks from the <a href="https://github.com/trallard/BAD_days">GitHub repository</a>. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.</p>
@@ -202,13 +248,15 @@ conda update jupyter
 
       <div class="col-sm-1">
       </div>
-
+      <!-- TOC sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+      </div>
     </div>
   </div>
 </div>
 
 <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
 
 </body>
 

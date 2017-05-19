@@ -1,13 +1,8 @@
 ---
-layout: page
+layout: default
 permalink: /about/
 title: Getting started
 ---
-
-# About this course (Luisa)
-* Content
-* Purpose
-* Format of the course
 
 # Working with the material
 The simplest way to enjoy these materials is to view each lesson online here. In such a case, you could follow along and write your own version of the programs to run with your local R installation.

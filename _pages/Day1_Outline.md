@@ -17,5 +17,6 @@ Briefly, the topics covered are:
 * Hands on data: how to produce good graphics
 
 The hands on components of this module are contained in the following tutorials:
-1. [Day 1 tutorial](https://github.com/trallard/BAD_days/blob/master/Day1/Tutorial.ipynb)
+
+1. [Day 1 tutorial]({{site.url}}{{site.baseurl}}/tutorial)
 2. [Comments on probability](https://github.com/trallard/BAD_days/blob/master/Day1/Comments.ipynb)
