@@ -1,28 +1,28 @@
 body{
   font-family: $base-font;
   overflow-x: hidden;
+  box-shadow: none;
 }
 
 /***Nav bar ***/
-.navbar-inverse .navbar-brand{
-  font-family: $title-font;
-  font-weight: normal;
-  padding-left: 10rem;
-  float: right;
-}
-
 .navbar{
   border-radius: 0;
+  margin-bottom: 0;
+  box-shadow: none;
 }
+
+
 
 /*** Links ***/
-a{
-  color: $secondary-light;
-  &:hover{
-    color: $primary;
+a {
+  color: $primary;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
+  a:hover, a:focus {
+    text-decoration: underline;
+    color: $secondary-light;
   }
-}
-
 /***Headings ***/
 h1,
 h2,
@@ -96,3 +96,17 @@ div.output_subarea {
   flex: 1;
   max-width: calc(100% - 14ex);
 }
+
+
+/** edge header ***/
+edge-header{
+  p{
+    font-size: 1.7em;
+  }
+}
+
+ul {
+  padding: 0;
+  list-style-type: disc; }
+  ul li {
+    list-style-type: disc; }
