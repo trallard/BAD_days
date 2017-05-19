@@ -97,6 +97,12 @@
       
     
       
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/about/">Getting started</a>
+        
+      
     
       
     
@@ -146,129 +152,104 @@ when the sidebar is displayed-->
 <!--- Main content--->
       <div class="col-sm-8">
         <main>
-          <h1 id="about-this-course-luisa">About this course (Luisa)</h1>
-<ul>
-  <li>Content</li>
-  <li>Purpose</li>
-  <li>Format of the course</li>
-</ul>
-
-<h1 id="working-with-the-material">Working with the material</h1>
-<p>The simplest way to enjoy these materials is to view each lesson online here. In such a case, you could follow along and write your own version of the programs to run with your local R installation.</p>
-
-<p>You can also <strong>download/fork</strong> the whole collections of Notebooks from the <a href="https://github.com/trallard/BAD_days">GitHub repository</a>. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.</p>
-
-<h1 id="about-the-course">About the course</h1>
-
-<p>The core of this tutorial is built around the <a href="https://jupyter.org">Jupyter Notebooks</a>, an interactive computational environment run in a web browser.</p>
-
-<p>In this particular case we will be using the R programming language for the data exploration/analysis.</p>
-
-<h2 id="what-is-r">What is R?</h2>
-
-<p>R is a free, open-source programming language that has very strong support for statistics. It was originally developed as an open source implementation of the <a href="https://en.wikipedia.org/wiki/S_(programming_language)">S Programming language</a>.
-It is used extensively in research and industry for areas such as data analysis, statistics, machine learning, bioinformatics, simulation, linguistics and much more.</p>
-
-<p>With over <a href="https://cran.r-project.org/web/packages/">8000 freely available add-on packages</a> that provide extensive additional functionality, R will probably have something that can help your research.</p>
-
-<p>Don’t just take our word for it though – here’s what others have to say</p>
-
-<ul>
-  <li><a href="http://www.econometricsbysimulation.com/2014/03/why-use-r-five-reasons.html">Why use R? Five reasons</a> - From the ‘Econometrics By Simulation’ blog.</li>
-</ul>
-
-<h1 id="getting-all-set-up">Getting all set up</h1>
-
-<p>Before continuing with the material you will need to install some dependencies. The basic instructions to do so are described below. Please make sure to install the components in the order detailed in this guide.</p>
-
-<h2 id="installing-r">1. Installing R</h2>
-<p>You can find information regarding the latest R version on the <a href="https://www.r-project.org">CRAN website</a>.</p>
-
-<ul>
-  <li>
-    <p>MAC OS-X:
-Get the R binary from https://cran.r-project.org/bin/macosx/. Once downloaded install from the .pkg file.</p>
-  </li>
-  <li>
-    <p>Windows:
-Download the installer from (https://cran.r-project.org/bin/windows/base/). Once downloaded run the executable.</p>
-  </li>
-</ul>
-
-<h2 id="installing-anaconda-and-the-notebooks">2. Installing Anaconda and the Notebooks</h2>
-<p>We <em>highly</em> recommend that you install the <a href="https://docs.continuum.io/anaconda/install">Anaconda distribution</a> (or <a href="https://conda.io/miniconda.html">Miniconda</a> alternatively).</p>
-
-<p>You can download and install Anaconda on Windows, OSX and Linux. To ensure that it’s up to date, run (in a terminal)</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>conda update conda
-conda update jupyter
-</code></pre>
-</div>
-<p><strong>Experienced users</strong></p>
-
-<p>If you already have Python installed and prefer not to install Anaconda you can install the notebooks via pip:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install jupyter
-</code></pre>
-</div>
-<p>You have now a notebook server installed on your computer. If you want to run a notebook server you need to open a terminal and run</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>jupyter notebook
-</code></pre>
-</div>
-<p>Alternatively, if you have the Anaconda navigator you can open an instance from there.</p>
-
-<p>For more information on running the notebooks server visit: https://jupyter.readthedocs.io/en/latest/running.html#running</p>
-
-<h2 id="installing-the-r-kernel">3. Installing the R Kernel</h2>
-<p>This course will be using the <a href="https://github.com/IRkernel/IRkernel">IRKernel</a>. This has not been made available as a package from CRAN (yet). So in order to install the Kernel you need to install it via the <code class="highlighter-rouge">devtools</code> package (see <a href="https://irkernel.github.io/installation/">here</a>):</p>
-
-<div class="language-R highlighter-rouge"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s1">'devtools'</span><span class="p">)</span><span class="w">
-</span><span class="n">devtools</span><span class="o">::</span><span class="n">install_github</span><span class="p">(</span><span class="s1">'IRkernel/IRkernel'</span><span class="p">)</span><span class="w">
-</span><span class="c1"># or devtools::install_local('IRkernel-master.tar.gz')
-</span><span class="n">IRkernel</span><span class="o">::</span><span class="n">installspec</span><span class="p">()</span><span class="w">  </span><span class="c1"># to register the kernel in the current R installation
-</span></code></pre>
-</div>
-
-<p>Note you need to do this from an R console (<strong>do not</strong> use R studio if you have this installed).</p>
-
-<h2 id="multiple-packages">4. Multiple packages</h2>
-<p>You will need to install various packages for this course. All of them are available on CRAN. Thus you can install them from a R console by typing</p>
-
-<div class="language-R highlighter-rouge"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s1">'package_name'</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
-<p>Make sure you have all of the following packages:</p>
-
-<ul>
-  <li>multtest (note that for the latest versions of R you need to install this from an R console, see the <a href="https://bioconductor.org/packages/release/bioc/html/multtest.html">Bioconductor website</a></li>
-</ul>
-
-<div class="language-R highlighter-rouge"><pre class="highlight"><code><span class="c1">## try http:// if https:// URLs are not supported
-</span><span class="n">source</span><span class="p">(</span><span class="s2">"https://bioconductor.org/biocLite.R"</span><span class="p">)</span><span class="w">
-</span><span class="n">biocLite</span><span class="p">(</span><span class="s2">"multtest"</span><span class="p">)</span><span class="w">
-</span></code></pre>
-</div>
-<ul>
-  <li>xlsx</li>
-  <li>gdata</li>
-  <li>ape</li>
-</ul>
+          <h1 id="important">Important</h1>
+<p>Make sure to visit the <strong>Getting started</strong> section of this page before proceeding to any of the course modules.</p>
 
         </main>
       </div>
 
       <div class="col-sm-1">
       </div>
-      <!-- TOC sidebar, which will move to the top on a small screen -->
-      <div class="col-sm-3 container-toc">
-        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
-      </div>
+      
     </div>
   </div>
 </div>
 
 <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+<div class= container>
+  <div class="row">
+
+    <div class="col-sm-6">
+
+      <!--Card-->
+      <div class="card">
+
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+          <img src="./images/dna.jpg" class="img-fluid" alt="">
+
+        </div>
+
+        <!--Card content-->
+        <div class="card-block">
+          <!--Title-->
+          <h4 > Day 1</h4>
+          <!--Text-->
+          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#!" > Go to Day 1</a>
+        </div>
+
+      </div>
+      <!--/.Card-->
+
+    </div>
+
+    <div class="col-sm-6">
+
+      <!--Card-->
+      <div class="card">
+
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+          <img src="./images/dna.jpg" class="img-fluid" alt="">
+
+        </div>
+
+        <!--Card content-->
+        <div class="card-block">
+          <!--Title-->
+          <h4 > Day 2</h4>
+          <!--Text-->
+          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#!" > Go to Day 2</a>
+        </div>
+
+      </div>
+      <!--/.Card-->
+
+    </div>
+
+    <div class="col-sm-6">
+
+      <!--Card-->
+      <div class="card">
+
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+          <img src="./images/dna.jpg" class="img-fluid" alt="">
+
+        </div>
+
+        <!--Card content-->
+        <div class="card-block">
+          <!--Title-->
+          <h4 > Day 3</h4>
+          <!--Text-->
+          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#!" > Go to Day 3</a>
+        </div>
+
+      </div>
+      <!--/.Card-->
+
+    </div>
+
+  </div>
+</div>
+<br>
+<br>
 
 </body>
 
