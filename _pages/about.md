@@ -2,6 +2,7 @@
 layout: default
 permalink: /about/
 title: Getting started
+category: module
 ---
 
 # Working with the material

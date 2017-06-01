@@ -2,6 +2,7 @@
 layout: page
 permalink: /1-outline/
 title: Day 1 outline
+category: module
 ---
 
 # BAD Day 1
