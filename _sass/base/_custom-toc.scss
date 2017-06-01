@@ -4,18 +4,21 @@
  * Licensed under MIT (https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md) */
 
 /* modified from https://github.com/twbs/bootstrap/blob/94b4076dd2efba9af71f0b18d4ee4b163aa9e0dd/docs/assets/css/src/docs.css#L548-L601 */
-
+nav[data-toggle='toc']{
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
 /* All levels of nav */
 nav[data-toggle='toc'] .nav > li > a {
   display: block;
-  padding: 4px 20px;
-  font-size: 0.96em;
+  padding: 0.5rem 2rem;
+  font-size: 1.0em;
   font-weight: 500;
-  color: $gray;
+  color: darken($gray, 25%);
 }
 nav[data-toggle='toc'] .nav > li > a:hover,
 nav[data-toggle='toc'] .nav > li > a:focus {
-  padding-left: 19px;
+  padding-left: 2rem;
   color: $secondary;
   text-decoration: none;
   background-color: transparent;
@@ -25,11 +28,11 @@ nav[data-toggle='toc'] .nav > li > a:focus {
 nav[data-toggle='toc'] .nav > .active > a,
 nav[data-toggle='toc'] .nav > .active:hover > a,
 nav[data-toggle='toc'] .nav > .active:focus > a {
-  padding-left: 18px;
+  padding-left: 2rem;
   font-weight: bold;
   color: $secondary;
   background-color: transparent;
-  border-left: 2px solid $primary;
+  border-left: 2.5px solid $primary;
 }
 
 /* Nav: second level (shown on .active) */
