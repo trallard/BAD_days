@@ -1,6 +1,6 @@
 # This is used to generate Jekyll blog posts from Jupyter notebooks for Julia codes.
 # Following the instruction at http://christop.club/2014/02/21/blogging-with-ipython-and-jekyll/
-# Usage example: jupyter nbconvert  --config jekyll.py <notebok>
+# Usage example: jupyter nbconvert  --config jekyll.py <notebok.ipynb>
 try:
     from urllib.parse import quote  # Py 3
 except ImportError:

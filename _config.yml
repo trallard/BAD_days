@@ -19,6 +19,7 @@ exclude:
   - README.md
   - jekyll.py
   - jekyll.tpl
+  - replace.py
 
 # to ensure the links work properly
 permalink: pretty
