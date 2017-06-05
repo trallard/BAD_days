@@ -18,3 +18,5 @@ _site/Day2/BAD_DAY2/Data/growth\.txt
 *.r
 
 _site/
+
+Gemfile.lock

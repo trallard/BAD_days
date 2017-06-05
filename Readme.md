@@ -1,10 +1,14 @@
+# [Bioinformatics Awareness Days](http://bitsandchips.me/BAD_days/)
+
 # About the website
 This website is hosted as a github page. In short, is built statically from Markdown source files using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push.
 
-This site uses the [Bootstrap framework](http://getbootstrap.com) along with (MDB)[https://mdbootstrap.com/material-design-for-bootstrap/].
+This site uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
 
-The relevant files and directories include:
+Below you will find a description of the various files and directories within this repository:
 -  config.yml: main configuration page
+- Gemfile: list of the various gems used in the website
+- index.md: landing page content
 - _includes/*: diverse components of the website, reusable html components
 - _layouts/*: local style files
 - _sass/*: css/sass style sheets
@@ -15,7 +19,7 @@ The relevant files and directories include:
 
 # How to use Jekyll to test/build this site
 
-Editing pages online with GitHub
+### Editing pages online with GitHub
 
 You can edit any page by following the "Edit this page" link in the Quick links nav bar. Alternatively, you can directly navigate to the corresponding .md (Markdown) file in GitHub.
 
@@ -70,4 +74,11 @@ Your site will be generated in a `_site` sub-directory, and served
 live at <http://localhost:4000/>. Any changes to the sources will
 trigger an automatic recompilation!
 
-Have fun!
+# Generating posts/pages from Jupyter notebooks
+
+The main content of this website is generated from [Jupyter notebooks](http://jupyter.org).  The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
+
+
+***TO DO **
+
+Add details for specific conversion
