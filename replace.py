@@ -7,12 +7,18 @@ from shutil import move
 from tempfile import mkstemp
 
 ## extra needed to add '' in the class or it fails to render
-rdict = {'class=': 'class="', '>':'">', 'scope=row':'scope="row','scope=col':'scope="col'}
-s_repl = {'class=', 'scope=row', 'scope=col'}
+rdict = {'class=': 'class="', '<table>':'<table class="table-responsive table-striped>'}
+s_repl = {'class=', '<table>'}
 robj = re.compile('|'.join(rdict.keys()))
 
+quote ={'>':'">' }
+rquote = re.compile('|'.join(quote.keys()))
 
-# replace the expressions that are not correcly parsed
+rscope = {'scope=row':'scope="row">','scope=col':'scope="col">'}
+scope = {'scope=row', 'scope=col'}
+scopeobj = re.compile('|'.join(rdict.keys()))
+
+#replace the expressions that are not correcly parsed
 def replace(file_path):
     #Create temp file
     fh, abs_path = mkstemp()
@@ -21,8 +27,10 @@ def replace(file_path):
             for line in source_file:
                 if any(s in line for s in s_repl):
                     line_new = robj.sub(lambda m: rdict[m.group(0)], line)
-                    new_file.write(line_new)
-                    print(line)
+                    line_new2 = rquote.sub(lambda m: quote[m.group(0)], line_new)
+                    new_file.write(line_new2)
+                elif any(s in line for s in scope):
+                    line_new = scopeobj.sub(lambda m: rscope[m.group(0)], line)
                 else:
                     new_file.write(line)
     new_file.close()

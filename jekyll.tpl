@@ -52,5 +52,9 @@ permalink: "{{resources['metadata']['name']}}.html"
 {% endblock data_text %}
 
 {% block data_html scoped %}
-{{ output.data['text/html'] }}
+{{ output.data['text/html']}}
 {% endblock data_html %}
+
+{% block data_markdown scoped -%}
+{{ output.data['text/markdown'] | markdown2html }}
+{%- endblock data_markdown %}

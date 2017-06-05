@@ -10,7 +10,6 @@ author:
   name: Tania Allard
 
 
-
 # Build settings
 markdown: kramdown
 include: ['_pages']

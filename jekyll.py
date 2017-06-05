@@ -1,4 +1,4 @@
-# This is used to generate Jekyll blog posts from Jupyter notebooks for Julia codes.
+# This is used to generate Jekyll blog posts from Jupyter notebooks for R codes.
 # Following the instruction at http://christop.club/2014/02/21/blogging-with-ipython-and-jekyll/
 # Usage example: jupyter nbconvert  --config jekyll.py <notebok.ipynb>
 try:
