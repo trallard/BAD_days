@@ -95,6 +95,26 @@
       
     
       
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
     
       
         
@@ -207,10 +227,10 @@ Name, respectively.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Checking the dimension of the data
 </span><span class="nf">dim</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
 
-<p>&lt;ol class=list-inline&gt;
-	&lt;li&gt;3051&lt;/li&gt;
-	&lt;li&gt;38&lt;/li&gt;
-&lt;/ol&gt;</p>
+<ol class="list-inline">
+	<li>3051</li>
+	<li>38</li>
+</ol>
 
 <p><br /></p>
 <font color="#00bcd4"> In [5]: </font>
@@ -218,7 +238,7 @@ Name, respectively.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># we will have a look at the first rows contained in the data set
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
 
-<table>
+<table class="table-responsive table-striped">
 <tbody>
 	<tr><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
 	<tr><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
@@ -240,14 +260,14 @@ correspond to the gene index, ID, and Name, respectively.</p>
 
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
 
-<table>
+<table class="table-responsive table-striped">
 <tbody>
-	<tr>&lt;th scope=row&gt;AFFX-HUMISGF3A/M97935_MA_at&lt;/th&gt;<td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMISGF3A/M97935_MB_at&lt;/th&gt;<td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMISGF3A/M97935_3_at&lt;/th&gt;<td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMRGE/M10098_5_at&lt;/th&gt;<td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMRGE/M10098_M_at&lt;/th&gt;<td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMRGE/M10098_3_at&lt;/th&gt;<td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
 </tbody>
 </table>
 
@@ -257,28 +277,28 @@ correspond to the gene index, ID, and Name, respectively.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Let's just have a look at the top 20 genes ID's contained in golub.gnames
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub.gnames</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">)</span></code></pre></figure>
 
-<p>&lt;ol class=list-inline&gt;
-	&lt;li&gt;‘AFFX-HUMISGF3A/M97935_MA_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMISGF3A/M97935_MB_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMISGF3A/M97935_3_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMRGE/M10098_5_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMRGE/M10098_M_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMRGE/M10098_3_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMGAPDH/M33197_5_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMGAPDH/M33197_M_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HSAC07/X00351_5_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HSAC07/X00351_M_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMTFRR/M11507_5_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMTFRR/M11507_M_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMTFRR/M11507_3_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-M27830_5_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-M27830_M_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-M27830_3_at (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HSAC07/X00351_3_st (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMGAPDH/M33197_M_st (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HUMGAPDH/M33197_3_st (endogenous control)’&lt;/li&gt;
-	&lt;li&gt;‘AFFX-HSAC07/X00351_M_st (endogenous control)’&lt;/li&gt;
-&lt;/ol&gt;</p>
+<ol class="list-inline">
+	<li>'AFFX-HUMISGF3A/M97935_MA_at (endogenous control)'</li>
+	<li>'AFFX-HUMISGF3A/M97935_MB_at (endogenous control)'</li>
+	<li>'AFFX-HUMISGF3A/M97935_3_at (endogenous control)'</li>
+	<li>'AFFX-HUMRGE/M10098_5_at (endogenous control)'</li>
+	<li>'AFFX-HUMRGE/M10098_M_at (endogenous control)'</li>
+	<li>'AFFX-HUMRGE/M10098_3_at (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_5_at (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_M_at (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_5_at (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_M_at (endogenous control)'</li>
+	<li>'AFFX-HUMTFRR/M11507_5_at (endogenous control)'</li>
+	<li>'AFFX-HUMTFRR/M11507_M_at (endogenous control)'</li>
+	<li>'AFFX-HUMTFRR/M11507_3_at (endogenous control)'</li>
+	<li>'AFFX-M27830_5_at (endogenous control)'</li>
+	<li>'AFFX-M27830_M_at (endogenous control)'</li>
+	<li>'AFFX-M27830_3_at (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_3_st (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_M_st (endogenous control)'</li>
+	<li>'AFFX-HUMGAPDH/M33197_3_st (endogenous control)'</li>
+	<li>'AFFX-HSAC07/X00351_M_st (endogenous control)'</li>
+</ol>
 
 <p>Twenty seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and
 eleven as acute myeloid leukemia (AML). The tumor class is given by the numeric
@@ -291,15 +311,15 @@ vector golub.cl, where ALL is indicated by 0 and AML by 1.</p>
 
 </span><span class="n">head</span><span class="p">(</span><span class="n">golub</span><span class="p">)</span></code></pre></figure>
 
-<table>
-<thead><tr><th></th>&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;⋯&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;</tr></thead>
+<table class="table-responsive table-striped">
+<thead><tr><th></th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">⋯</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th></tr></thead>
 <tbody>
-	<tr>&lt;th scope=row&gt;AFFX-HUMISGF3A/M97935_MA_at&lt;/th&gt;<td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMISGF3A/M97935_MB_at&lt;/th&gt;<td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMISGF3A/M97935_3_at&lt;/th&gt;<td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMRGE/M10098_5_at&lt;/th&gt;<td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMRGE/M10098_M_at&lt;/th&gt;<td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr>&lt;th scope=row&gt;AFFX-HUMRGE/M10098_3_at&lt;/th&gt;<td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
 </tbody>
 </table>
 
@@ -325,30 +345,30 @@ ALL patients can now be printed to the screen, as follows.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">]</span></code></pre></figure>
 
-<p>&lt;dl class=dl-horizontal&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.88941&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;1.45014&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.42904&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.82667&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.63637&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;1.0225&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.12758&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;-0.74333&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.73784&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;0.4947&lt;/dd&gt;
-	&lt;dt&gt;1&lt;/dt&gt;
-		&lt;dd&gt;1.12058&lt;/dd&gt;
-&lt;/dl&gt;</p>
+<dl class="dl-horizontal">
+	<dt>1</dt>
+		<dd>0.88941</dd>
+	<dt>1</dt>
+		<dd>1.45014</dd>
+	<dt>1</dt>
+		<dd>0.42904</dd>
+	<dt>1</dt>
+		<dd>0.82667</dd>
+	<dt>1</dt>
+		<dd>0.63637</dd>
+	<dt>1</dt>
+		<dd>1.0225</dd>
+	<dt>1</dt>
+		<dd>0.12758</dd>
+	<dt>1</dt>
+		<dd>-0.74333</dd>
+	<dt>1</dt>
+		<dd>0.73784</dd>
+	<dt>1</dt>
+		<dd>0.4947</dd>
+	<dt>1</dt>
+		<dd>1.12058</dd>
+</dl>
 
 <h2 id="creating-the-exploratory-plots">Creating the exploratory plots</h2>
 
@@ -374,7 +394,7 @@ expression values od the gene CCND3 Cyclin D3.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">mygene</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_21_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_21_0.png" alt="png" /></p>
 
 <p>In the previous plot we just used the default plotting preferences within R base
 plotting.We can do some improvements so that the plot is easily understood.</p>
@@ -385,7 +405,7 @@ plotting.We can do some improvements so that the plot is easily understood.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">mygene</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Expression value of gene: CCND3'</span><span class="p">,</span><span class="w"> 
     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">' Gene expression values of CCND3 Cyclin D3'</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_23_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_23_0.png" alt="png" /></p>
 
 <p>In this plot the vertical axis corresponds to the size of the expression values
 and the horizontal axis the index of the patients.</p>
@@ -397,7 +417,7 @@ and the horizontal axis the index of the patients.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">golub</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">golub</span><span class="p">[,</span><span class="m">38</span><span class="p">])</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_26_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_26_0.png" alt="png" /></p>
 
 <p>Adding diagonal lines to the plot and changing axes labels</p>
 
@@ -407,7 +427,7 @@ and the horizontal axis the index of the patients.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">golub</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">golub</span><span class="p">[,</span><span class="m">38</span><span class="p">],</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Patient 1 (ALL)'</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Patient 38 (AML)'</span><span class="p">)</span><span class="w"> 
 </span><span class="n">abline</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'mediumpurple'</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="m">3</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_28_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_28_0.png" alt="png" /></p>
 
 <h3 id="scatter-plots-to-detect-independence">1.3. Scatter plots to detect independence</h3>
 
@@ -422,7 +442,7 @@ and the horizontal axis the index of the patients.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">mysamplist</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="s1">'.'</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_31_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_31_0.png" alt="png" /></p>
 
 <h3 id="bar-plot-of-4-cyclin-genes-expression-values-in-3-all-and-aml-patients">1.4. Bar plot of 4 cyclin genes expression values in 3 ALL and AML patients</h3>
 
@@ -437,13 +457,13 @@ Z36714_AT</code> genes in three chosen AML and ALL patients</p>
 </span><span class="c1"># having a look at the data set chosen
 </span><span class="n">mygenelist</span></code></pre></figure>
 
-<table>
-<thead><tr><th></th>&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;0&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;&lt;th scope=col&gt;1&lt;/th&gt;</tr></thead>
+<table class="table-responsive table-striped">
+<thead><tr><th></th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th></tr></thead>
 <tbody>
-	<tr>&lt;th scope=row&gt;D13639_at&lt;/th&gt;<td> 2.09511</td><td> 1.71953</td><td>-1.46227</td><td>-0.92935</td><td>-0.11091</td><td> 1.15591</td></tr>
-	<tr>&lt;th scope=row&gt;M92287_at&lt;/th&gt;<td> 2.10892</td><td> 1.52405</td><td> 1.96403</td><td> 0.73784</td><td> 0.49470</td><td> 1.12058</td></tr>
-	<tr>&lt;th scope=row&gt;U11791_at&lt;/th&gt;<td>-0.11439</td><td>-0.72887</td><td>-0.39674</td><td>-0.94364</td><td> 0.05047</td><td> 0.05905</td></tr>
-	<tr>&lt;th scope=row&gt;Z36714_at&lt;/th&gt;<td>-1.45769</td><td>-1.39420</td><td>-1.46227</td><td>-1.39906</td><td>-1.34579</td><td>-1.32403</td></tr>
+	<tr><th scope="row">D13639_at</th><td> 2.09511</td><td> 1.71953</td><td>-1.46227</td><td>-0.92935</td><td>-0.11091</td><td> 1.15591</td></tr>
+	<tr><th scope="row">M92287_at</th><td> 2.10892</td><td> 1.52405</td><td> 1.96403</td><td> 0.73784</td><td> 0.49470</td><td> 1.12058</td></tr>
+	<tr><th scope="row">U11791_at</th><td>-0.11439</td><td>-0.72887</td><td>-0.39674</td><td>-0.94364</td><td> 0.05047</td><td> 0.05905</td></tr>
+	<tr><th scope="row">Z36714_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.46227</td><td>-1.39906</td><td>-1.34579</td><td>-1.32403</td></tr>
 </tbody>
 </table>
 
@@ -453,7 +473,7 @@ Z36714_AT</code> genes in three chosen AML and ALL patients</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">barplot</span><span class="p">(</span><span class="n">mygenelist</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_34_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_34_0.png" alt="png" /></p>
 
 <p>The plot is not very easy to read, so we will add some colours and a legend so
 that we know which gene each bar segment corresponds to.</p>
@@ -467,7 +487,7 @@ that we know which gene each bar segment corresponds to.</p>
 </span><span class="n">barplot</span><span class="p">(</span><span class="n">mygenelist</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colours</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'white'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_36_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_36_0.png" alt="png" /></p>
 
 <p>In this case the patients are indicated on the <code class="highlighter-rouge">X</code> axis (0 and 1 respectively)
 while the gene expression level is indicate on the <code class="highlighter-rouge">Y</code> axis.</p>
@@ -496,7 +516,7 @@ stacked bars
         </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Gene expression level'</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'Cycline genes expression'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_40_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_40_0.png" alt="png" /></p>
 
 <p>In the plot above we presented the barplots horizontally and added some colours,
 which makes it easier to understand the data presented.
@@ -531,7 +551,7 @@ computed they are combined into a single data frame.</p>
 in AML and ALL patients'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_43_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_43_0.png" alt="png" /></p>
 
 <h3 id="adding-error-bars-to-the-previous-plot">1.6. Adding error bars to the previous plot</h3>
 
@@ -612,7 +632,7 @@ by the number of points that you’ve collected”.</p>
        </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'navyblue'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_49_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_49_0.png" alt="png" /></p>
 
 <p>Note that the error bars for the SE are smaller than those for the SD. This is
 no coincidence!</p>
@@ -657,7 +677,7 @@ pie from a frequency table of the four nucleotides .</p>
 </code></pre>
 </div>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_53_1.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_53_1.png" alt="png" /></p>
 
 <h3 id="stripcharts">2.2 Stripcharts</h3>
 
@@ -677,7 +697,7 @@ different experimental conditions or patients groups.</p>
 </span><span class="n">stripchart</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">gol.fac</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"jitter"</span><span class="p">,</span><span class="w"> 
            </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="s1">'darkgrey'</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">16</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_55_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_55_0.png" alt="png" /></p>
 
 <p>From the above figure, it can be observed that the CCND3 Cyclin D3 expression
 values of the ALL patients tend to have larger expression values than those of
@@ -718,7 +738,7 @@ dataset.</p>
     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Golub, ALL'</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ALL'</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_58_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_58_0.png" alt="png" /></p>
 
 <h3 id="boxplots">2.3 Boxplots</h3>
 
@@ -741,18 +761,18 @@ ascending order (using the <code class="highlighter-rouge">sort</code> function)
 </span><span class="c1"># printing the first five values
 </span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span></code></pre></figure>
 
-<p>&lt;dl class=dl-horizontal&gt;
-	&lt;dt&gt;0&lt;/dt&gt;
-		&lt;dd&gt;0.45827&lt;/dd&gt;
-	&lt;dt&gt;0&lt;/dt&gt;
-		&lt;dd&gt;1.10546&lt;/dd&gt;
-	&lt;dt&gt;0&lt;/dt&gt;
-		&lt;dd&gt;1.27645&lt;/dd&gt;
-	&lt;dt&gt;0&lt;/dt&gt;
-		&lt;dd&gt;1.32551&lt;/dd&gt;
-	&lt;dt&gt;0&lt;/dt&gt;
-		&lt;dd&gt;1.36844&lt;/dd&gt;
-&lt;/dl&gt;</p>
+<dl class="dl-horizontal">
+	<dt>0</dt>
+		<dd>0.45827</dd>
+	<dt>0</dt>
+		<dd>1.10546</dd>
+	<dt>0</dt>
+		<dd>1.27645</dd>
+	<dt>0</dt>
+		<dd>1.32551</dd>
+	<dt>0</dt>
+		<dd>1.36844</dd>
+</dl>
 
 <p>A view on the distribution of the gene expression values of the <code class="highlighter-rouge">ALL</code> and <code class="highlighter-rouge">AML</code>
 patients on gene CCND3 Cyclin D3 can be obtained by  generating two separate
@@ -765,7 +785,7 @@ boxplots adjacent to each other:</p>
 </span><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span><span class="w">
 </span><span class="n">boxplot</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">gol.fac</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'lightblue2'</span><span class="p">,</span><span class="w"> </span><span class="s1">'mediumpurple'</span><span class="p">))</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_62_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_62_0.png" alt="png" /></p>
 
 <p>It can be observed that the gene expression values for ALL are larger than those
 for AML. Furthermore, since the two sub-boxes around the median are more or less
@@ -782,7 +802,7 @@ the acute lymphoblastic leukemia patients e.g.</p>
 </span><span class="n">lines</span><span class="p">(</span><span class="n">density</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,]),</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="w"> </span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
 </span><span class="n">box</span><span class="p">()</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_64_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_64_0.png" alt="png" /></p>
 
 <p>Now we can observe the distribution of all gene expressions values in all 38
 patients</p>
@@ -792,7 +812,7 @@ patients</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">boxplot</span><span class="p">(</span><span class="n">golub</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="w"> </span><span class="s1">'lightblue2'</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">18</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_66_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_66_0.png" alt="png" /></p>
 
 <p>To compute the exact values for the quartiles we need a sequence running from 0
 to 1 with increments in steps of 0.25</p>
@@ -803,18 +823,18 @@ to 1 with increments in steps of 0.25</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pvec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0.25</span><span class="p">)</span><span class="w">
 </span><span class="n">quantile</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,</span><span class="w"> </span><span class="n">gol.fac</span><span class="o">==</span><span class="s1">'ALL'</span><span class="p">],</span><span class="w"> </span><span class="n">pvec</span><span class="p">)</span></code></pre></figure>
 
-<p>&lt;dl class=dl-horizontal&gt;
-	&lt;dt&gt;0%&lt;/dt&gt;
-		&lt;dd&gt;0.45827&lt;/dd&gt;
-	&lt;dt&gt;25%&lt;/dt&gt;
-		&lt;dd&gt;1.796065&lt;/dd&gt;
-	&lt;dt&gt;50%&lt;/dt&gt;
-		&lt;dd&gt;1.92776&lt;/dd&gt;
-	&lt;dt&gt;75%&lt;/dt&gt;
-		&lt;dd&gt;2.178705&lt;/dd&gt;
-	&lt;dt&gt;100%&lt;/dt&gt;
-		&lt;dd&gt;2.7661&lt;/dd&gt;
-&lt;/dl&gt;</p>
+<dl class="dl-horizontal">
+	<dt>0%</dt>
+		<dd>0.45827</dd>
+	<dt>25%</dt>
+		<dd>1.796065</dd>
+	<dt>50%</dt>
+		<dd>1.92776</dd>
+	<dt>75%</dt>
+		<dd>2.178705</dd>
+	<dt>100%</dt>
+		<dd>2.7661</dd>
+</dl>
 
 <p>Outliers are data points lying far apart from the pattern set by the majority of
 the data values. The implementation in R of the boxplot draws such outliers as
@@ -847,7 +867,7 @@ may use the following.</p>
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qqnorm</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'ALL'</span><span class="p">])</span><span class="w">
 </span><span class="n">qqline</span><span class="p">(</span><span class="n">golub</span><span class="p">[</span><span class="m">1042</span><span class="p">,</span><span class="w"> </span><span class="n">gol.fac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'ALL'</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'slateblue'</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_72_0.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_72_0.png" alt="png" /></p>
 
 <p>It can be seen that most of the data points are on or near the straight line,
 while a few others are further away. The above example illustrates a case where
@@ -882,7 +902,7 @@ drawn.</p>
 
 <p>0.956021382271511</p>
 
-<p><img src="http://localhost:4000/BAD_days/notebooks/tutorial_files/tutorial_79_1.png" alt="png" /></p>
+<p><img src="http://localhost:4000/BAD_days/notebooks/Tutorial_files/Tutorial_79_1.png" alt="png" /></p>
 
 <p><br /></p>
 <font color="#00bcd4"> In [None]: </font>

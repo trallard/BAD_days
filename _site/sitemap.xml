@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://localhost:4000/BAD_days/Comments.html</loc>
+</url>
+<url>
 <loc>http://localhost:4000/BAD_days/1-outline/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/BAD_days/Frequency.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/BAD_days/Multiple%20Hyp.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/BAD_days/One%20way%20ANOVA%20.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/BAD_days/Ttest.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/BAD_days/T-test.html</loc>

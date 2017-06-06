@@ -41,7 +41,7 @@ def replace(file_path):
     move(abs_path, file_path)
 
 
-# getting the notebooks in the appropriate file
+# find all the notebooks in the dir
 def locate(nb_dir):
     abs_path = os.path.join('.', nb_dir, '*.md')
     notebooks = glob.glob(abs_path)
