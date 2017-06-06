@@ -14,7 +14,7 @@ body{
 
 /*** Links ***/
 a {
-  color: $primary;
+  color: $secondary-light;
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
@@ -64,37 +64,31 @@ pre{
     overflow-x: scroll;
 }
 
-
+/*** images ***/
 img{
   width: 100%;
   height: auto;
 }
 
+/*** Tables ***/
 table{
   width: 100%;
   display: block;
+  margin-bottom: 2em;
+}
+
+tr{
+  line-height: 1.75em;
+}
+td{
+  padding-left: 0.5em;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: $gray-lighter;
 }
 
-.table-hover > tbody > tr:hover {
-  border: 1px solid lighten($primary, 5%);
-  background-color: transparent;
-}
 
-div.output_subarea {
-  overflow-x: auto;
-  padding: 0.4em;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-  max-width: calc(100% - 14ex);
-}
 
 
 /** edge header ***/
@@ -104,12 +98,14 @@ edge-header{
   }
 }
 
+/*** Lists ***/
 ul {
   padding: 0;
   list-style-type: disc; }
   ul li {
     list-style-type: disc; }
 
+/*** Card block ***/
 .card-block {
     h4 {
         margin-bottom: 1rem;

@@ -21,17 +21,6 @@ permalink: "Tutorial.html"
  install.packages("ape")
 {% endhighlight %}
 
-    
-    The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpMbXbxh/downloaded_packages
-    
-    The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpMbXbxh/downloaded_packages
-    
-    The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpMbXbxh/downloaded_packages
-
-
 <br>
 <font color ='#00bcd4'> In [2]: </font>
 
@@ -39,23 +28,6 @@ permalink: "Tutorial.html"
 source("http://bioconductor.org/biocLite.R");
 biocLite("multtest");
 {% endhighlight %}
-
-    Bioconductor version 3.4 (BiocInstaller 1.24.0), ?biocLite for help
-    A new version of Bioconductor is available after installing the most recent
-      version of R; see http://bioconductor.org/install
-    BioC_mirror: https://bioconductor.org
-    Using Bioconductor 3.4 (BiocInstaller 1.24.0), R 3.3.2 (2016-10-31).
-    Installing package(s) ‘multtest’
-
-
-    
-    The downloaded binary packages are in
-    	/var/folders/1q/xdx6qpy905dbx01t7cfv36280000gn/T//RtmpMbXbxh/downloaded_packages
-
-
-    Old packages: 'backports', 'devtools', 'jsonlite', 'knitr', 'pbdZMQ', 'R6',
-      'Rcpp', 'RcppArmadillo', 'tibble', 'tidyr'
-
 
 
 # 1. Exploratory data analysis
@@ -89,40 +61,6 @@ data(golub);
 # ?golub
 {% endhighlight %}
 
-    Loading required package: multtest
-    Loading required package: BiocGenerics
-    Loading required package: parallel
-    
-    Attaching package: ‘BiocGenerics’
-    
-    The following objects are masked from ‘package:parallel’:
-    
-        clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-        clusterExport, clusterMap, parApply, parCapply, parLapply,
-        parLapplyLB, parRapply, parSapply, parSapplyLB
-    
-    The following objects are masked from ‘package:stats’:
-    
-        IQR, mad, xtabs
-    
-    The following objects are masked from ‘package:base’:
-    
-        anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
-        duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
-        is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
-        paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
-        Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
-        unique, unsplit, which, which.max, which.min
-    
-    Loading required package: Biobase
-    Welcome to Bioconductor
-    
-        Vignettes contain introductory material; view with
-        'browseVignettes()'. To cite Bioconductor, see
-        'citation("Biobase")', and for packages 'citation("pkgname")'.
-    
-
-
 Data set values:
 - `golub`: matrix of gene expression levels for the 38 tumor mRNA samples, rows
 correspond to genes (3051 genes) and columns to mRNA samples.
@@ -142,7 +80,7 @@ dim(golub)
 {% endhighlight %}
 
 
-<ol class=list-inline>
+<ol class="list-inline">
 	<li>3051</li>
 	<li>38</li>
 </ol>
@@ -158,7 +96,7 @@ head(golub)
 {% endhighlight %}
 
 
-<table>
+<table class="table-responsive table-striped">
 <tbody>
 	<tr><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
 	<tr><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
@@ -185,14 +123,14 @@ head(golub)
 {% endhighlight %}
 
 
-<table>
+<table class="table-responsive table-striped">
 <tbody>
-	<tr><th scope=row>AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr><th scope=row>AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr><th scope=row>AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr><th scope=row>AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr><th scope=row>AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr><th scope=row>AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
 </tbody>
 </table>
 
@@ -207,7 +145,7 @@ head(golub.gnames[,2], n = 20)
 {% endhighlight %}
 
 
-<ol class=list-inline>
+<ol class="list-inline">
 	<li>'AFFX-HUMISGF3A/M97935_MA_at (endogenous control)'</li>
 	<li>'AFFX-HUMISGF3A/M97935_MB_at (endogenous control)'</li>
 	<li>'AFFX-HUMISGF3A/M97935_3_at (endogenous control)'</li>
@@ -246,15 +184,15 @@ head(golub)
 {% endhighlight %}
 
 
-<table>
-<thead><tr><th></th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>⋯</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th></tr></thead>
+<table class="table-responsive table-striped table-bordered">
+<thead><tr><th></th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">⋯</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th></tr></thead>
 <tbody>
-	<tr><th scope=row>AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
-	<tr><th scope=row>AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
-	<tr><th scope=row>AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
-	<tr><th scope=row>AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
-	<tr><th scope=row>AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
-	<tr><th scope=row>AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MB_at</th><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
+	<tr><th scope="row">AFFX-HUMISGF3A/M97935_3_at</th><td> 0.45695</td><td>-0.09654</td><td> 0.90325</td><td>-0.07194</td><td> 0.03232</td><td> 0.09713</td><td>-0.11978</td><td> 0.23381</td><td> 0.23987</td><td> 0.44201</td><td>⋯       </td><td>-0.43377</td><td>-0.10823</td><td>-0.29385</td><td> 0.05067</td><td> 1.69430</td><td>-0.12472</td><td> 0.04609</td><td> 0.24347</td><td>0.90774 </td><td> 0.46509</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_5_at</th><td> 3.13533</td><td> 0.21415</td><td> 2.08754</td><td> 2.23467</td><td> 0.93811</td><td> 2.24089</td><td> 3.36576</td><td> 1.97859</td><td> 2.66468</td><td>-1.21583</td><td>⋯       </td><td> 0.29598</td><td>-1.29865</td><td> 2.76869</td><td> 2.08960</td><td> 0.70003</td><td> 0.13854</td><td> 1.75908</td><td> 0.06151</td><td>1.30297 </td><td> 0.58186</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_M_at</th><td> 2.76569</td><td>-1.27045</td><td> 1.60433</td><td> 1.53182</td><td> 1.63728</td><td> 1.85697</td><td> 3.01847</td><td> 1.12853</td><td> 2.17016</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 2.00518</td><td> 1.17454</td><td>-1.47218</td><td>-1.34158</td><td> 1.55086</td><td>-1.18107</td><td>1.01596 </td><td> 0.15788</td></tr>
+	<tr><th scope="row">AFFX-HUMRGE/M10098_3_at</th><td> 2.64342</td><td> 1.01416</td><td> 1.70477</td><td> 1.63845</td><td>-0.36075</td><td> 1.73451</td><td> 3.36576</td><td> 0.96870</td><td> 2.72368</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td> 1.73780</td><td> 0.89347</td><td>-0.52883</td><td>-1.22168</td><td> 0.90832</td><td>-1.39906</td><td>0.51266 </td><td> 1.36249</td></tr>
 </tbody>
 </table>
 
@@ -287,7 +225,7 @@ golub[1042, gol.fac == "ALL"]
 {% endhighlight %}
 
 
-<dl class=dl-horizontal>
+<dl class="dl-horizontal">
 	<dt>1</dt>
 		<dd>0.88941</dd>
 	<dt>1</dt>
@@ -353,7 +291,7 @@ plotting.We can do some improvements so that the plot is easily understood.
 <font color ='#00bcd4'> In [13]: </font>
 
 {% highlight R %}
-plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3', 
+plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3',
     main = ' Gene expression values of CCND3 Cyclin D3')
 {% endhighlight %}
 
@@ -384,7 +322,7 @@ Adding diagonal lines to the plot and changing axes labels
 <font color ='#00bcd4'> In [15]: </font>
 
 {% highlight R %}
-plot(golub[,1], golub[,38], xlab = 'Patient 1 (ALL)', ylab = 'Patient 38 (AML)') 
+plot(golub[,1], golub[,38], xlab = 'Patient 1 (ALL)', ylab = 'Patient 38 (AML)')
 abline(a = 0, b = 1, col = 'mediumpurple', lwd =3)
 {% endhighlight %}
 
@@ -430,13 +368,13 @@ mygenelist
 {% endhighlight %}
 
 
-<table>
-<thead><tr><th></th><th scope=col>0</th><th scope=col>0</th><th scope=col>0</th><th scope=col>1</th><th scope=col>1</th><th scope=col>1</th></tr></thead>
+<table class="table-responsive table-striped">
+<thead><tr><th></th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th></tr></thead>
 <tbody>
-	<tr><th scope=row>D13639_at</th><td> 2.09511</td><td> 1.71953</td><td>-1.46227</td><td>-0.92935</td><td>-0.11091</td><td> 1.15591</td></tr>
-	<tr><th scope=row>M92287_at</th><td> 2.10892</td><td> 1.52405</td><td> 1.96403</td><td> 0.73784</td><td> 0.49470</td><td> 1.12058</td></tr>
-	<tr><th scope=row>U11791_at</th><td>-0.11439</td><td>-0.72887</td><td>-0.39674</td><td>-0.94364</td><td> 0.05047</td><td> 0.05905</td></tr>
-	<tr><th scope=row>Z36714_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.46227</td><td>-1.39906</td><td>-1.34579</td><td>-1.32403</td></tr>
+	<tr><th scope="row">D13639_at</th><td> 2.09511</td><td> 1.71953</td><td>-1.46227</td><td>-0.92935</td><td>-0.11091</td><td> 1.15591</td></tr>
+	<tr><th scope="row">M92287_at</th><td> 2.10892</td><td> 1.52405</td><td> 1.96403</td><td> 0.73784</td><td> 0.49470</td><td> 1.12058</td></tr>
+	<tr><th scope="row">U11791_at</th><td>-0.11439</td><td>-0.72887</td><td>-0.39674</td><td>-0.94364</td><td> 0.05047</td><td> 0.05905</td></tr>
+	<tr><th scope="row">Z36714_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.46227</td><td>-1.39906</td><td>-1.34579</td><td>-1.32403</td></tr>
 </tbody>
 </table>
 
@@ -462,7 +400,7 @@ that we know which gene each bar segment corresponds to.
 <font color ='#00bcd4'> In [20]: </font>
 
 {% highlight R %}
-# custom colours 
+# custom colours
 colours = c('lightblue2',   'slateblue', '#BD7BB8', '#2B377A')
 
 barplot(mygenelist, col = colours, legend = TRUE, border = 'white')
@@ -499,7 +437,7 @@ stacked bars
 
 {% highlight R %}
 barplot(mygenelist, horiz = TRUE, col = colours, legend = TRUE,
-       ylab = 'Patient', border = 'white', 
+       ylab = 'Patient', border = 'white',
         xlab = 'Gene expression level', main  = 'Cycline genes expression')
 box()
 {% endhighlight %}
@@ -535,7 +473,7 @@ AMLmean <- rowMeans(golub[c(85,1042,1212,2240),c(28:38)])
 # Combining the mean matrices previously calculated
 dataheight <- cbind(ALLmean, AMLmean)
 
-# Plotting 
+# Plotting
 barx <- barplot(dataheight, beside=T, horiz=F, col= colours, ylim=c(-2,2.5),
                 legend = TRUE,border = 'white' ,
                 ylab = 'Gene expression level', main = 'Cycline genes mean expression
@@ -624,7 +562,7 @@ datasdend[c(3,4),] = - datasdend[c(3,4),]
 barx <- barplot(dataheight, beside=T, horiz=F, col = colours, ylim=c(-2,2.5),
                main = 'Data +  SD', border = 'white')
 abline(a = 0 , b = 0, h = 0)
-arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15, 
+arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15,
        col = 'navyblue')
 box()
 
@@ -681,14 +619,14 @@ v = read.GenBank(c("X94991.1"),as.character = TRUE)
 
 pie(table(v$X94991.1), col = colours, border = 'white')
 
-# prints the data as a table 
+# prints the data as a table
 table(read.GenBank(c("X94991.1"),as.character=TRUE))
 {% endhighlight %}
 
 
-    
-      a   c   g   t 
-    410 789 573 394 
+
+      a   c   g   t
+    410 789 573 394
 
 
 
@@ -711,7 +649,7 @@ Once again we use the CCND3 Cyclin D3 data to generate the plots.
 # data(golub, package = "multtest")
 gol.fac <- factor(golub.cl,levels=0:1, labels= c("ALL","AML"))
 
-stripchart(golub[1042,] ~ gol.fac, method = "jitter", 
+stripchart(golub[1042,] ~ gol.fac, method = "jitter",
            col = c('slateblue', 'darkgrey'), pch = 16)
 
 {% endhighlight %}
@@ -741,17 +679,17 @@ dataset.
 {% highlight R %}
 par(mfrow=c(2,2))
 
-hist(golub[1042, gol.fac == "ALL"], 
+hist(golub[1042, gol.fac == "ALL"],
      col = 'slateblue', border = 'white',
     main = 'Golub[1042], ALL', xlab = 'ALL')
 box()
 
-hist(golub,breaks = 10, 
+hist(golub,breaks = 10,
     col = 'slateblue', border = 'white',
     main =  'Golub')
 box()
 
-hist(golub[, gol.fac == "AML"],breaks = 10, 
+hist(golub[, gol.fac == "AML"],breaks = 10,
      col = 'slateblue', border = 'white',
     main = 'Golub, AML', xlab = 'AML')
 box()
@@ -790,7 +728,7 @@ x[1:5]
 {% endhighlight %}
 
 
-<dl class=dl-horizontal>
+<dl class="dl-horizontal">
 	<dt>0</dt>
 		<dd>0.45827</dd>
 	<dt>0</dt>
@@ -870,7 +808,7 @@ quantile(golub[1042, gol.fac=='ALL'], pvec)
 {% endhighlight %}
 
 
-<dl class=dl-horizontal>
+<dl class="dl-horizontal">
 	<dt>0%</dt>
 		<dd>0.45827</dd>
 	<dt>25%</dt>

@@ -11,12 +11,12 @@ rdict = {'class=': 'class="', '<table>':'<table class="table-responsive table-st
 s_repl = {'class=', '<table>'}
 robj = re.compile('|'.join(rdict.keys()))
 
-quote ={'>':'">' }
-rquote = re.compile('|'.join(quote.keys()))
+rquote ={'>':'">' }
+quoteobj= re.compile('|'.join(rquote.keys()))
 
-rscope = {'scope=row':'scope="row">','scope=col':'scope="col">'}
+rscope = {'scope=row':'scope="row"','scope=col':'scope="col"'}
 scope = {'scope=row', 'scope=col'}
-scopeobj = re.compile('|'.join(rdict.keys()))
+scopeobj = re.compile('|'.join(rscope.keys()))
 
 #replace the expressions that are not correcly parsed
 def replace(file_path):
@@ -27,10 +27,11 @@ def replace(file_path):
             for line in source_file:
                 if any(s in line for s in s_repl):
                     line_new = robj.sub(lambda m: rdict[m.group(0)], line)
-                    line_new2 = rquote.sub(lambda m: quote[m.group(0)], line_new)
+                    line_new2 = quoteobj.sub(lambda m: rquote[m.group(0)], line_new)
                     new_file.write(line_new2)
                 elif any(s in line for s in scope):
                     line_new = scopeobj.sub(lambda m: rscope[m.group(0)], line)
+                    new_file.write(line_new)
                 else:
                     new_file.write(line)
     new_file.close()
