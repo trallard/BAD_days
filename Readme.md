@@ -85,11 +85,13 @@ The conversion from `*.ipynb` is done via the `jekyll.py` script. This can be us
 The usage is as follows:
 
 * For one notebook at a time
+
 ~~~
 jupyter nbconvert --config jekyll.py <notebook>
 ~~~
 
 * For all the notebooks contained within a given directory
+
 ~~~~
 jupyter nbconvert --config jekyll.py
 ~~~
@@ -102,4 +104,4 @@ In order for the generated *.md files to be correctly render in Jekyll, some sco
 python replace.py
 ~~~
 
-If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script. 
+If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script.
