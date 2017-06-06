@@ -2,9 +2,9 @@
 layout: default
 title: "Comments"
 tags:
-    - notebook
+    - Day1
 
-permalink: "Comments.html"
+permalink: "/Day1/Comments.html"
 ---
 # BAD Day 1: Additional comments
 
@@ -143,7 +143,7 @@ f<-dnorm(x, mean = 0, sd = 1)
 plot(x, f, xlab = "x", ylab = "density", type = "l", lwd = 4)
 abline(v = q90, col = 'mediumpurple', lwd = 5)
 arrows(2.5, 0.35, 1.5, 0.35, lwd = 3, col = 'midnightblue')
-text(x = 2.8, y = 0.3, label ='90% of the prob \n is on the left of the 
+text(x = 2.8, y = 0.3, label ='90% of the prob \n is on the left of the
 purple vertical line');
 {% endhighlight %}
 
@@ -266,8 +266,8 @@ summary(x)
 {% endhighlight %}
 
 
-         Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-    -2.272000 -0.608800 -0.059420  0.002913  0.655900  2.582000 
+         Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
+    -2.272000 -0.608800 -0.059420  0.002913  0.655900  2.582000
 
 
 You can use the **summary** function on almost any R object! (remmber R is an
@@ -293,7 +293,7 @@ x = c(4.2, x)  # Adding an outlier for demonstration purposes only
 boxplot(x)
 
 # generates labels for the various components
-labels <- c('Lower bound', '25% quantile', 'Median', '75% quantile', 
+labels <- c('Lower bound', '25% quantile', 'Median', '75% quantile',
             'Upper bound')
 text(y = boxplot.stats(x)$stats, labels = labels, x = 1.35, col = 'mediumpurple')
 text(y = 4.2, x = 1.35, label = 'Outlier', col = 'gray26')
@@ -390,7 +390,7 @@ f2<-dt(x, df = 2)
 
 plot(x, f1, xlab = "x", ylab = "density",lwd = 3,type = "l")
 lines(x, f2, xlab ="x",ylab = "density",lwd = 3,col = 'mediumpurple')
-legend('topright', legend = c('Normal', 'l2'), col = c('black', 'mediumpurple'), 
+legend('topright', legend = c('Normal', 'l2'), col = c('black', 'mediumpurple'),
       lwd = 3)
 {% endhighlight %}
 
@@ -465,7 +465,7 @@ theta<-runif(1000, 0, 2*pi)
 x<-cos(theta)
 y<-sin(theta)
 cor(x, y)
-plot(x,y) 
+plot(x,y)
 {% endhighlight %}
 
 
