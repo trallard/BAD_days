@@ -92,7 +92,7 @@ jupyter nbconvert --config jekyll.py <notebook>
 
 * For all the notebooks contained within a given directory
 
-~~~~
+~~~
 jupyter nbconvert --config jekyll.py
 ~~~
 
