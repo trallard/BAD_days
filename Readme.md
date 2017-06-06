@@ -78,7 +78,28 @@ trigger an automatic recompilation!
 
 The main content of this website is generated from [Jupyter notebooks](http://jupyter.org).  The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
 
+All the Jupyter notebooks used to generate this site can be found in the [Notebooks directory](https://github.com/trallard/BAD_days/tree/gh-pages/notebooks).
 
-***TO DO **
+The conversion from `*.ipynb` is done via the `jekyll.py` script. This can be used to convert all the notebooks within the notebooks directory (you can change the location of the notebooks directly on the script), or one at a time.
 
-Add details for specific conversion
+The usage is as follows:
+
+* For one notebook at a time
+~~~
+jupyter nbconvert --config jekyll.py <notebook>
+~~~
+
+* For all the notebooks contained within a given directory
+~~~~
+jupyter nbconvert --config jekyll.py
+~~~
+
+The custom converter creates a *.md file by extending the default `markdown.tpl` template from nbconvert. This adds the required jekyll front matter and creates a permalink.
+
+In order for the generated *.md files to be correctly render in Jekyll, some scoped text needs to be parsed this is done using the `replace.py` script.
+
+~~~
+python replace.py
+~~~
+
+If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script. 
