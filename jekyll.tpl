@@ -52,9 +52,11 @@ permalink: "{{resources['metadata']['name']}}.html"
 {% block stream -%}
 {% endblock stream %}
 
+{# latex data block#}
 {% block data_latex %}
 {{ output.data['text/latex'] }}
 {% endblock data_latex %}
+
 
 {% block data_text scoped %}
 {{ output.data['text/plain'] | indent }}

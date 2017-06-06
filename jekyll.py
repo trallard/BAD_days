@@ -14,13 +14,22 @@ for arg in sys.argv:
         f = arg.split('.ipynb')[0]
         break
 
+
+# getting the notebooks in the appropriate file
+def locate(nb_dir):
+    abs_path = os.path.join('.', nb_dir, '*.md')
+    notebooks = glob.glob(abs_path)
+    return(notebooks)
+
+
+notebooks = locate('notebooks')
 c = get_config()
 c.NbConvertApp.export_format = 'markdown'
-c.MarkdownExporter.template_path = ['.'] # point this to your jekyll template file
+c.MarkdownExporter.template_path = ['.'] # point this to the location of the jekyll template file
 c.MarkdownExporter.template_file = 'jekyll'
 #c.Application.verbose_crash=True
 
-# modify this function to point your images to a custom path
+# modify this function to point the  images to a custom path
 # by default this saves all images to a directory 'images' in the root of the blog directory
 def path2support(path):
     """Turn a file path into a URL"""

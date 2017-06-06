@@ -6,7 +6,7 @@ import re, glob, os
 from shutil import move
 from tempfile import mkstemp
 
-## extra needed to add '' in the class or it fails to render
+## replacements needed to be done at various levels to allow for HTMl rendering
 rdict = {'class=': 'class="', '<table>':'<table class="table-responsive table-striped>'}
 s_repl = {'class=', '<table>'}
 robj = re.compile('|'.join(rdict.keys()))
