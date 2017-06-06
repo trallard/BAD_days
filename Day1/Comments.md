@@ -4,7 +4,7 @@ title: "Comments"
 tags:
     - Day1
 
-permalink: "/Day1/Comments.html"
+permalink: "Comments.html"
 ---
 # BAD Day 1: Additional comments
 

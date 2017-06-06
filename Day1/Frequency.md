@@ -2,7 +2,7 @@
 layout: default
 title: "Frequency"
 tags:
-    - notebook
+    - Day1
 
 permalink: "Frequency.html"
 ---
@@ -56,17 +56,17 @@ binom.test(2, 10, 0.5, alternative = 'less', conf.level = 0.9 )
 {% endhighlight %}
 
 
-    
+
     	Exact binomial test
-    
+
     data:  2 and 10
     number of successes = 2, number of trials = 10, p-value = 0.05469
     alternative hypothesis: true probability of success is less than 0.5
     90 percent confidence interval:
      0.0000000 0.4496039
     sample estimates:
-    probability of success 
-                       0.2 
+    probability of success
+                       0.2
 
 
 
@@ -100,7 +100,7 @@ Generating a bar-plot:
 <font color ='#00bcd4'> In [12]: </font>
 
 {% highlight R %}
-barplot (height=y, 
+barplot (height=y,
          names.arg=x,
          col = 'mediumpurple2',
          xlab = "Number of uses of right paw",
@@ -140,14 +140,14 @@ expected = c(0.75, 0.25)      # expected proportions
 {% highlight R %}
 chisq.test(
   x = observed,
-  p = expected, 
+  p = expected,
 )
 {% endhighlight %}
 
 
-    
+
     	Chi-squared test for given probabilities
-    
+
     data:  observed
     X-squared = 2.1333, df = 1, p-value = 0.1441
 
@@ -170,7 +170,7 @@ other nominal variable is thigh vs. arm.
 <font color ='#00bcd4'> In [7]: </font>
 
 {% highlight R %}
-Input =( 
+Input =(
   "Injection.area  No.severe  Severe
   Thigh           4788       30
   Arm             8916       76
@@ -183,7 +183,7 @@ Input =(
 
 {% highlight R %}
 Matrix = as.matrix(read.table(textConnection(Input),
-                              header=TRUE, 
+                              header=TRUE,
                               row.names=1))
 
 Matrix
@@ -208,9 +208,9 @@ chisq.test(Matrix, correct=TRUE)      # Continuity correction for 2 x 2
 {% endhighlight %}
 
 
-    
+
     	Pearson's Chi-squared test with Yates' continuity correction
-    
+
     data:  Matrix
     X-squared = 1.7579, df = 1, p-value = 0.1849
 
@@ -224,9 +224,9 @@ chisq.test(Matrix, correct=FALSE)      # No continuity correction for 2 x 2
 {% endhighlight %}
 
 
-    
+
     	Pearson's Chi-squared test
-    
+
     data:  Matrix
     X-squared = 2.0396, df = 1, p-value = 0.1533
 
@@ -254,7 +254,7 @@ the end of the study:
 
 {% highlight R %}
 Input =(
-  
+
   "Frequency  Damaged  Undamaged
  Daily       1        24
  Weekly      5        20
@@ -268,7 +268,7 @@ Input =(
 
 {% highlight R %}
 Matrix = as.matrix(read.table(textConnection(Input),
-                              header=TRUE, 
+                              header=TRUE,
                               row.names=1))
 
 Matrix
@@ -298,9 +298,9 @@ fisher.test(Matrix, alternative="two.sided")
 {% endhighlight %}
 
 
-    
+
     	Fisher's Exact Test for Count Data
-    
+
     data:  Matrix
     p-value = 0.0001228
     alternative hypothesis: two.sided
@@ -332,16 +332,16 @@ fisher.multcomp(Matrix, p.method = "none")
 {% endhighlight %}
 
 
-    
+
             Pairwise comparisons using Fisher's exact test for count data
-    
+
     data:  Matrix
-    
+
                   Daily  Weekly Monthly
     Weekly    0.1894630       -       -
     Monthly   0.0001019 0.01863       -
     Quarterly 0.0019215 0.12835  0.5721
-    
+
     P value adjustment method: none
 
 

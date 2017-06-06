@@ -2,8 +2,7 @@
 layout: default
 title: "One way ANOVA "
 tags:
-    - notebook
-
+    - Day1
 permalink: "One way ANOVA .html"
 ---
 #  BAD Day 1: One way ANOVA
@@ -87,7 +86,7 @@ You can also get statistical information on a single attribute of the data
 <font color ='#00bcd4'> In [3]: </font>
 
 {% highlight R %}
-# Computing the SD of a given attribute 
+# Computing the SD of a given attribute
 sd(PlantGrowth$weight)
 {% endhighlight %}
 
@@ -124,7 +123,7 @@ Tutorial).
 <font color ='#00bcd4'> In [9]: </font>
 
 {% highlight R %}
-boxplot(weight ~ group, data =  PlantGrowth, col = 'mediumpurple', 
+boxplot(weight ~ group, data =  PlantGrowth, col = 'mediumpurple',
         xlab = 'Group', ylab = 'Weight')
 {% endhighlight %}
 
@@ -142,7 +141,7 @@ plotting system:
 # Creating a conditional histogram of the data
 par(mfrow =  c(1,3))
 
-# We will use the lattice plotting system 
+# We will use the lattice plotting system
 library(lattice)
 
 # Creating the histogram

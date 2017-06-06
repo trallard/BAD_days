@@ -2,7 +2,7 @@
 layout: default
 title: "Multiple Hyp"
 tags:
-    - notebook
+    - Day1
 
 permalink: "Multiple Hyp.html"
 ---
@@ -95,7 +95,7 @@ Draw a barplot wiht color-coded cancer type
 {% highlight R %}
 plot.col <- c('ALL'='mediumpurple', 'AML'='midnightblue')
 
-barplot(g.profile, main = paste("Golub (1999), gene", g), 
+barplot(g.profile, main = paste("Golub (1999), gene", g),
         col = plot.col[cancer.type], border = 'white')
 
 legend('topright', c("ALL","AML"),col = plot.col[c("ALL","AML")],
@@ -215,7 +215,7 @@ equal variance)
 
 {% highlight R %}
 t.welch <- t.test(sample.ALL,sample.AML, var.equal=FALSE)
-print(t.welch) 
+print(t.welch)
 {% endhighlight %}
 
 **We want to test all the genes, so we could just loop over what was written
@@ -278,28 +278,28 @@ Datadf <- as.data.frame(Data)
 <font color ='#00bcd4'> In [25]: </font>
 
 {% highlight R %}
-Datadf$Bonferroni = 
-  p.adjust(Datadf$Raw.p, 
+Datadf$Bonferroni =
+  p.adjust(Datadf$Raw.p,
            method = "bonferroni")
 
-Datadf$BH = 
-  p.adjust(Datadf$Raw.p, 
+Datadf$BH =
+  p.adjust(Datadf$Raw.p,
            method = "BH")
 
-Datadf$Holm = 
-  p.adjust(Datadf$ Raw.p, 
+Datadf$Holm =
+  p.adjust(Datadf$ Raw.p,
            method = "holm")
 
-Datadf$Hochberg = 
-  p.adjust(Datadf$ Raw.p, 
+Datadf$Hochberg =
+  p.adjust(Datadf$ Raw.p,
            method = "hochberg")
 
-Datadf$Hommel = 
-  p.adjust(Datadf$ Raw.p, 
+Datadf$Hommel =
+  p.adjust(Datadf$ Raw.p,
            method = "hommel")
 
-Datadf$BY = 
-  p.adjust(Datadf$ Raw.p, 
+Datadf$BY =
+  p.adjust(Datadf$ Raw.p,
            method = "BY")
 {% endhighlight %}
 
@@ -331,9 +331,9 @@ matplot(X, Y,
         lty=1,
         lwd=2)
 
-legend('bottomright', 
-       legend = c("Bonferroni", "BH", "Holm", "Hochberg", "Hommel", "BY"), 
-       col = 1:6, 
+legend('bottomright',
+       legend = c("Bonferroni", "BH", "Holm", "Hochberg", "Hommel", "BY"),
+       col = 1:6,
        cex = 1,    
        pch = 16)
 
@@ -347,4 +347,3 @@ abline(0, 1,
 
 
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/Multiple%20Hyp_files/Multiple%20Hyp_50_0.png)
-

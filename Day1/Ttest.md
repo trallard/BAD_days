@@ -2,7 +2,7 @@
 layout: default
 title: "Ttest"
 tags:
-    - notebook
+    - Day1
 
 permalink: "Ttest.html"
 ---
