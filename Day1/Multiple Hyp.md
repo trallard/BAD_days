@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Multiple Hyp"
+title: "Multiple Hypothesis testing"
 tags:
     - Day1
 

@@ -5,36 +5,28 @@ title: Day 1 outline
 category: module
 ---
 
-# BAD Day 1
 
 **Description**
+
+---
 
 ## Outline
 This tutorial session will provide a brief introduction to Data Science and data manipulation using R and the Jupyter notebooks.
 
-Briefly, the topics covered are:
-
-* A brief introduction to Data Science
-* R for exploratory data Analysis
-* Hands on data: how to produce good graphics
-
----
-
 The hands-on components of this module are contained in the following tutorials:
 
-
+<ul >
 {% assign pages_list = site.pages %}
 {% for node in pages_list %}
 {% if node.title != null %}
 {% if node.layout == "default" %}
 {%if node.tags %}
 
-
 {% for tag in node.tags %}
 {% if tag == 'Day1' %}
 <!-- Note you need to prepend the site.baseurl always-->
-<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
-href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+<li><a href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+</li>
 {% endif %}
 {% endfor %}
 
@@ -42,3 +34,4 @@ href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
 {%endif%}
 {% endif %}
 {% endfor %}
+</ul>

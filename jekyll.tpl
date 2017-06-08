@@ -7,7 +7,7 @@
 layout: default
 title: "{{resources['metadata']['name']}}"
 tags:
-    - notebook
+    - Day
 
 permalink: "{{resources['metadata']['name']}}.html"
 ---

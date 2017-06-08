@@ -17,10 +17,10 @@ when the sidebar is displayed-->
 
 
 <div class='wrap'>
-  <div class="edge-header cyan darken-1">
+  <div class="edge-header cyan lighten-2">
     <div class='container'>
-    <h1 class='white-text'> {{site.description}}</h1>
-    <p class='white-text'> Add description here </p>
+    <h1 class='display-1'> {{site.description}}</h1>
+    <p class='display-3'> Add description here </p>
   </div>
   </div>
   <div class="container">
@@ -29,6 +29,14 @@ when the sidebar is displayed-->
 <!--- Main content--->
       <div class="col-sm-8">
         <main>
+          <br>
+          <div class="alert alert-warning" role="alert">
+            <h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+               Important </h3>
+            Make sure to visit the
+            <a href= '{{site.url}}{{site.baseurl}}/about/'> Getting started </a> section of this
+            page before proceeding to any of the course modules.
+          </div>
           {{content}}
         </main>
       </div>
