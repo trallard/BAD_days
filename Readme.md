@@ -105,3 +105,7 @@ python replace.py
 ~~~
 
 If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script.
+
+
+# Scheme colors
+The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `variables.scss` file. Alternatively a guide for the MDB colour aliases can be found [here](https://mdbootstrap.com/css/colors/).
