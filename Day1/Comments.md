@@ -4,6 +4,8 @@ title: "Comments"
 tags:
     - Day1
 nb: 'Comments.ipynb'
+module: '/1-outline/'
+
 permalink: "Comments.html"
 ---
 # BAD Day 1: Additional comments
