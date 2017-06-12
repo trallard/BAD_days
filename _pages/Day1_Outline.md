@@ -52,8 +52,6 @@ The hands-on components of this module are contained in the following tutorials:
 </ul>
 
 
-<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-
 <a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
 <i class="fa fa-home my-float"></i>
 </a>

@@ -361,9 +361,11 @@ hypothesis
 of equal population means. Note that the p-value is slightly smaller than
 that of the previous test.
 
-<br>
-<font color ='#00bcd4'> In [None]: </font>
 
-{% highlight R %}
+---
 
-{% endhighlight %}
+<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
+
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

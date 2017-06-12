@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Dimensionality reduction"
+title: "Dimensionality Reduction"
 tags:
     - Day2
 
@@ -748,9 +748,10 @@ for (i in 2:5) {
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_43_2.png)
 
 
-<br>
-<font color ='#00bcd4'> In [None]: </font>
+---
 
-{% highlight R %}
+<a href = '{{site.url}}{{site.baseurl}}/2-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 2: outline</a>
 
-{% endhighlight %}
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

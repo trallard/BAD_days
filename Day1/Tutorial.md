@@ -909,10 +909,10 @@ plot(mydata[,1],mydata[,3])
 
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/Tutorial_files/Tutorial_79_1.png)
 
+---
 
-<br>
-<font color ='#00bcd4'> In [None]: </font>
+<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
 
-{% highlight R %}
-
-{% endhighlight %}
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

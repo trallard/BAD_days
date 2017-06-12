@@ -3,6 +3,7 @@ layout: default
 title: "One way ANOVA "
 tags:
     - Day1
+
 permalink: "One way ANOVA .html"
 ---
 #  BAD Day 1: One way ANOVA
@@ -198,3 +199,12 @@ anova(fit)
 
 
 As expected, both approaches provide the same results!
+
+
+---
+
+<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
+
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

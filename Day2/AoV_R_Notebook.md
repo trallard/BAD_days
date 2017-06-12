@@ -977,10 +977,10 @@ fligner.test(npk$yield ~ npk$K);
     Fligner-Killeen:med chi-squared = 2.6046, df = 1, p-value = 0.1066
 
 
+---
 
-<br>
-<font color ='#00bcd4'> In [None]: </font>
+<a href = '{{site.url}}{{site.baseurl}}/2-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 2: outline</a>
 
-{% highlight R %}
-
-{% endhighlight %}
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

@@ -19,10 +19,9 @@ In this example:
 * 2 is the number of successes: number of times the cat uses its right paw
 * 10 is the number of trials (8 times it uses its left paw)
 
-Can you conclude that it is right-pawed, or could this result have occurred due
+Can you conclude that it is right-pawed, or could this result have occured due
 to chance under the nul hypothesis that it bats equally with each paw?
 
----
 
 Remembering that 0.5 is the hypothesized probability of sucess (unbiased).
 
@@ -345,9 +344,10 @@ fisher.multcomp(Matrix, p.method = "none")
     P value adjustment method: none
 
 
-<br>
-<font color ='#00bcd4'> In [None]: </font>
+---
 
-{% highlight R %}
+<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
 
-{% endhighlight %}
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>
