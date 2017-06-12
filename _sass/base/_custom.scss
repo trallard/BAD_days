@@ -139,7 +139,7 @@ ul {
 	position:fixed;
 	width:50px;
 	height:50px;
-	bottom:40px;
+	bottom:20px;
 	right:40px;
 	background-color: $primary;
 	color:#FFF;
@@ -148,10 +148,9 @@ ul {
 	box-shadow: 2px 2px 3px #999;
   font-size: 1.25em;
   &:hover{
-    background-color: $primary-dark;
+    background-color: lighten($primary, 5%);
   }
 }
-
 
 a.float:hover,
 a.float:focus {

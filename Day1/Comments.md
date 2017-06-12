@@ -479,7 +479,7 @@ plot(x,y)
 What is the correlation?
 
 ---
-<a class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-<a href="#" class="float">
+<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
+<a href="#" class="float" download>
 <i class="fa fa-download my-float"></i>
 </a>

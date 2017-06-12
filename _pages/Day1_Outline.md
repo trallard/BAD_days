@@ -1,17 +1,18 @@
 ---
 layout: page
 permalink: /1-outline/
-title: Day 1 outline
+title: Day 1
 category: module
 ---
 
-
-**Description**
-
-
 **Prerequisites:** Addressed to researchers already familiar with R  and basics of statistics
 
-Day1 focus: "R&Bioconductor and Multiple hypothesis testing"
+
+**Description:**
+
+Main focus: "R&Bioconductor and Multiple hypothesis testing"
+
+This tutorial session will provide a brief introduction to Data Science and data manipulation using R and the Jupyter notebooks.
 
 Program:
 
@@ -22,13 +23,10 @@ Program:
 - Multiple hypothesis Testing (FDR, Bonferroni and Benjamini correction)
 - Examples (exercise notebook)
 
+---
 
+## Outline/ content
 
-
-
-
-## Outline
-This tutorial session will provide a brief introduction to Data Science and data manipulation using R and the Jupyter notebooks.
 
 The hands-on components of this module are contained in the following tutorials:
 
@@ -52,3 +50,10 @@ The hands-on components of this module are contained in the following tutorials:
 {% endif %}
 {% endfor %}
 </ul>
+
+
+<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
+
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

@@ -1,23 +1,17 @@
 ---
 layout: page
 permalink: /2-outline/
-title: Day 2 outline
+title: Day 2
 category: module
 ---
 
+**Prerequisites:** Addressed to researchers already familiar with R and basics of statistics
 
-**Description**
-This second session is self contained and an average expert user would take about two hours for a full run 
+**Description:** This second session is self contained and an average expert user would take about two hours for a full run
 
-Prerequisites: Addressed to researchers already familiar with R and basics of statistics
-
-Day 2 Program:
-- Dimensionality Reduction Methods
-- Analysis of Variance and Generalized Linear Models
-- Case studies and Examples in R
 ---
 
-## Outline
+## Outline/content
 This tutorial session will provide a brief introduction to Data Science and data manipulation using R and the Jupyter notebooks.
 
 The hands-on components of this module are contained in the following tutorials:
@@ -42,3 +36,8 @@ The hands-on components of this module are contained in the following tutorials:
 {% endif %}
 {% endfor %}
 </ul>
+
+
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<i class="fa fa-home my-float"></i>
+</a>

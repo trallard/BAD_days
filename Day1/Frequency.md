@@ -19,7 +19,7 @@ In this example:
 * 2 is the number of successes: number of times the cat uses its right paw
 * 10 is the number of trials (8 times it uses its left paw)
 
-Can you conclude that it is right-pawed, or could this result have occured due
+Can you conclude that it is right-pawed, or could this result have occurred due
 to chance under the nul hypothesis that it bats equally with each paw?
 
 ---
