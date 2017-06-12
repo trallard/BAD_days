@@ -7,7 +7,14 @@ category: module
 
 
 **Description**
+This second session is self contained and an average expert user would take about two hours for a full run 
 
+Prerequisites: Addressed to researchers already familiar with R and basics of statistics
+
+Day 2 Program:
+- Dimensionality Reduction Methods
+- Analysis of Variance and Generalized Linear Models
+- Case studies and Examples in R
 ---
 
 ## Outline
