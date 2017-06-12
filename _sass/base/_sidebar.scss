@@ -75,8 +75,9 @@ $bar-width: 20rem;
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: none;
-  color: $primary;
+  text-decoration: underline;
+  text-decoration-color: $primary;
+  color: $white;
 }
 
 @media (min-width: 48em) {

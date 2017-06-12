@@ -2,3 +2,9 @@
 layout: landing
 permalink: /index.html
 ---
+
+
+The Bioinformatics Awareness Days are days devoted to Bioinformatics. As a Marie S. Curie postdoctoral fellow @ SITRaN and Computer Science Departments at the University of Sheffield, I organized such an event to give my practical contribution in Bioinformatics, although I have to state that all this started in Naples at the Telethon Institute of Genetics and Medicine, with the great Bionformatics Core.
+
+Together with Tania Allard and Mike Croucher at the DCS, we decided to publicly divulgate this material to all the interested scientific community.
+The sessions are self contained and a full run should last at most 2 hours.

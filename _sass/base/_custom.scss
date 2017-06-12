@@ -91,9 +91,11 @@ td{
 
 
 /** edge header ***/
-edge-header{
+.edge-header{
   p{
-    font-size: 2.5em;
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 
@@ -129,4 +131,34 @@ ul {
 
 .card{
   margin-top: 15px;
+}
+
+
+/*** Floating button ***/
+.float{
+	position:fixed;
+	width:50px;
+	height:50px;
+	bottom:40px;
+	right:40px;
+	background-color: $primary;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  font-size: 1.25em;
+  &:hover{
+    background-color: $primary-dark;
+  }
+}
+
+
+a.float:hover,
+a.float:focus {
+  text-decoration: underline;
+  color: $white;
+}
+
+.my-float{
+	margin-top:16px;
 }
