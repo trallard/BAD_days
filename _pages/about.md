@@ -98,8 +98,8 @@ biocLite("multtest")
 * gdata
 * ape
 
+http://bitsandchips.me/BAD_days/www.bitsandchips.me/BAD_days/about
 
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<a href="{{site.baseurl}}/index.html" class="float" download>
 <i class="fa fa-home my-float"></i>
 </a>
