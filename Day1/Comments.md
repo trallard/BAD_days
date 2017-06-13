@@ -1,9 +1,10 @@
 ---
 layout: default
 title: "Comments"
+
 tags:
     - Day1
-nb: 'Comments.ipynb'
+nb: "Comments.ipynb"
 module: '/1-outline/'
 
 permalink: "Comments.html"
@@ -169,7 +170,7 @@ quantile(x)
 {% endhighlight %}
 
 
-<dl class="dl-horizontal">
+<dl class=dl-horizontal>
 	<dt>0%</dt>
 		<dd>-2.13649385561006</dd>
 	<dt>25%</dt>
@@ -192,7 +193,7 @@ quantile(x,probs = c(.1,.2,.9))
 {% endhighlight %}
 
 
-<dl class="dl-horizontal">
+<dl class=dl-horizontal>
 	<dt>10%</dt>
 		<dd>-0.863526139969441</dd>
 	<dt>20%</dt>

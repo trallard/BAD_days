@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "Dimensionality Reduction"
+
 tags:
     - Day2
+nb: "dimensionality ReductionR.ipynb"
+module: '/2-outline/'
 
 permalink: "dimensionality ReductionR.html"
 ---
@@ -10,7 +13,7 @@ permalink: "dimensionality ReductionR.html"
 
 # 1. PCA
 (for more examples see
-http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual )
+<http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual> )
 
 Principal Component Analysis (PCA) is a data reduction technique that allows to
 simplify multidimensional data sets to a lower dimensional space ( tipically
@@ -33,7 +36,7 @@ The Iris species are:  **setosa, versicolor, and virginica.**
 
 
 <br>
-<font color ='#00bcd4'> In [2]: </font>
+<font color ='#00bcd4'> In [1]: </font>
 
 {% highlight R %}
 # Setting the working directory
@@ -43,7 +46,7 @@ setwd(bad2dir)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [3]: </font>
+<font color ='#00bcd4'> In [2]: </font>
 
 {% highlight R %}
 # Loading the data and getting a summary
@@ -68,7 +71,7 @@ Now we will create a scatterplot of the dimensions against each other for the
 three species.
 
 <br>
-<font color ='#00bcd4'> In [4]: </font>
+<font color ='#00bcd4'> In [3]: </font>
 
 {% highlight R %}
 # Custom chosen colours
@@ -94,7 +97,7 @@ much information in the original data as possible.
 We will use the `prcomp` function.
 
 * If we work with standardized data (mean 0 std 1) we need to calculate the
-principal components through correlation matrix.
+principal components through the correlation matrix.
 
 * If we work with raw data we need to calculate the principal components through
 the covariance matrix.
@@ -109,7 +112,7 @@ correlation matrix for simplicity’s sake.
 First, we are going to examine the variability of all the numeric values
 
 <br>
-<font color ='#00bcd4'> In [5]: </font>
+<font color ='#00bcd4'> In [4]: </font>
 
 {% highlight R %}
 sapply(iris[1:4],var)
@@ -130,7 +133,7 @@ sapply(iris[1:4],var)
 
 
 <br>
-<font color ='#00bcd4'> In [6]: </font>
+<font color ='#00bcd4'> In [5]: </font>
 
 {% highlight R %}
 range(sapply(iris[1:4],var))
@@ -145,11 +148,11 @@ range(sapply(iris[1:4],var))
 
 
 Maybe this range of variability is big in this context.
-Thus, we will use the correlation matrix
+Thus, we will use the correlation matrix.
 For this, we must standardize our variables using the  `scale()` function:
 
 <br>
-<font color ='#00bcd4'> In [7]: </font>
+<font color ='#00bcd4'> In [6]: </font>
 
 {% highlight R %}
 iris.stand <- as.data.frame(scale(iris[,1:4]))
@@ -178,7 +181,7 @@ If we use the `prcomp()` function, we indicate `scale=TRUE` to use the
 correlation matrix.
 
 <br>
-<font color ='#00bcd4'> In [8]: </font>
+<font color ='#00bcd4'> In [7]: </font>
 
 {% highlight R %}
 pca <- prcomp(iris.stand, scale = T)
@@ -200,7 +203,7 @@ pca
 
 
 <br>
-<font color ='#00bcd4'> In [9]: </font>
+<font color ='#00bcd4'> In [8]: </font>
 
 {% highlight R %}
 summary(pca)
@@ -219,7 +222,7 @@ variance explained by each component.
 The standard deviation is stored in (see `str(pca)`):
 
 <br>
-<font color ='#00bcd4'> In [10]: </font>
+<font color ='#00bcd4'> In [9]: </font>
 
 {% highlight R %}
 pca$sdev
@@ -243,7 +246,7 @@ Usually a scree plot helps making a decision. In R we can use the `screeplot()`
 function:
 
 <br>
-<font color ='#00bcd4'> In [11]: </font>
+<font color ='#00bcd4'> In [10]: </font>
 
 {% highlight R %}
 #plot of variance of each PCA.
@@ -262,7 +265,7 @@ data!
 
 
 <br>
-<font color ='#00bcd4'> In [12]: </font>
+<font color ='#00bcd4'> In [11]: </font>
 
 {% highlight R %}
 #retreive loadings for the principal components:
@@ -303,7 +306,7 @@ According to the second component, When the iris has larger sepal and petal
 values than average, the PC2 will be smaller than average.
 
 <br>
-<font color ='#00bcd4'> In [13]: </font>
+<font color ='#00bcd4'> In [12]: </font>
 
 {% highlight R %}
 unique(iris$Species)
@@ -329,7 +332,7 @@ as.numeric(unique(iris$Species))+1
 
 
 <br>
-<font color ='#00bcd4'> In [14]: </font>
+<font color ='#00bcd4'> In [13]: </font>
 
 {% highlight R %}
 # biplot of first two principal components
@@ -342,7 +345,7 @@ abline(h = 0, v = 0, lty = 2, col = 8)
 
 
 <br>
-<font color ='#00bcd4'> In [15]: </font>
+<font color ='#00bcd4'> In [14]: </font>
 
 {% highlight R %}
 plot(pca$x, col = colours, pch = 19)
@@ -359,27 +362,27 @@ legend("topright", legend = unique(iris$Species), col = colours, pch= 19)
 The t-Distributed Stochastic Neighbor Embedding (t-SNE algorithm), by Laurens
 van der Maaten and Geoffrey Hinton, is a NON LINEAR dimensionality reduction
 algorithm.
-It enebles to represent high-dimensional data in two or three dimensions and
-allows visualization via scatter plots.
+It enables the representation of high-dimensional data in two or three
+dimensions and allows visualization via scatter plots.
 
 Barnes-Hut-SNE is a further improvement of the algorithm by Laurens van der
 Maaten, which uses Barnes-Hut approximations to significantly improve
 computational speed (O(N log N) instead of O(N2)). This makes it feasible to
 apply the algorithm to larger data sets.
 
-We will follow the example proposed oh github https://github.com/lmweber/Rtsne-
-example using "Rtsne", a package by Jesse Krijthe provides an R wrapper function
-for the C++ implementation of the Barnes-Hut-SNE algorithm.
+We will follow the example proposed oh github <https://github.com/lmweber/Rtsne-
+example> using "Rtsne", a package by Jesse Krijthe provides an R wrapper
+function for the C++ implementation of the Barnes-Hut-SNE algorithm.
 
 The data set used in this example is the healthy human bone marrow data set
-"Marrow1".
+`Marrow1`.
 
 <br>
-<font color ='#00bcd4'> In [16]: </font>
+<font color ='#00bcd4'> In [15]: </font>
 
 {% highlight R %}
 # fist of all, just as an example, apply tsne on the IRIS dataset
-library(Rtsne) # Load package
+library('Rtsne') # Load package
 iris_unique <- unique(iris) # Remove duplicates
 set.seed(42) # Sets seed for reproducibility
 tsne_out <- Rtsne(as.matrix(iris_unique[,1:4])) # Run TSNE
@@ -393,27 +396,24 @@ legend("bottomright", legend = unique(iris$Species), col = colours, pch = 19)
 {% endhighlight %}
 
 
-    Error in library(Rtsne): there is no package called ‘Rtsne’
-    Traceback:
-
-
-    1. library(Rtsne)
-
-    2. stop(txt, domain = NA)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_27_0.png)
 
 
 Here we will follow  the example on GITHUB  https://github.com/lmweber/Rtsne-
 example.
-The Marrow1 dataset is made of cells from different cell populations (types). We
-will see how tsne will be able to  group them as distinct clusters of points in
-the 2-dimensional projection. There is clear visual separation between clusters.
+The Marrow1 dataset is made of cells from different cell populations (types).
+
+We will see how tsne will be able to  group them as distinct clusters of points
+in the 2-dimensional projection. There is clear visual separation between
+clusters.
+
 Amir et al. (2013) also independently verified the interpretation of the
 clusters using "manual gating" methods (visual inspection of 2-dimensional
 scatter plots), confirming that several clusters represent well-known cell types
 from immunology.
 
 <br>
-<font color ='#00bcd4'> In [17]: </font>
+<font color ='#00bcd4'> In [16]: </font>
 
 {% highlight R %}
 #install flowCore package from Bioconductor (to read FCS files)
@@ -422,7 +422,7 @@ biocLite("flowCore")
 
 # install Rtsne package from CRAN (R implementation of Barnes-Hut-SNE algorithm)
 
-install.packages("Rtsne")
+#install.packages("Rtsne")
 
 # load packages
 
@@ -431,7 +431,7 @@ library(flowCore)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [21]: </font>
+<font color ='#00bcd4'> In [17]: </font>
 
 {% highlight R %}
 data <- exprs(read.FCS("./Rtsne-example-master/data/visne_marrow1.fcs", transformation = FALSE))
@@ -499,7 +499,7 @@ unname(colnames(data))  # isotope and marker (protein) names
 
 
 <br>
-<font color ='#00bcd4'> In [22]: </font>
+<font color ='#00bcd4'> In [18]: </font>
 
 {% highlight R %}
 # select markers to use in calculation of t-SNE projection
@@ -554,7 +554,7 @@ dim(data)
 
 
 <br>
-<font color ='#00bcd4'> In [23]: </font>
+<font color ='#00bcd4'> In [19]: </font>
 
 {% highlight R %}
 # prepare data for Rtsne
@@ -574,7 +574,7 @@ dim(data)
 
 
 <br>
-<font color ='#00bcd4'> In [24]: </font>
+<font color ='#00bcd4'> In [20]: </font>
 
 {% highlight R %}
 # Exporting the subsample data in TXT format
@@ -590,21 +590,15 @@ Running the Rtsne (Barnes-Hut_SNE algorithm) without PCA step (see Amir et al.
 2013, Online Methods, "viSNE analysis")
 
 <br>
-<font color ='#00bcd4'> In [25]: </font>
+<font color ='#00bcd4'> In [21]: </font>
 
 {% highlight R %}
 set.seed(123)  # set random seed
 rtsne_out <- Rtsne(as.matrix(data), pca = FALSE, verbose = TRUE)
 {% endhighlight %}
 
-
-    Error in eval(expr, envir, enclos): could not find function "Rtsne"
-    Traceback:
-
-
-
 <br>
-<font color ='#00bcd4'> In [26]: </font>
+<font color ='#00bcd4'> In [22]: </font>
 
 {% highlight R %}
 # plot 2D t-SNE projection
@@ -623,19 +617,13 @@ plot(rtsne_out$Y, asp =1, pch = 21, col = 'mediumpurple',
 {% endhighlight %}
 
 
-    Error in plot(rtsne_out$Y, asp = 1, pch = 21, col = "mediumpurple", cex = 0.75, : object 'rtsne_out' not found
-    Traceback:
-
-
-    1. plot(rtsne_out$Y, asp = 1, pch = 21, col = "mediumpurple", cex = 0.75,
-     .     cex.axis = 1.25, cex.lab = 1.25, cex.main = 1.5, xlab = "t-SNE dimension 1",
-     .     ylab = "t-SNE dimension 2", main = "2D t-SNE projection")
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_36_0.png)
 
 
 ### Compare to PCA
 
 <br>
-<font color ='#00bcd4'> In [27]: </font>
+<font color ='#00bcd4'> In [23]: </font>
 
 {% highlight R %}
 pca_data = princomp(as.matrix(data))$scores[,1:2]
@@ -650,7 +638,7 @@ plot(pca_data, col= 'steelblue3')
 
 # About the interpretation of TSNE
 SOME EXAMPLES FROM
-https://gist.github.com/mikelove/74bbf5c41010ae1dc94281cface90d32
+<https://gist.github.com/mikelove/74bbf5c41010ae1dc94281cface90d32>
 on the delicate interpretation of tsne when the underlyng structure of the data
 is LINEAR
 
@@ -658,7 +646,7 @@ Explore tsne on linear data. First install (if needed) and load the required
 packages.
 
 <br>
-<font color ='#00bcd4'> In [37]: </font>
+<font color ='#00bcd4'> In [24]: </font>
 
 {% highlight R %}
 library(rafalib)
@@ -669,7 +657,7 @@ library(pracma)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [42]: </font>
+<font color ='#00bcd4'> In [25]: </font>
 
 {% highlight R %}
 par(mfrow=c(1, 2))
@@ -688,23 +676,15 @@ for (i in 2:5) {
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_42_1.png)
+    Error in runif(n, -1, 1): object 'n' not found
+    Traceback:
 
 
-
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_42_3.png)
-
-
-
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_42_4.png)
-
-
-
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_42_5.png)
+    1. runif(n, -1, 1)   # at line 5 of file <text>
 
 
 <br>
-<font color ='#00bcd4'> In [41]: </font>
+<font color ='#00bcd4'> In [26]: </font>
 
 {% highlight R %}
 n <- 200
@@ -746,12 +726,3 @@ for (i in 2:5) {
 
 
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/dimensionality%20ReductionR_files/dimensionality%20ReductionR_43_2.png)
-
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/2-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 2: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

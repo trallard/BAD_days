@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "Ttest"
+
 tags:
     - Day1
+nb: "Ttest.ipynb"
+module: '/1-outline/'
 
 permalink: "Ttest.html"
 ---
@@ -27,8 +30,8 @@ microarray study of Golub et al. (1999). Pre-processing was done as described in
 Dudoit et al. (2002). The R code for pre-processing is available in the file
 ../doc/golub.R.
 Source: Golub et al. (1999). Molecular classification of cancer: class discovery
-and class prediction by gene expression monitoring, Science, Vol. 286:531-537.
-http://www-genome.wi.mit.edu/MPR/ .
+and class prediction by gene expression monitoring, Science, Vol. 286:531-537
+(http://www-genome.wi.mit.edu/MPR/) .
 
 <br>
 <font color ='#00bcd4'> In [2]: </font>
@@ -169,7 +172,7 @@ sample.ALL <- g.profile[cancer.type=="ALL"]
 sample.AML <- g.profile[cancer.type=="AML"]
 {% endhighlight %}
 
-**Compute manually ** the t test parameters (not necessary, just to practice!)
+**Compute manually** the t test parameters (not necessary, just to practice!)
 
 Estimate the population means
 
@@ -246,11 +249,10 @@ P.val.Student <- 2 * pt(q = t.obs.Student, df = n.ALL + n.AML-2, lower.tail = F)
 
 ## 3. T-test the fast way
 
- **This is what you should be doing... **
+ **This is what you should be doing...**
 
  Suppose that the gene expression data from two groups of patients
-(experimental) are availaeble and that the that the hypothesis is about the
-difference
+(experimental) are availabe and that the hypothesis is about the difference
 between the population means $\mu_1$ and $\mu_2$.
 
 Thus $H_0: \mu_1 = \mu_2$ is to be tested against  $H_0: \mu_1 \neq \mu_2$. If
@@ -266,6 +268,7 @@ $$ t =
 \frac{(\bar{x}-\bar{y})-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n}+\frac{s_2^2}{m}}}$$
 
 
+---
 **Note**: the t-value is large if the difference between $\bar{x}$ and $\bar{y}$
 is large and the standard deviations $s_1$ and $s_2$ are small. This corresponds
 to the **Welch two-sample t-test**.
@@ -328,8 +331,9 @@ Then the t-value will be
 $$t = \frac{\bar{x}-\bar{y}-(\mu_1-\mu_2)}{s_p \sqrt{\frac{1}{n}+\frac{1}{m}}}
 $$
 
-The null hypothesis for gene CCND3 Cyclin D3 that the mean of ALL differs from
-that of AML patients can be tested by the two-sample t-test using:
+
+The null hypothesis for gene CCND3 Cyclin D3 is that the mean of ALL differs
+from that of AML patients can be tested by the two-sample t-test using:
 
 <br>
 <font color ='#00bcd4'> In [23]: </font>
@@ -360,12 +364,3 @@ From the p-value $6.046 \times 10^{-8}$, the conclusion is to reject the null
 hypothesis
 of equal population means. Note that the p-value is slightly smaller than
 that of the previous test.
-
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

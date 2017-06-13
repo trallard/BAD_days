@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "Frequency"
+
 tags:
     - Day1
+nb: "Frequency.ipynb"
+module: '/1-outline/'
 
 permalink: "Frequency.html"
 ---
@@ -22,13 +25,14 @@ In this example:
 Can you conclude that it is right-pawed, or could this result have occured due
 to chance under the nul hypothesis that it bats equally with each paw?
 
+---
 
 Remembering that 0.5 is the hypothesized probability of sucess (unbiased).
 
 First we calculate the probability of a single event only (non binomial test).
 
 <br>
-<font color ='#00bcd4'> In [2]: </font>
+<font color ='#00bcd4'> In [1]: </font>
 
 {% highlight R %}
 dbinom( 2, 10, 0.5, FALSE)
@@ -48,7 +52,7 @@ only.
 One-sided test:
 
 <br>
-<font color ='#00bcd4'> In [7]: </font>
+<font color ='#00bcd4'> In [2]: </font>
 
 {% highlight R %}
 binom.test(2, 10, 0.5, alternative = 'less', conf.level = 0.9 )
@@ -78,7 +82,7 @@ In this example:
 ---
 
 <br>
-<font color ='#00bcd4'> In [8]: </font>
+<font color ='#00bcd4'> In [3]: </font>
 
 {% highlight R %}
 trials = 10
@@ -86,7 +90,7 @@ prob = 0.5
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [9]: </font>
+<font color ='#00bcd4'> In [4]: </font>
 
 {% highlight R %}
 x = seq(0, trials)                   # x is a sequence, 1 to trials
@@ -96,12 +100,12 @@ y = dbinom(x, size=trials, p=prob)   # y is the vector of heights
 Generating a bar-plot:
 
 <br>
-<font color ='#00bcd4'> In [12]: </font>
+<font color ='#00bcd4'> In [7]: </font>
 
 {% highlight R %}
 barplot (height=y,
          names.arg=x,
-         col = 'mediumpurple2',
+         col = 'mediumpurple2', border = 'white',
          xlab = "Number of uses of right paw",
          ylab = "Probability under null hypothesis")
 box()
@@ -126,7 +130,7 @@ the expected values are 750 smooth-winged and 250 wrinkled-winged flies
 
 
 <br>
-<font color ='#00bcd4'> In [3]: </font>
+<font color ='#00bcd4'> In [8]: </font>
 
 {% highlight R %}
 observed = c(770, 230)        # observed frequencies
@@ -134,7 +138,7 @@ expected = c(0.75, 0.25)      # expected proportions
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [4]: </font>
+<font color ='#00bcd4'> In [9]: </font>
 
 {% highlight R %}
 chisq.test(
@@ -166,7 +170,7 @@ so they collected data on severe reactions to this vaccine in children aged 3 to
 other nominal variable is thigh vs. arm.
 
 <br>
-<font color ='#00bcd4'> In [7]: </font>
+<font color ='#00bcd4'> In [10]: </font>
 
 {% highlight R %}
 Input =(
@@ -178,7 +182,7 @@ Input =(
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [9]: </font>
+<font color ='#00bcd4'> In [11]: </font>
 
 {% highlight R %}
 Matrix = as.matrix(read.table(textConnection(Input),
@@ -200,7 +204,7 @@ Matrix
 
 
 <br>
-<font color ='#00bcd4'> In [13]: </font>
+<font color ='#00bcd4'> In [12]: </font>
 
 {% highlight R %}
 chisq.test(Matrix, correct=TRUE)      # Continuity correction for 2 x 2
@@ -216,7 +220,7 @@ chisq.test(Matrix, correct=TRUE)      # Continuity correction for 2 x 2
 
 
 <br>
-<font color ='#00bcd4'> In [14]: </font>
+<font color ='#00bcd4'> In [13]: </font>
 
 {% highlight R %}
 chisq.test(Matrix, correct=FALSE)      # No continuity correction for 2 x 2
@@ -249,7 +253,7 @@ at the end of the three-month study, and recorded how many had termite damage by
 the end of the study:
 
 <br>
-<font color ='#00bcd4'> In [15]: </font>
+<font color ='#00bcd4'> In [14]: </font>
 
 {% highlight R %}
 Input =(
@@ -263,7 +267,7 @@ Input =(
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [16]: </font>
+<font color ='#00bcd4'> In [15]: </font>
 
 {% highlight R %}
 Matrix = as.matrix(read.table(textConnection(Input),
@@ -290,7 +294,7 @@ The overall *p* value for this is p=0.00012 so it is highly significant,the
 frequency of disturbance is affecting the presence of termites.
 
 <br>
-<font color ='#00bcd4'> In [17]: </font>
+<font color ='#00bcd4'> In [16]: </font>
 
 {% highlight R %}
 fisher.test(Matrix, alternative="two.sided")
@@ -307,23 +311,17 @@ fisher.test(Matrix, alternative="two.sided")
 
 
 <br>
-<font color ='#00bcd4'> In [20]: </font>
+<font color ='#00bcd4'> In [17]: </font>
 
 {% highlight R %}
 install.packages('RVAideMemoire')
 
 {% endhighlight %}
 
-
-    Error in eval(expr, envir, enclos): could not find function "fisher.multcomp"
-    Traceback:
-
-
-
 The p-values can be adjusted. See ?p.adjust for options
 
 <br>
-<font color ='#00bcd4'> In [23]: </font>
+<font color ='#00bcd4'> In [18]: </font>
 
 {% highlight R %}
 library('RVAideMemoire')
@@ -342,12 +340,3 @@ fisher.multcomp(Matrix, p.method = "none")
     Quarterly 0.0019215 0.12835  0.5721
 
     P value adjustment method: none
-
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

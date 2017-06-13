@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "Multiple Hypothesis testing"
+
 tags:
     - Day1
+nb: "Multiple Hyp.ipynb"
+module: '/1-outline/'
 
 permalink: "Multiple Hyp.html"
 ---
@@ -11,9 +14,9 @@ permalink: "Multiple Hyp.html"
 In this tutorial we will do multiple hypothesis testing on the previsouly
 studied `Golub` data set.
 
--  **Null Hypothesis** $H_0$ states the assumption to be tested. We begin by
+-  **Null Hypothesis** $H_0$: states the assumption to be tested. We begin by
 assuming that the null Hypothesis is True
--  **Alternative Hypothesis** $H_1$ is the opposite of the null hypothesis
+-  **Alternative Hypothesis** $H_1$: is the opposite of the null hypothesis
 
 ## 1. Loading the dataset
 
@@ -193,7 +196,7 @@ multiplied by 3 in order to obtai the alpha risk
 P.val.Student <- 2 * pt(q = t.obs.Student, df = n.ALL + n.AML-2, lower.tail = F)
 {% endhighlight %}
 
-### This is what you should be doing... FAST!
+**This is what you should be doing... FAST!**
 
 ## 3. Apply the Student-Fischer t-test (this assumes that the two populations
 have equal variance).
@@ -246,7 +249,7 @@ for (g in 1:nrow(golub.expr)) {
  print(P.values)
 {% endhighlight %}
 
-#### For a more efficient way, you can use apply
+**For a more efficient way, you can use apply**
 
 <br>
 <font color ='#00bcd4'> In [22]: </font>
@@ -347,11 +350,3 @@ abline(0, 1,
 
 
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/Multiple%20Hyp_files/Multiple%20Hyp_50_0.png)
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

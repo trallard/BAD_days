@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "One way ANOVA "
+
 tags:
     - Day1
+nb: "One way ANOVA .ipynb"
+module: '/1-outline/'
 
 permalink: "One way ANOVA .html"
 ---
@@ -155,7 +158,7 @@ histogram(~weight | group, data =  PlantGrowth, col = 'mediumpurple', type = 'co
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/One%20way%20ANOVA%20_files/One%20way%20ANOVA%20_12_1.png)
 
 
-## Our  null hypotesis is that the three groups have the same growth mean
+** Our  null hypotesis is that the three groups have the same growth mean**
 
 First we will use a completely randomized design one-way ANOVA
 
@@ -199,12 +202,3 @@ anova(fit)
 
 
 As expected, both approaches provide the same results!
-
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

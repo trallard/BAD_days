@@ -1,17 +1,20 @@
 ---
 layout: default
 title: "Analysis of variance"
+
 tags:
     - Day2
+nb: "AoV_R_Notebook.ipynb"
+module: '/2-outline/'
 
 permalink: "AoV_R_Notebook.html"
 ---
-# BAD DAY 2: ANOVA  </font>
+# BAD DAY 2: ANOVA
 
 # 1. Analysis of variance: ANOVA models
 
 <br>
-<font color ='#00bcd4'> In [2]: </font>
+<font color ='#00bcd4'> In [1]: </font>
 
 {% highlight R %}
 # Setting the right working dir
@@ -21,18 +24,21 @@ setwd(bad2dir)
 
 {% endhighlight %}
 
-Loading the data
+Loading the data: in this case we ae going to work with the `growth1` data set
+provided as art of this course. The data is contained within a `.csv` file.
 
 <br>
-<font color ='#00bcd4'> In [3]: </font>
+<font color ='#00bcd4'> In [2]: </font>
 
 {% highlight R %}
 # data=read.delim('./Data/growth.txt',header=TRUE)
 data1 = read.csv('./Data/growth1.csv')
 {% endhighlight %}
 
+Let's first have a look at the dimension  of the data
+
 <br>
-<font color ='#00bcd4'> In [4]: </font>
+<font color ='#00bcd4'> In [3]: </font>
 
 {% highlight R %}
 dim(data1)
@@ -46,8 +52,10 @@ dim(data1)
 
 
 
+Printing the column names:
+
 <br>
-<font color ='#00bcd4'> In [5]: </font>
+<font color ='#00bcd4'> In [4]: </font>
 
 {% highlight R %}
 colnames(data1)
@@ -61,8 +69,10 @@ colnames(data1)
 
 
 
+Getting a basic statistical summary on the data:
+
 <br>
-<font color ='#00bcd4'> In [6]: </font>
+<font color ='#00bcd4'> In [5]: </font>
 
 {% highlight R %}
 summary(data1)
@@ -79,7 +89,7 @@ summary(data1)
 
 
 <br>
-<font color ='#00bcd4'> In [7]: </font>
+<font color ='#00bcd4'> In [6]: </font>
 
 {% highlight R %}
 # making the objects in the dataframe accessible
@@ -87,7 +97,7 @@ attach(data1)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [8]: </font>
+<font color ='#00bcd4'> In [7]: </font>
 
 {% highlight R %}
 Treatment
@@ -140,17 +150,19 @@ but it will be easier to interpret the results if you use meaningful names.
 ### Ready to run the analysis.
 
 <br>
-<font color ='#00bcd4'> In [10]: </font>
+<font color ='#00bcd4'> In [8]: </font>
 
 {% highlight R %}
 data.aov = aov(Growth ~ Treatment)
 {% endhighlight %}
 
 Notice here the symbol (a tilde) in the model. This means take Growth as the
-DEPENDENT variable, indeed it depends on the Treatment
+DEPENDENT variable, indeed it depends on the Treatment.
+
+We can then print the results of the analysis of variance
 
 <br>
-<font color ='#00bcd4'> In [11]: </font>
+<font color ='#00bcd4'> In [9]: </font>
 
 {% highlight R %}
 #see the results: not very clear
@@ -170,11 +182,13 @@ data.aov
     Estimated effects may be unbalanced
 
 
+In order to get more information we need to view the analysis summary:
+
 <br>
-<font color ='#00bcd4'> In [12]: </font>
+<font color ='#00bcd4'> In [10]: </font>
 
 {% highlight R %}
-#We need to view the summary to have more information:
+
 
 summary(data.aov)
 {% endhighlight %}
@@ -198,7 +212,7 @@ the each other (e.g. control treatments). R provides a simple function to carry
 out the Tukey HSD test.
 
 <br>
-<font color ='#00bcd4'> In [13]: </font>
+<font color ='#00bcd4'> In [11]: </font>
 
 {% highlight R %}
 TukeyHSD(data.aov)
@@ -232,8 +246,10 @@ TukeyHSD(data.aov)
 
 # 3. Two way ANOVA
 
+Loading the data to be used
+
 <br>
-<font color ='#00bcd4'> In [14]: </font>
+<font color ='#00bcd4'> In [12]: </font>
 
 {% highlight R %}
 data2 = read.csv('./Data/growth2.csv')
@@ -250,7 +266,7 @@ names(data2)
 
 
 <br>
-<font color ='#00bcd4'> In [15]: </font>
+<font color ='#00bcd4'> In [13]: </font>
 
 {% highlight R %}
 detach(data1)  # detach the previoulsy attached data set
@@ -258,7 +274,7 @@ attach(data2)  # making data2 accessible
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [16]: </font>
+<font color ='#00bcd4'> In [14]: </font>
 
 {% highlight R %}
 Gender
@@ -306,7 +322,7 @@ Gender
 
 
 <br>
-<font color ='#00bcd4'> In [17]: </font>
+<font color ='#00bcd4'> In [15]: </font>
 
 {% highlight R %}
 Treatment
@@ -354,7 +370,7 @@ Treatment
 
 
 <br>
-<font color ='#00bcd4'> In [18]: </font>
+<font color ='#00bcd4'> In [16]: </font>
 
 {% highlight R %}
 length(Gender)
@@ -372,11 +388,12 @@ This takes three arguments: the data you wish to summarize, the factor that
 determines the groups, and the function you wish to apply to each of the groups.
 
 
+First we will compute the mean Growth as a function of the Treatment type:
+
 <br>
-<font color ='#00bcd4'> In [19]: </font>
+<font color ='#00bcd4'> In [17]: </font>
 
 {% highlight R %}
-# First we will compute the mean Growth as a function of the Treatment type
 tapply(Growth, Treatment, mean)
 {% endhighlight %}
 
@@ -399,7 +416,7 @@ tapply(Growth, Treatment, mean)
 
 
 <br>
-<font color ='#00bcd4'> In [20]: </font>
+<font color ='#00bcd4'> In [18]: </font>
 
 {% highlight R %}
 boxplot(Growth ~ Treatment, col = (1:6), ylab = 'Growth',
@@ -407,14 +424,15 @@ boxplot(Growth ~ Treatment, col = (1:6), ylab = 'Growth',
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_25_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_31_0.png)
 
+
+Now we will compute the mean growth as a function of age:
 
 <br>
-<font color ='#00bcd4'> In [21]: </font>
+<font color ='#00bcd4'> In [39]: </font>
 
 {% highlight R %}
-# Now computing the mean growth as a function of age
 tapply(Growth, Gender, mean)
 {% endhighlight %}
 
@@ -429,7 +447,7 @@ tapply(Growth, Gender, mean)
 
 
 <br>
-<font color ='#00bcd4'> In [22]: </font>
+<font color ='#00bcd4'> In [20]: </font>
 
 {% highlight R %}
 boxplot(Growth ~ Gender, col = c('lightblue2', 'mediumpurple'), xlab = 'Gender',
@@ -437,22 +455,22 @@ boxplot(Growth ~ Gender, col = c('lightblue2', 'mediumpurple'), xlab = 'Gender',
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_27_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_34_0.png)
 
 
 Comparing the two sets of means, we could draw the following preliminary
 conclusions:
-* Females grows more
+* Females grow more
 * The most effective treatment is E
 
 But that could just be due to natural variability. We can check if this is the
 case by using a two way ANOVA analysis.
 
- #### We prefer to start with a model taking into account the interaction
-between Gender and Treatment:
+**We prefer to start with a model taking into account the interaction between
+Gender and Treatment:**
 
 <br>
-<font color ='#00bcd4'> In [23]: </font>
+<font color ='#00bcd4'> In [21]: </font>
 
 {% highlight R %}
 int <- aov(Growth ~ Gender * Treatment)
@@ -469,13 +487,13 @@ summary(int)
     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
-The p-value for the interaction term is >> 0.05 (not significant).
+The p-value for the interaction term is $>>0.05$ (not significant).
 This suggests we do not have to worry about their interaction!
 
 So we repeat the process using a simple additive model.
 
 <br>
-<font color ='#00bcd4'> In [24]: </font>
+<font color ='#00bcd4'> In [22]: </font>
 
 {% highlight R %}
 noint <- aov(Growth ~ Gender + Treatment)
@@ -501,14 +519,14 @@ K)` that is available in R with the MASS library (Modern Applied Statistics with
 S)
 
 <br>
-<font color ='#00bcd4'> In [25]: </font>
+<font color ='#00bcd4'> In [23]: </font>
 
 {% highlight R %}
 library(MASS)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [26]: </font>
+<font color ='#00bcd4'> In [24]: </font>
 
 {% highlight R %}
 npk
@@ -569,7 +587,7 @@ replications(yield ~ N * P * K, data = npk)
 
 
 <br>
-<font color ='#00bcd4'> In [27]: </font>
+<font color ='#00bcd4'> In [25]: </font>
 
 {% highlight R %}
 #tapply
@@ -577,7 +595,7 @@ replications(yield ~ N * P * K, data = npk)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [28]: </font>
+<font color ='#00bcd4'> In [26]: </font>
 
 {% highlight R %}
 with(npk, tapply(yield, list(N,P), mean))
@@ -595,7 +613,7 @@ with(npk, tapply(yield, list(N,P), mean))
 
 
 <br>
-<font color ='#00bcd4'> In [29]: </font>
+<font color ='#00bcd4'> In [27]: </font>
 
 {% highlight R %}
 with(npk, tapply(yield, list(N,K), mean))
@@ -613,7 +631,7 @@ with(npk, tapply(yield, list(N,K), mean))
 
 
 <br>
-<font color ='#00bcd4'> In [30]: </font>
+<font color ='#00bcd4'> In [28]: </font>
 
 {% highlight R %}
 with(npk, tapply(yield, list(P,K), mean))
@@ -631,14 +649,14 @@ with(npk, tapply(yield, list(P,K), mean))
 
 
 <br>
-<font color ='#00bcd4'> In [31]: </font>
+<font color ='#00bcd4'> In [29]: </font>
 
 {% highlight R %}
 npk.aov <- aov(yield ~ N * P * K, data = npk)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [32]: </font>
+<font color ='#00bcd4'> In [30]: </font>
 
 {% highlight R %}
 TukeyHSD(npk.aov, conf.level=.99);
@@ -723,7 +741,7 @@ TukeyHSD(npk.aov, conf.level=.99);
 
 
 <br>
-<font color ='#00bcd4'> In [33]: </font>
+<font color ='#00bcd4'> In [31]: </font>
 
 {% highlight R %}
 # Now plotting the results
@@ -731,35 +749,35 @@ plot(TukeyHSD(npk.aov, conf.level=.99))
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_0.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_1.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_2.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_2.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_3.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_3.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_4.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_4.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_5.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_5.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_43_6.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_50_6.png)
 
 
 <br>
-<font color ='#00bcd4'> In [34]: </font>
+<font color ='#00bcd4'> In [32]: </font>
 
 {% highlight R %}
 summary(npk.aov)
@@ -795,30 +813,30 @@ follow Q-Q line then data follow a normal distribution!
 Homogeneity or       Fligner-Killeen test of homogeneity of variances
 
 <br>
-<font color ='#00bcd4'> In [35]: </font>
+<font color ='#00bcd4'> In [33]: </font>
 
 {% highlight R %}
 plot(npk.aov)
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_46_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_53_0.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_46_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_53_1.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_46_2.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_53_2.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_46_3.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_53_3.png)
 
 
 <br>
-<font color ='#00bcd4'> In [36]: </font>
+<font color ='#00bcd4'> In [34]: </font>
 
 {% highlight R %}
 #plot.design(yield~N*P*K, data=npk);
@@ -826,7 +844,7 @@ plot(npk.aov)
 {% endhighlight %}
 
 <br>
-<font color ='#00bcd4'> In [37]: </font>
+<font color ='#00bcd4'> In [35]: </font>
 
 {% highlight R %}
 plot.design(yield~N*P*K, data = npk);
@@ -836,15 +854,15 @@ qqline(npk$yield, col = 'mediumpurple', lwd = 3)
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_48_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_55_0.png)
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_48_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/AoV_R_Notebook_files/AoV_R_Notebook_55_1.png)
 
 
 <br>
-<font color ='#00bcd4'> In [38]: </font>
+<font color ='#00bcd4'> In [36]: </font>
 
 {% highlight R %}
 by(npk$yield, npk$N, shapiro.test);
@@ -907,7 +925,7 @@ by(npk$yield, npk$K, shapiro.test)
 
 
 <br>
-<font color ='#00bcd4'> In [39]: </font>
+<font color ='#00bcd4'> In [37]: </font>
 
 {% highlight R %}
 bartlett.test(npk$yield ~ npk$N)
@@ -943,7 +961,7 @@ bartlett.test(npk$yield ~ npk$K)
 
 
 <br>
-<font color ='#00bcd4'> In [40]: </font>
+<font color ='#00bcd4'> In [38]: </font>
 
 {% highlight R %}
 fligner.test(npk$yield ~ npk$N);
@@ -975,12 +993,3 @@ fligner.test(npk$yield ~ npk$K);
 
     data:  npk$yield by npk$K
     Fligner-Killeen:med chi-squared = 2.6046, df = 1, p-value = 0.1066
-
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/2-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 2: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "Generalized linear models"
+
 tags:
     - Day2
+nb: "GLM_bad2.ipynb"
+module: '/2-outline/'
 
 permalink: "GLM_bad2.html"
 ---
@@ -197,12 +200,17 @@ with(dat2,plot(elev,cover,main="Hemlock cover vs. elevation",
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/GLM_bad2_files/GLM_bad2_14_0.png)
 
 
+Note the chi-squared test is typically recommended for models with 'known
+deviance' (Poisson and binomial).  Here the model with elevation adds no
+explanatory power (fairly obvious from the graph), but we can still add the
+predicted trend line to our graph:
+
+
+
 <br>
 <font color ='#00bcd4'> In [17]: </font>
 
 {% highlight R %}
-#Note the chi-squared test is typically recommended for models with 'known deviance' (Poisson and binomial).  Here the model with elevation adds no explanatory power (fairly obvious from the graph), but we can still add the predicted trend line to our graph:
-
 x = seq(0,1660)
 #plot.new()
 #lines(predict(glm2,list(elev=x),type="response"),lwd=2,col="orange")
@@ -392,12 +400,3 @@ when the interaction is removed).
 {% highlight R %}
 #st$anova
 {% endhighlight %}
-
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/2-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 2: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>

@@ -9,7 +9,7 @@ title: "{{resources['metadata']['name']}}"
 
 tags:
     - Day
-nb: "{{resources['metadata']['name']}}".ipynb
+nb: "{{resources['metadata']['name']}}.ipynb"
 module: '/1-outline/'
 
 permalink: "{{resources['metadata']['name']}}.html"

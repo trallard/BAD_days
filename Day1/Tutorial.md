@@ -1,8 +1,11 @@
 ---
 layout: default
 title: "Tutorial"
+
 tags:
     - Day1
+nb: "Tutorial.ipynb"
+module: '/1-outline/'
 
 permalink: "Tutorial.html"
 ---
@@ -45,7 +48,7 @@ code for pre-processing is available in the file ../doc/golub.R.
 **Source**:
 Golub et al. (1999). Molecular classification of cancer: class discovery and
 class prediction by gene expression monitoring, Science, Vol. 286:531-537.
-http://www-genome.wi.mit.edu/MPR/ .
+(http://www-genome.wi.mit.edu/MPR/).
 
 <br>
 <font color ='#00bcd4'> In [3]: </font>
@@ -170,7 +173,7 @@ head(golub.gnames[,2], n = 20)
 
 
 
-Twenty seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and
+Twenty-seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and
 eleven as acute myeloid leukemia (AML). The tumor class is given by the numeric
 vector golub.cl, where ALL is indicated by 0 and AML by 1.
 
@@ -212,7 +215,7 @@ gol.fac <-  factor(golub.cl, levels = 0:1, labels = c("AML", "ALL"))
 
 The labels correspond to the two tumor classes. The evaluation of gol.fac=="ALL"
 returns
-TRUE for the first twenty seven values and FALSE for the remaining eleven,
+TRUE for the first twenty-seven values and FALSE for the remaining eleven,
 which is useful as a column index for selecting the expression values of the
 ALL patients. The expression values of gene CCND3 Cyclin D3 from the
 ALL patients can now be printed to the screen, as follows.
@@ -908,11 +911,3 @@ plot(mydata[,1],mydata[,3])
 
 
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/Tutorial_files/Tutorial_79_1.png)
-
----
-
-<a href = '{{site.url}}{{site.baseurl}}/1-outline' class="btn btn-purple"><i class="fa fa-magic left"></i> Day 1: outline</a>
-
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
-<i class="fa fa-home my-float"></i>
-</a>
