@@ -16,9 +16,10 @@ Statistics](http://www.biostathandbook.com/exactgof.html). The pages in which
 the examples are presented are given at the begining of each example.
 
 # 1. Cat paw example, exact binomial test
-(pp. 30–31 http://www.biostathandbook.com/exactgof.html)
+(pp. 30–31 <http://www.biostathandbook.com/exactgof.html>)
 
 In this example:
+
 * 2 is the number of successes: number of times the cat uses its right paw
 * 10 is the number of trials (8 times it uses its left paw)
 
@@ -76,6 +77,7 @@ binom.test(2, 10, 0.5, alternative = 'less', conf.level = 0.9 )
 # 2. Probability density plot, binomial distribution, p. 31
 
 In this example:
+
 *  You can change the values for trials and prob
 *  You can change the values for xlab and ylab
 
@@ -117,7 +119,7 @@ box()
 
 #  3. Drosophila example, Chi-square goodness-of-fit
 
-(pp. 46 http://www.biostathandbook.com/chigof.html)
+(pp. 46 <http://www.biostathandbook.com/chigof.html>)
 
 The Chi Square goodness of fit is used when you have one nominal variable, you
 want to see if the number of observations in each category fits a theoretical
@@ -157,7 +159,7 @@ chisq.test(
 
 
 #  4. Vaccination example, Chi-square independence
-(pp. 59–60  http://www.biostathandbook.com/chiind.html)
+(pp. 59–60  <http://www.biostathandbook.com/chiind.html>)
 
 The chi-square test of independence is used when you have two nominal variables
 and you want to see whether the proportions of one variable are different for
@@ -236,7 +238,7 @@ chisq.test(Matrix, correct=FALSE)      # No continuity correction for 2 x 2
 
 
 # 5. Post-hoc example, Fisher’s exact test,
-(pp. 79  http://www.biostathandbook.com/fishers.html)
+(pp. 79  <http://www.biostathandbook.com/fishers.html>)
 
 
 The Fisher's exact test of independence is used when you have two nominal
