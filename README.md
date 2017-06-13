@@ -1,17 +1,15 @@
-# BAD days
-Bioinformatics Awareness Days (BAD).
+# Bioinformatics Awareness Days (BAD).
 
-Orignially developed by Luisa Cutillo (2015-2016)
+Originally developed by [Luisa Cutillo](https://www.sheffield.ac.uk/neuroscience/staff/cutillo).
 
-** Add description **
-* Content
-* Purpose
-* Format of the course
+The Bioinformatics Awareness Days are days devoted to Bioinformatics. As a Marie S. Curie postdoctoral fellow @ SITRaN and Computer Science Departments at the University of Sheffield, I organized such an event to give my practical contribution in Bioinformatics, although I have to state that all this started in Naples at the Telethon Institute of Genetics and Medicine, with the great Bionformatics Core.
+
+Together with [Tania Allard](https://github.com/trallard) and [Mike Croucher](https:/github.com/mikecroucher) at the DCS, we decided to publicly divulgate this material to all the interested scientific community. The sessions are self contained and a full run should last at most 2 hours.
 
 # Working with the material
-The simplest way to enjoy these materials is to view each lesson online at [**add website**]. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
+The simplest way to enjoy these materials is to view each lesson online [here](http://bitsandchips.me/BAD_days/). In such a case, you could follow along and write your own version of the programs to run with your local R installation.
 
-You can also **download/fork** the whole collections of Notebooks from the GitHub repository. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
+You can also **download/fork** the whole collection of Notebooks from the GitHub repository or using the download button within the BAD days website. That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
 
 # About the course
 
