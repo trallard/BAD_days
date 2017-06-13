@@ -5,52 +5,52 @@
 
 
 <!-- sidebar-->
-  {%include sidebar.html%}
+{%include sidebar.html%}
 
 <!--main content needs to be in a wrap for
 when the sidebar is displayed-->
-  <div class='wrap'>
+<div class='wrap'>
 
-<!-- navbar -->
+  <!-- navbar -->
   {% include nav.html %}
 </div>
 
-
+<!-- Edge header: for site description-->
 <div class='wrap'>
   <div class="edge-header cyan lighten-2">
     <div class='container'>
-    <h1 > {{site.description}}</h1>
-    <p class='display-3'> {{content}} </p>
-  </div>
+      <h1 > {{site.description}}</h1>
+      <p class='display-3'> {{content}} </p>
+    </div>
   </div>
   <div class="container">
     <div class="row">
 
-<!--- Main content--->
+      <!--- Main content--->
       <div class="col-sm-8">
         <main>
           <br>
           <div class="alert alert-warning" role="alert">
             <h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-               Important </h3>
-            Make sure to visit the
-            <a href= '{{site.url}}{{site.baseurl}}/about/'> Getting started </a> section of this
-            page before proceeding to any of the course modules.
-          </div>
+              Important </h3>
+              Make sure to visit the
+              <a href= '{{site.url}}{{site.baseurl}}/about/'> Getting started </a> section of this
+              page before proceeding to any of the course modules.
+            </div>
 
-        </main>
+          </main>
+        </div>
+
+
       </div>
-
-      <div class="col-sm-1">
-      </div>
-
     </div>
+
+    <!-- Cards for each module-->
+    {%include modules.html %}
   </div>
 
-  {%include modules.html %}
-</div>
-
-<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  <!-- side bar-->
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
 
 </body>

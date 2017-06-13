@@ -67,7 +67,7 @@
 
 
 <!-- sidebar-->
-  <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
@@ -147,6 +147,10 @@
     
       
         
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/about/">Getting started</a>
+        
       
     
       
@@ -170,9 +174,9 @@
 
 <!--main content needs to be in a wrap for
 when the sidebar is displayed-->
-  <div class='wrap'>
+<div class='wrap'>
 
-<!-- navbar -->
+  <!-- navbar -->
   <!--Top navigation bar-->
 
     <nav class="navbar navbar-inverse">
@@ -186,43 +190,42 @@ when the sidebar is displayed-->
 
 </div>
 
-
+<!-- Edge header: for site description-->
 <div class='wrap'>
   <div class="edge-header cyan lighten-2">
     <div class='container'>
-    <h1 > Bioinformatics Awareness Days (BAD days)</h1>
-    <p class='display-3'> The Bioinformatics Awareness Days are days devoted to Bioinformatics. As a Marie S. Curie postdoctoral fellow @ SITRaN and Computer Science Departments at the University of Sheffield, I organized such an event to give my practical contribution in Bioinformatics, although I have to state that all this started in Naples at the Telethon Institute of Genetics and Medicine, with the great Bionformatics Core.
+      <h1 > Bioinformatics Awareness Days (BAD days)</h1>
+      <p class='display-3'> The Bioinformatics Awareness Days are days devoted to Bioinformatics. As a Marie S. Curie postdoctoral fellow @ SITRaN and Computer Science Departments at the University of Sheffield, I organized such an event to give my practical contribution in Bioinformatics, although I have to state that all this started in Naples at the Telethon Institute of Genetics and Medicine, with the great Bionformatics Core.
 
 Together with Tania Allard and Mike Croucher at the DCS, we decided to publicly divulgate this material to all the interested scientific community.
 The sessions are self contained and a full run should last at most 2 hours.
  </p>
-  </div>
+    </div>
   </div>
   <div class="container">
     <div class="row">
 
-<!--- Main content--->
+      <!--- Main content--->
       <div class="col-sm-8">
         <main>
           <br>
           <div class="alert alert-warning" role="alert">
             <h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-               Important </h3>
-            Make sure to visit the
-            <a href= 'http://localhost:4000/BAD_days/about/'> Getting started </a> section of this
-            page before proceeding to any of the course modules.
-          </div>
+              Important </h3>
+              Make sure to visit the
+              <a href= 'http://localhost:4000/BAD_days/about/'> Getting started </a> section of this
+              page before proceeding to any of the course modules.
+            </div>
 
-        </main>
+          </main>
+        </div>
+
+
       </div>
-
-      <div class="col-sm-1">
-      </div>
-
     </div>
-  </div>
 
-  
+    <!-- Cards for each module-->
+    
 <div class= container>
   <div class="row">
 
@@ -249,9 +252,9 @@ The sessions are self contained and a full run should last at most 2 hours.
         </div>
 
       </div>
-      <!--/.Card-->
-
     </div>
+    <!--/.Card-->
+
     <div class="col-sm-6">
 
       <!--Card-->
@@ -269,14 +272,14 @@ The sessions are self contained and a full run should last at most 2 hours.
           <!--Title-->
         <a href="/BAD_days/1-outline"><h4>Day 1</h4></a>
           <!--Text-->
-          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p> R&Bioconductor and Multiple hypothesis testing </p>
+          <br>
           <br>
         </div>
 
       </div>
-      <!--/.Card-->
-
     </div>
+    <!--/.Card-->
 
     <div class="col-sm-6">
 
@@ -295,7 +298,8 @@ The sessions are self contained and a full run should last at most 2 hours.
           <!--Title-->
           <a href="/BAD_days/2-outline"><h4> Day 2</h4></a>
           <!--Text-->
-          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p> Analysis of variance, GLM, and dimensionality reduction </p>
+          <br>
           <br>
         </div>
 
@@ -335,9 +339,10 @@ The sessions are self contained and a full run should last at most 2 hours.
 <br>
 <br>
 
-</div>
+  </div>
 
-<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  <!-- side bar-->
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
 
 </body>
