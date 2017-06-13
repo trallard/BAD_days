@@ -47,7 +47,7 @@ def path2support(path):
     """Turn a file path into a URL"""
     parts = path.split(os.path.sep)
     return '{{ site.url}}{{ site.baseurl }}/notebooks/' + '/'.join(quote(part) for part in parts)
-#return '../assets/img/notebook_images/' + os.path.basename(path)
+    #return '../assets/img/notebook_images/' + os.path.basename(path)
 
 c.MarkdownExporter.filters = {'path2support': path2support}
 
