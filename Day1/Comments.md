@@ -9,7 +9,7 @@ module: '/1-outline/'
 
 permalink: "Comments.html"
 ---
-# BAD Day 1: Additional comments
+# BAD Day 1: Additional
 
 # 1. Probability distributions
 

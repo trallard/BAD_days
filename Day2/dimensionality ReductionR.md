@@ -263,7 +263,6 @@ Proportion obtained by means of `summary(pca)` suggests that we can retain just
 the first 2 components accounting for over 95% of the variation in the original
 data!
 
-
 <br>
 <font color ='#00bcd4'> In [11]: </font>
 
@@ -457,7 +456,7 @@ unname(colnames(data))  # isotope and marker (protein) names
 
 
 
-<ol class="list-inline">
+<ol class="list">
 	<li>'Event#'</li>
 	<li>'Time'</li>
 	<li>'Cell Length'</li>
