@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<!--custom header -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title> BADays (Bioinformatics Awareness Days)</title>
+  <meta name="description" content="Bioinformatics Awareness Days (BAD days)">
+
+
+  <link rel="shortcut icon" href="/BAD_days/images/dna.png" >
+
+  <!-- Style sheets -->
+  <!--Material bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" rel="stylesheet" medial ="all">
+
+  <!-- Font awesome -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <!-- Boostrap-->
+  <link rel="stylesheet" href="/BAD_days/css/main.css">
+
+
+  <!-- URL -->
+  <link rel="canonical" href="http://localhost:4000/BAD_days/Frequency.html">
+
+
+  <!-- The various JS scripts used in the website -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/ff95ae1185.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+
+<!-- add after bootstrap.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+<link src="/BAD_days/js/custom-scripts.js">
+
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+</head>
+
+
+<!-- scroller for TOC-->
+<body data-spy="scroll" data-target="#toc">
+
+<!-- sidebar-->
+  <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Bioinformatics Awareness Days (BAD days)</p>
+
+    <p> Developed by Luisa Cutillo and the <a href='http://rse.shef.ac.uk'> RSE team
+    </a> at the University of Sheffield</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/BAD_days/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/1-outline/">Day 1</a>
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/2-outline/">Day 2</a>
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/3-outline/">Day 3</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/about/">Getting started</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+
+
+    <a class="sidebar-nav-item" href="https://github.com/trallard/BAD_days">GitHub repository</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      The University of Sheffield &copy; 2017. CC-BY
+    </p>
+  </div>
+</div>
+
+
+<!--main content needs to be in a wrap for
+when the sidebar is displayed-->
+  <div class='wrap'>
+
+<!-- navbar -->
+  <!--Top navigation bar-->
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="/BAD_days/index.html"> </a>
+
+        </div>
+      </div>
+    </nav>
+
+</div>
+<div class='wrap'>
+  <div class="container">
+    <div class="row">
+
+<!--- Main content--->
+      <div class="col-sm-8">
+        <main>
+          <h1 id="bad-day-1-frequency">BAD Day 1: Frequency</h1>
+
+<p>Many of the exmaples below are taken from the <a href="http://www.biostathandbook.com/exactgof.html">Handbook of Biological
+Statistics</a>. The pages in which
+the examples are presented are given at the begining of each example.</p>
+
+<h1 id="cat-paw-example-exact-binomial-test">1. Cat paw example, exact binomial test</h1>
+<p>(pp. 30–31 <a href="http://www.biostathandbook.com/exactgof.html">http://www.biostathandbook.com/exactgof.html</a>)</p>
+
+<p>In this example:</p>
+
+<ul>
+  <li>2 is the number of successes: number of times the cat uses its right paw</li>
+  <li>10 is the number of trials (8 times it uses its left paw)</li>
+</ul>
+
+<p>Can you conclude that it is right-pawed, or could this result have occured due
+to chance under the nul hypothesis that it bats equally with each paw?</p>
+
+<hr />
+
+<p>Remembering that 0.5 is the hypothesized probability of sucess (unbiased).</p>
+
+<p>First we calculate the probability of a single event only (non binomial test).</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [1]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbinom</span><span class="p">(</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span></code></pre></figure>
+
+<p>0.0439453125</p>
+
+<p>The first number: 2 is whichever event there are fewer than expected of; in this
+case there are only two uses of the left paw, which is fewer than the expected
+5. The second number, 10, is the total number of trials. The third number is the
+expected proportion of whichever event there were fewer than expected. The
+<code class="highlighter-rouge">FALSE</code> indicates to calculate the exact probability for that number of events
+only.</p>
+
+<p>One-sided test:</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [2]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">binom.test</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'less'</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9</span><span class="w"> </span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	Exact binomial test
+
+data:  2 and 10
+number of successes = 2, number of trials = 10, p-value = 0.05469
+alternative hypothesis: true probability of success is less than 0.5
+90 percent confidence interval:
+ 0.0000000 0.4496039
+sample estimates:
+probability of success
+                   0.2
+</code></pre>
+</div>
+
+<h1 id="probability-density-plot-binomial-distribution-p-31">2. Probability density plot, binomial distribution, p. 31</h1>
+
+<p>In this example:</p>
+
+<ul>
+  <li>You can change the values for trials and prob</li>
+  <li>You can change the values for xlab and ylab</li>
+</ul>
+
+<hr />
+
+<p><br /></p>
+<font color="#00bcd4"> In [3]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span></code></pre></figure>
+
+<p><br /></p>
+<font color="#00bcd4"> In [4]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">trials</span><span class="p">)</span><span class="w">                   </span><span class="c1"># x is a sequence, 1 to trials
+</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dbinom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="o">=</span><span class="n">trials</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="n">prob</span><span class="p">)</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">heights</span></code></pre></figure>
+
+<p>Generating a bar-plot:</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [7]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">barplot</span><span class="w"> </span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w">
+         </span><span class="n">names.arg</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w">
+         </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'mediumpurple2'</span><span class="p">,</span><span class="w"> </span><span class="n">border</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'white'</span><span class="p">,</span><span class="w">
+         </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Number of uses of right paw"</span><span class="p">,</span><span class="w">
+         </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Probability under null hypothesis"</span><span class="p">)</span><span class="w">
+</span><span class="n">box</span><span class="p">()</span></code></pre></figure>
+
+<p><img src="http://localhost:4000/BAD_days/notebooks/Frequency_files/Frequency_13_0.png" alt="png" /></p>
+
+<h1 id="drosophila-example-chi-square-goodness-of-fit">3. Drosophila example, Chi-square goodness-of-fit</h1>
+
+<p>(pp. 46 <a href="http://www.biostathandbook.com/chigof.html">http://www.biostathandbook.com/chigof.html</a>)</p>
+
+<p>The Chi Square goodness of fit is used when you have one nominal variable, you
+want to see if the number of observations in each category fits a theoretical
+expectation, and you have a large sample size.</p>
+
+<p>3:1 ratio of smooth wings to wrinkled wings in offspring from a bunch of
+Drosophila crosses.
+You observe 770 flies with smooth wings and 230 flies with wrinkled wings;
+the expected values are 750 smooth-winged and 250 wrinkled-winged flies</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [8]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">observed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">770</span><span class="p">,</span><span class="w"> </span><span class="m">230</span><span class="p">)</span><span class="w">        </span><span class="c1"># observed frequencies
+</span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.75</span><span class="p">,</span><span class="w"> </span><span class="m">0.25</span><span class="p">)</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="n">proportions</span></code></pre></figure>
+
+<p><br /></p>
+<font color="#00bcd4"> In [9]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chisq.test</span><span class="p">(</span><span class="w">
+  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">observed</span><span class="p">,</span><span class="w">
+  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span><span class="w">
+</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	Chi-squared test for given probabilities
+
+data:  observed
+X-squared = 2.1333, df = 1, p-value = 0.1441
+</code></pre>
+</div>
+
+<h1 id="vaccination-example-chi-square-independence">4. Vaccination example, Chi-square independence</h1>
+<p>(pp. 59–60  <a href="http://www.biostathandbook.com/chiind.html">http://www.biostathandbook.com/chiind.html</a>)</p>
+
+<p>The chi-square test of independence is used when you have two nominal variables
+and you want to see whether the proportions of one variable are different for
+different values of the other variable. Use it when the sample size is large.</p>
+
+<p>Jackson et al. (2013) wanted to know whether it is better to give the
+diphtheria, tetanus and pertussis (DTaP) vaccine in either the thigh or the arm,
+so they collected data on severe reactions to this vaccine in children aged 3 to
+6 years old. One nominal variable is severe reaction vs. no severe reaction; the
+other nominal variable is thigh vs. arm.</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [10]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Input</span><span class="w"> </span><span class="o">=</span><span class="p">(</span><span class="w">
+  </span><span class="s2">"Injection.area  No.severe  Severe
+  Thigh           4788       30
+  Arm             8916       76
+  "</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+<font color="#00bcd4"> In [11]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">as.matrix</span><span class="p">(</span><span class="n">read.table</span><span class="p">(</span><span class="n">textConnection</span><span class="p">(</span><span class="n">Input</span><span class="p">),</span><span class="w">
+                              </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
+                              </span><span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">))</span><span class="w">
+
+</span><span class="n">Matrix</span></code></pre></figure>
+
+<table class="table-responsive table-striped">
+<thead><tr><th></th><th scope="col">No.severe</th><th scope="col">Severe</th></tr></thead>
+<tbody>
+	<tr><th scope="row">Thigh</th><td>4788</td><td>30  </td></tr>
+	<tr><th scope="row">Arm</th><td>8916</td><td>76  </td></tr>
+</tbody>
+</table>
+
+<p><br /></p>
+<font color="#00bcd4"> In [12]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chisq.test</span><span class="p">(</span><span class="n">Matrix</span><span class="p">,</span><span class="w"> </span><span class="n">correct</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="n">Continuity</span><span class="w"> </span><span class="n">correction</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="m">2</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  Matrix
+X-squared = 1.7579, df = 1, p-value = 0.1849
+</code></pre>
+</div>
+
+<p><br /></p>
+<font color="#00bcd4"> In [13]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chisq.test</span><span class="p">(</span><span class="n">Matrix</span><span class="p">,</span><span class="w"> </span><span class="n">correct</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="n">No</span><span class="w"> </span><span class="n">continuity</span><span class="w"> </span><span class="n">correction</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="m">2</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	Pearson's Chi-squared test
+
+data:  Matrix
+X-squared = 2.0396, df = 1, p-value = 0.1533
+</code></pre>
+</div>
+
+<h1 id="post-hoc-example-fishers-exact-test">5. Post-hoc example, Fisher’s exact test,</h1>
+<p>(pp. 79  <a href="http://www.biostathandbook.com/fishers.html">http://www.biostathandbook.com/fishers.html</a>)</p>
+
+<p>The Fisher’s exact test of independence is used when you have two nominal
+variables and you want to see whether the proportions of one variable are
+different depending on the value of the other variable. Use it when the sample
+size is small.</p>
+
+<p>Fredericks (2012) wanted to know whether checking termite monitoring stations
+frequently would scare termites away and make it harder to detect termites. He
+checked the stations (small bits of wood in plastic tubes, placed in the ground
+near termite colonies) either every day, every week, every month, or just once
+at the end of the three-month study, and recorded how many had termite damage by
+the end of the study:</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [14]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Input</span><span class="w"> </span><span class="o">=</span><span class="p">(</span><span class="w">
+
+  </span><span class="s2">"Frequency  Damaged  Undamaged
+ Daily       1        24
+ Weekly      5        20
+ Monthly    14        11
+ Quarterly  11        14
+"</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+<font color="#00bcd4"> In [15]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">as.matrix</span><span class="p">(</span><span class="n">read.table</span><span class="p">(</span><span class="n">textConnection</span><span class="p">(</span><span class="n">Input</span><span class="p">),</span><span class="w">
+                              </span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
+                              </span><span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">))</span><span class="w">
+
+</span><span class="n">Matrix</span></code></pre></figure>
+
+<table class="table-responsive table-striped">
+<thead><tr><th></th><th scope="col">Damaged</th><th scope="col">Undamaged</th></tr></thead>
+<tbody>
+	<tr><th scope="row">Daily</th><td> 1</td><td>24</td></tr>
+	<tr><th scope="row">Weekly</th><td> 5</td><td>20</td></tr>
+	<tr><th scope="row">Monthly</th><td>14</td><td>11</td></tr>
+	<tr><th scope="row">Quarterly</th><td>11</td><td>14</td></tr>
+</tbody>
+</table>
+
+<p>The overall <em>p</em> value for this is p=0.00012 so it is highly significant,the
+frequency of disturbance is affecting the presence of termites.</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [16]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fisher.test</span><span class="p">(</span><span class="n">Matrix</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="o">=</span><span class="s2">"two.sided"</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	Fisher's Exact Test for Count Data
+
+data:  Matrix
+p-value = 0.0001228
+alternative hypothesis: two.sided
+</code></pre>
+</div>
+
+<p><br /></p>
+<font color="#00bcd4"> In [17]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="s1">'RVAideMemoire'</span><span class="p">)</span></code></pre></figure>
+
+<p>The p-values can be adjusted. See ?p.adjust for options</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [18]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s1">'RVAideMemoire'</span><span class="p">)</span><span class="w">
+</span><span class="n">fisher.multcomp</span><span class="p">(</span><span class="n">Matrix</span><span class="p">,</span><span class="w"> </span><span class="n">p.method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"none"</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        Pairwise comparisons using Fisher's exact test for count data
+
+data:  Matrix
+
+              Daily  Weekly Monthly
+Weekly    0.1894630       -       -
+Monthly   0.0001019 0.01863       -
+Quarterly 0.0019215 0.12835  0.5721
+
+P value adjustment method: none
+</code></pre>
+</div>
+
+        </main>
+      </div>
+
+      <div class="col-sm-1">
+      </div>
+      <!-- TOC sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-8">
+    <!-- return to outline-->
+<a href = 'http://localhost:4000/BAD_days/1-outline/' class="btn btn-purple">
+  <i class="fa fa-magic left"></i> Day1: outline</a>
+
+
+<!--download-->
+<a href="http://localhost:4000/BAD_days/notebooks/Frequency.ipynb" download="Frequency.ipynb" class="float" >
+<i class="fa fa-download my-float"></i>
+</a>
+<div class="label-container">
+<div class="label-text">If download does not start: right-click and 
+                  'Download linked file as'</div>
+</div>
+<br>
+
+    <br>
+  </div>
+  </div>
+</div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<!--custom header -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title> BADays (Bioinformatics Awareness Days)</title>
+  <meta name="description" content="Bioinformatics Awareness Days (BAD days)">
+
+
+  <link rel="shortcut icon" href="/BAD_days/images/dna.png" >
+
+  <!-- Style sheets -->
+  <!--Material bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" rel="stylesheet" medial ="all">
+
+  <!-- Font awesome -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <!-- Boostrap-->
+  <link rel="stylesheet" href="/BAD_days/css/main.css">
+
+
+  <!-- URL -->
+  <link rel="canonical" href="http://localhost:4000/BAD_days/One way ANOVA .html">
+
+
+  <!-- The various JS scripts used in the website -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/ff95ae1185.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+
+<!-- add after bootstrap.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+<link src="/BAD_days/js/custom-scripts.js">
+
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+</head>
+
+
+<!-- scroller for TOC-->
+<body data-spy="scroll" data-target="#toc">
+
+<!-- sidebar-->
+  <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Bioinformatics Awareness Days (BAD days)</p>
+
+    <p> Developed by Luisa Cutillo and the <a href='http://rse.shef.ac.uk'> RSE team
+    </a> at the University of Sheffield</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/BAD_days/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/1-outline/">Day 1</a>
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/2-outline/">Day 2</a>
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/3-outline/">Day 3</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/about/">Getting started</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+
+
+    <a class="sidebar-nav-item" href="https://github.com/trallard/BAD_days">GitHub repository</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      The University of Sheffield &copy; 2017. CC-BY
+    </p>
+  </div>
+</div>
+
+
+<!--main content needs to be in a wrap for
+when the sidebar is displayed-->
+  <div class='wrap'>
+
+<!-- navbar -->
+  <!--Top navigation bar-->
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="/BAD_days/index.html"> </a>
+
+        </div>
+      </div>
+    </nav>
+
+</div>
+<div class='wrap'>
+  <div class="container">
+    <div class="row">
+
+<!--- Main content--->
+      <div class="col-sm-8">
+        <main>
+          <h1 id="bad-day-1-one-way-anova">BAD Day 1: One way ANOVA</h1>
+
+<p>This notebook is intended to demonstrate the application of the one way ANOVA
+analysis on a built in R data set: <strong>PlantGrowth</strong></p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [1]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Getting the data set and having a peek into its content
+</span><span class="n">help</span><span class="p">(</span><span class="n">PlantGrowth</span><span class="p">)</span><span class="w">
+</span><span class="n">PlantGrowth</span></code></pre></figure>
+
+<table class="table-responsive table-striped">
+<thead><tr><th scope="col">weight</th><th scope="col">group</th></tr></thead>
+<tbody>
+	<tr><td>4.17</td><td>ctrl</td></tr>
+	<tr><td>5.58</td><td>ctrl</td></tr>
+	<tr><td>5.18</td><td>ctrl</td></tr>
+	<tr><td>6.11</td><td>ctrl</td></tr>
+	<tr><td>4.50</td><td>ctrl</td></tr>
+	<tr><td>4.61</td><td>ctrl</td></tr>
+	<tr><td>5.17</td><td>ctrl</td></tr>
+	<tr><td>4.53</td><td>ctrl</td></tr>
+	<tr><td>5.33</td><td>ctrl</td></tr>
+	<tr><td>5.14</td><td>ctrl</td></tr>
+	<tr><td>4.81</td><td>trt1</td></tr>
+	<tr><td>4.17</td><td>trt1</td></tr>
+	<tr><td>4.41</td><td>trt1</td></tr>
+	<tr><td>3.59</td><td>trt1</td></tr>
+	<tr><td>5.87</td><td>trt1</td></tr>
+	<tr><td>3.83</td><td>trt1</td></tr>
+	<tr><td>6.03</td><td>trt1</td></tr>
+	<tr><td>4.89</td><td>trt1</td></tr>
+	<tr><td>4.32</td><td>trt1</td></tr>
+	<tr><td>4.69</td><td>trt1</td></tr>
+	<tr><td>6.31</td><td>trt2</td></tr>
+	<tr><td>5.12</td><td>trt2</td></tr>
+	<tr><td>5.54</td><td>trt2</td></tr>
+	<tr><td>5.50</td><td>trt2</td></tr>
+	<tr><td>5.37</td><td>trt2</td></tr>
+	<tr><td>5.29</td><td>trt2</td></tr>
+	<tr><td>4.92</td><td>trt2</td></tr>
+	<tr><td>6.15</td><td>trt2</td></tr>
+	<tr><td>5.80</td><td>trt2</td></tr>
+	<tr><td>5.26</td><td>trt2</td></tr>
+</tbody>
+</table>
+
+<p>We will now use the <code class="highlighter-rouge">summary</code> functon to get more information about the whole
+data set</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [2]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Getting a basic summary of the data
+</span><span class="n">summary</span><span class="p">(</span><span class="n">PlantGrowth</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>     weight       group   
+ Min.   :3.590   ctrl:10  
+ 1st Qu.:4.550   trt1:10  
+ Median :5.155   trt2:10  
+ Mean   :5.073            
+ 3rd Qu.:5.530            
+ Max.   :6.310            
+</code></pre>
+</div>
+
+<p>You can also get statistical information on a single attribute of the data</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [3]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Computing the SD of a given attribute
+</span><span class="n">sd</span><span class="p">(</span><span class="n">PlantGrowth</span><span class="o">$</span><span class="n">weight</span><span class="p">)</span></code></pre></figure>
+
+<p>0.701191842508168</p>
+
+<p>Or per groups within the data set</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [4]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Compute the sd of each group for the given attribute
+</span><span class="n">tapply</span><span class="p">(</span><span class="n">PlantGrowth</span><span class="o">$</span><span class="n">weight</span><span class="p">,</span><span class="w"> </span><span class="n">PlantGrowth</span><span class="o">$</span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">)</span></code></pre></figure>
+
+<dl class="dl-horizontal">
+	<dt>ctrl</dt>
+		<dd>0.583091378392406</dd>
+	<dt>trt1</dt>
+		<dd>0.793675696434703</dd>
+	<dt>trt2</dt>
+		<dd>0.442573283322786</dd>
+</dl>
+
+<p>The next thing we will do is creating a boxplot of the data set (as in the main
+Tutorial).</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [9]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">boxplot</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">PlantGrowth</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'mediumpurple'</span><span class="p">,</span><span class="w">
+        </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Group'</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Weight'</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://localhost:4000/BAD_days/notebooks/One%20way%20ANOVA%20_files/One%20way%20ANOVA%20_10_0.png" alt="png" /></p>
+
+<p>We can also create histograms of the data. In this case we will use the lattice
+plotting system:</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [10]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># Creating a conditional histogram of the data
+</span><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">))</span><span class="w">
+
+</span><span class="c1"># We will use the lattice plotting system
+</span><span class="n">library</span><span class="p">(</span><span class="n">lattice</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Creating the histogram
+</span><span class="n">histogram</span><span class="p">(</span><span class="o">~</span><span class="n">weight</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">PlantGrowth</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'mediumpurple'</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'count'</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="http://localhost:4000/BAD_days/notebooks/One%20way%20ANOVA%20_files/One%20way%20ANOVA%20_12_1.png" alt="png" /></p>
+
+<p>** Our  null hypotesis is that the three groups have the same growth mean**</p>
+
+<p>First we will use a completely randomized design one-way ANOVA</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [14]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># One way ANOVA (Randomized design)
+</span><span class="n">analysis</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">aov</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlantGrowth</span><span class="p">)</span><span class="w">
+</span><span class="n">summary</span><span class="p">(</span><span class="n">analysis</span><span class="p">)</span></code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)  
+group        2  3.766  1.8832   4.846 0.0159 *
+Residuals   27 10.492  0.3886                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</code></pre>
+</div>
+
+<p>Now we will build a linear model with <code class="highlighter-rouge">lm()</code> and will then use the <code class="highlighter-rouge">anova()</code>
+command to analyse the fit</p>
+
+<p><br /></p>
+<font color="#00bcd4"> In [12]: </font>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lm</span><span class="p">(</span><span class="n">weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">group</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlantGrowth</span><span class="p">)</span><span class="w">
+</span><span class="n">anova</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span></code></pre></figure>
+
+<table class="table-responsive table-striped">
+<thead><tr><th></th><th scope="col">Df</th><th scope="col">Sum Sq</th><th scope="col">Mean Sq</th><th scope="col">F value</th><th scope="col">Pr(&gt;F)</th></tr></thead>
+<tbody>
+	<tr><th scope="row">group</th><td> 2        </td><td> 3.76634  </td><td>1.8831700 </td><td>4.846088  </td><td>0.01590996</td></tr>
+	<tr><th scope="row">Residuals</th><td>27        </td><td>10.49209  </td><td>0.3885959 </td><td>      NA  </td><td>        NA</td></tr>
+</tbody>
+</table>
+
+<p>As expected, both approaches provide the same results!</p>
+
+        </main>
+      </div>
+
+      <div class="col-sm-1">
+      </div>
+      <!-- TOC sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-8">
+    <!-- return to outline-->
+<a href = 'http://localhost:4000/BAD_days/1-outline/' class="btn btn-purple">
+  <i class="fa fa-magic left"></i> Day1: outline</a>
+
+
+<!--download-->
+<a href="http://localhost:4000/BAD_days/notebooks/One way ANOVA .ipynb" download="One way ANOVA .ipynb" class="float" >
+<i class="fa fa-download my-float"></i>
+</a>
+<div class="label-container">
+<div class="label-text">If download does not start: right-click and 
+                  'Download linked file as'</div>
+</div>
+<br>
+
+    <br>
+  </div>
+  </div>
+</div>
+
+</body>
+
+
+</html>

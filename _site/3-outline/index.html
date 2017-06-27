@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<!--custom header -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title> BADays (Bioinformatics Awareness Days)</title>
+  <meta name="description" content="Bioinformatics Awareness Days (BAD days)">
+
+
+  <link rel="shortcut icon" href="/BAD_days/images/dna.png" >
+
+  <!-- Style sheets -->
+  <!--Material bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" rel="stylesheet" medial ="all">
+
+  <!-- Font awesome -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+  <!-- Boostrap-->
+  <link rel="stylesheet" href="/BAD_days/css/main.css">
+
+
+  <!-- URL -->
+  <link rel="canonical" href="http://localhost:4000/BAD_days/3-outline/">
+
+
+  <!-- The various JS scripts used in the website -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/ff95ae1185.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+
+<!-- add after bootstrap.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+<link src="/BAD_days/js/custom-scripts.js">
+
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+</head>
+
+
+<!-- Scroller for TOC-->
+<body data-spy="scroll" data-target="#toc">
+
+  <!-- sidebar-->
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Bioinformatics Awareness Days (BAD days)</p>
+
+    <p> Developed by Luisa Cutillo and the <a href='http://rse.shef.ac.uk'> RSE team
+    </a> at the University of Sheffield</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/BAD_days/">Home</a>
+
+    
+
+    
+    
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/1-outline/">Day 1</a>
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/2-outline/">Day 2</a>
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item active"
+          href="/BAD_days/3-outline/">Day 3</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item"
+          href="/BAD_days/about/">Getting started</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+
+
+    <a class="sidebar-nav-item" href="https://github.com/trallard/BAD_days">GitHub repository</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      The University of Sheffield &copy; 2017. CC-BY
+    </p>
+  </div>
+</div>
+
+<!-- Main content needs to be in a wrap for
+when the sidebar is displayed-->
+
+  <div class='wrap'>
+
+<!-- nav bar-->
+<!--Top navigation bar-->
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="/BAD_days/index.html"> </a>
+
+        </div>
+      </div>
+    </nav>
+
+</div>
+<div class='wrap'>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-sm-8">
+        <div class = 'page-header'>
+          <h1> Day 3 </h1>
+        </div>
+        <main>
+          <p><strong>Prerequisites:</strong></p>
+
+<p>Addressed to researchers already familiar with R and basics of statistics</p>
+
+<p>The following packages are required:</p>
+
+<ul>
+  <li>RNAseq123</li>
+  <li>edgedR</li>
+  <li>Mus.musculus</li>
+  <li>limma</li>
+  <li>Glimma</li>
+</ul>
+
+<p>….plus plotting packages</p>
+
+<p><strong>Description:</strong></p>
+
+<p>In the BAD DAY 3 we will present the Bioconductor work-flow R package RNAseq123 from <a href="http://www.bioconductor.org/help/workflows/RNAseq123/">http://www.bioconductor.org/help/workflows/RNAseq123/</a>.</p>
+
+<p>We will in particular discuss how to:</p>
+
+<ul>
+  <li>Import and organise data</li>
+  <li>Preprocess data</li>
+  <li>Perform exploratory plots</li>
+  <li>Analyse Differential Expression in genes</li>
+  <li>Perform Exploratory analysis and graphical representation of DE genes</li>
+  <li>Test for Gene set enrichment</li>
+</ul>
+
+<hr />
+
+<h2 id="outline-content">Outline/ content</h2>
+
+<hr />
+
+<p><a href="http://localhost:4000/BAD_days/index.html" class="float">
+<i class="fa fa-home my-float"></i>
+</a></p>
+
+        </main>
+      </div>
+
+      <div class="col-sm-1">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</body>
+
+
+</html>
