@@ -5,7 +5,9 @@ title: Day 1
 category: module
 ---
 
-**Prerequisites:** Addressed to researchers already familiar with R  and basics of statistics
+**Prerequisites:**
+
+Addressed to researchers already familiar with R  and basics of statistics
 
 
 **Description:**
@@ -52,6 +54,6 @@ The hands-on components of this module are contained in the following tutorials:
 </ul>
 
 
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
 <i class="fa fa-home my-float"></i>
 </a>

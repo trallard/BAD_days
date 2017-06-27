@@ -5,9 +5,13 @@ title: Day 2
 category: module
 ---
 
-**Prerequisites:** Addressed to researchers already familiar with R and basics of statistics
+**Prerequisites:**
 
-**Description:** This second session is self contained and an average expert user would take about two hours for a full run
+Addressed to researchers already familiar with R and basics of statistics
+
+**Description:**
+
+This second session is self contained and an average expert user would take about two hours for a full run
 
 ---
 
@@ -38,6 +42,6 @@ The hands-on components of this module are contained in the following tutorials:
 </ul>
 
 
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
 <i class="fa fa-home my-float"></i>
 </a>

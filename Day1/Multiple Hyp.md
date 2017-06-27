@@ -198,8 +198,10 @@ P.val.Student <- 2 * pt(q = t.obs.Student, df = n.ALL + n.AML-2, lower.tail = F)
 
 **This is what you should be doing... FAST!**
 
-## 3. Apply the Student-Fischer t-test (this assumes that the two populations
-have equal variance).
+## 3. Apply the Student-Fischer t-test
+
+**Note:** this assumes that the two populations
+have equal variance.
 
 
 <br>
@@ -210,8 +212,10 @@ t.student <- t.test(sample.ALL,sample.AML, var.equal=TRUE)
 print(t.student)
 {% endhighlight %}
 
-## 4. Apply the Welch t-test (this does not assume that the two populations have
-equal variance)
+## 4. Apply the Welch t-test
+
+**Note:** this does not assume that the two populations have
+equal variance.
 
 <br>
 <font color ='#00bcd4'> In [19]: </font>
@@ -249,7 +253,7 @@ for (g in 1:nrow(golub.expr)) {
  print(P.values)
 {% endhighlight %}
 
-**For a more efficient way, you can use apply**
+**For a more efficient way, you can use apply instead** (not shown here)
 
 <br>
 <font color ='#00bcd4'> In [22]: </font>

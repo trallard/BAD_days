@@ -54,7 +54,7 @@ box()
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/Comments_files/Comments_6_0.png)
 
 
-## 1. 3 Nomal distribution
+## 1. 3 Normal distribution
 
 The data values are members of a normally distributed population with mean $\mu$
 and  variance $\sigma^2$.
@@ -170,7 +170,7 @@ quantile(x)
 {% endhighlight %}
 
 
-<dl class=dl-horizontal>
+<dl class='dl-horizontal'>
 	<dt>0%</dt>
 		<dd>-2.13649385561006</dd>
 	<dt>25%</dt>
@@ -193,7 +193,7 @@ quantile(x,probs = c(.1,.2,.9))
 {% endhighlight %}
 
 
-<dl class=dl-horizontal>
+<dl class='dl-horizontal'>
 	<dt>10%</dt>
 		<dd>-0.863526139969441</dd>
 	<dt>20%</dt>
