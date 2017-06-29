@@ -27,6 +27,8 @@ permalink: pretty
 gems:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - html-proofer
+
 
 # SASS directory
 sass:
