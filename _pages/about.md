@@ -100,6 +100,6 @@ biocLite("multtest")
 
 
 
-<a href="{{site.baseurl}}/index.html" class="float" download>
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
 <i class="fa fa-home my-float"></i>
 </a>

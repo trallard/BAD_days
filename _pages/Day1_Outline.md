@@ -42,7 +42,7 @@ The hands-on components of this module are contained in the following tutorials:
 {% for tag in node.tags %}
 {% if tag == 'Day1' %}
 <!-- Note you need to prepend the site.baseurl always-->
-<li><a href="{{site.url}}{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+<li><a href="{{ node.url | absolute_url}}">{{ node.title }}</a>
 </li>
 {% endif %}
 {% endfor %}
