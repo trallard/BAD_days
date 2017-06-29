@@ -19,6 +19,9 @@ exclude:
   - jekyll.py
   - jekyll.tpl
   - replace.py
+  - .travis.yml
+  - Gemfile*
+  - CNAME
 
 # to ensure the links work properly
 permalink: pretty
@@ -27,7 +30,6 @@ permalink: pretty
 gems:
   - jekyll-seo-tag
   - jekyll-sitemap
-  - html-proofer
 
 
 # SASS directory
