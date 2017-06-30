@@ -1,3 +1,7 @@
+
+[![Build Status](https://travis-ci.org/trallard/BAD_days.svg?branch=master)](https://travis-ci.org/trallard/BAD_days) 
+
+
 # [Bioinformatics Awareness Days](http://bitsandchips.me/BAD_days/)
 
 # About the website
