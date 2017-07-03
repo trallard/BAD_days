@@ -11,12 +11,11 @@ Addressed to researchers already familiar with R and basics of statistics
 The following packages are required:
 
 - RNAseq123
-- edgedR
+- edgeR
 - Mus.musculus
 - limma
 - Glimma
-
-....plus plotting packages
+- RColorBrewer
 
 **Description:**
 
