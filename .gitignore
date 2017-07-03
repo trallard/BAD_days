@@ -8,3 +8,5 @@ fwdbaddaymaterials\.zip
 \.DS_Store
 
 *.scssc
+
+_site/
