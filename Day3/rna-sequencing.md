@@ -13,6 +13,7 @@ permalink: "RNA-sequencing.html"
 
 This tutorial follows the Work flow described in
 <http://www.bioconductor.org/help/workflows/RNAseq123/>.
+
 Note that to install this workflow under Bioconductor 3.5 you need to run the
 following commands:
 
@@ -73,7 +74,7 @@ library(Mus.musculus);
 
 ## Getting the data
 
-The dataset ` GSE63310_RAW.tar ` will be directly donwloaded from
+The dataset `GSE63310_RAW.tar` will be directly downloaded from
 <https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE63310&format=file>. We will
 then extract the relevant files.
 
@@ -612,7 +613,7 @@ legend("topright", samplenames, text.col=col, bty="n")
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_27_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_27_0.png)
 
 
 The density of log-CPM values for raw pre-filtered data (A) and post-filtered
@@ -720,7 +721,7 @@ title(main="B. Example: Normalised data",ylab="Log-cpm")
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_34_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_34_1.png)
 
 
 Example data: Boxplots of log-CPM values showing expression distributions for
@@ -789,7 +790,7 @@ title(main="B. Sequencing lanes")
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_38_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_38_0.png)
 
 
 MDS plots of log-CPM values over dimensions 1 and 2 with samples coloured and
@@ -805,9 +806,12 @@ the left panel and a barplot showing the proportion of variation explained by
 each dimension in the right panel. Clicking on the bars of the bar plot changes
 the pair of dimensions plotted in the MDS plot, and hovering over the individual
 points reveals the sample label. The colour scheme can be changed as well to
-highlight cell population or sequencing lane (batch). An interactive MDS plot of
-this dataset can be found at
-<http://bioinf.wehi.edu.au/folders/limmaWorkflow/glimma-plots/MDS-Plot.html>.
+highlight cell population or sequencing lane (batch).
+
+ An interactive MDS plot of this dataset can be found
+<a href="{{site.url}}{{site.baseurl}}/MDSplot"> here </a>
+
+
 
 <br>
 <font color ='#00bcd4'> In [19]: </font>
@@ -1191,7 +1195,7 @@ plotSA(efit, main="Final model: Mean−variance trend")
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_47_2.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_47_2.png)
 
 
 Note that the other data frames stored within the `DGEList-object` that contain
@@ -1327,7 +1331,7 @@ vennDiagram(dt[,1:2], circle.col=c("mediumpurple", "midnightblue"))
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_55_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_55_0.png)
 
 
 Venn diagram showing the number of genes DE in the comparison between basal
@@ -1392,7 +1396,7 @@ plotMD(tfit, column=1, status=dt[,1], main=colnames(tfit)[1],
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_61_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_61_0.png)
 
 
 *Glimma* extends this functionality by providing an interactive mean-difference
@@ -1404,9 +1408,7 @@ user to search for particular genes based on their Gene symbol, which is not
 possible in a static *R* plot. The `glMDPlot` function is not limited to mean-
 difference plots, with a default version allowing a data frame to be passed with
 the user able to select the columns of interest to plot in the left panel
-(interactive plot
-[here](http://www.bioconductor.org/help/workflows/RNAseq123/glimma-plots/MD-
-Plot.html)).
+(interactive plot  <a href="{{site.url}}{{site.baseurl}}/MDplot"> here </a>).
 
 <br>
 <font color ='#00bcd4'> In [31]: </font>
@@ -1416,7 +1418,7 @@ glMDPlot(tfit, coef=1, status=dt, main=colnames(tfit)[1],
          id.column="ENTREZID", counts=x$counts, groups=group, launch=FALSE)
 {% endhighlight %}
 
-Interactive mean-difference plot generated using Glimma. Summary data (log-FCs
+In the interactive plot the summary data (log-FCs
 versus log-CPM values) are shown in the left panel which is linked to the
 individual values per sample for a selected gene in the right panel. A table of
 results is also displayed below these figures, along with a search bar to allow
@@ -1465,7 +1467,7 @@ heatmap.2(v$E[i,], scale="row",
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_65_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_65_1.png)
 
 
 Heatmap of log-CPM values for top 100 genes DE in basal versus LP. Expression
@@ -1586,7 +1588,7 @@ barcodeplot(efit$t[,3], index=idx$LIM_MAMMARY_LUMINAL_MATURE_UP,
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_72_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_72_0.png)
 
 
 Barcode plot of `LIM_MAMMARY_LUMINAL_MATURE_UP` (red bars, top of plot) and
@@ -1608,3 +1610,16 @@ above), self-contained tests are better for focused testing of one or a few
 specifically chosen sets to see if they are DE in their own right. In other
 words, camera is more appropriate when ‘fishing’ for gene sets of interest,
 whereas mroast tests sets that are already of interest for significance.
+
+---
+
+<a href="{{site.url}}{{site.baseurl}}/MDPlot" class="button button-default" >
+<i class="fa fa-bar-chart" aria-hidden="true"></i> Interactive MD plot
+</a>
+
+
+<a href="{{site.url}}{{site.baseurl}}/MDSPlot" class="button" >
+<i class="fa fa-bar-chart" aria-hidden="true"></i>Interactive MDS plot 
+</a>
+
+---
