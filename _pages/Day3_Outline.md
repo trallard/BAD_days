@@ -36,7 +36,28 @@ We will in particular discuss how to:
 ## Outline/ content
 
 
----
+<ul >
+{% assign pages_list = site.pages %}
+{% for node in pages_list %}
+{% if node.title != null %}
+{% if node.layout == "default" %}
+{%if node.tags %}
+
+{% for tag in node.tags %}
+{% if tag == 'Day3' %}
+<!-- Note you need to prepend the site.baseurl always-->
+<li><a href="{{ node.url | absolute_url}}">{{ node.title }}</a>
+</li>
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{%endif%}
+{% endif %}
+{% endfor %}
+</ul>
+
+
 
 
 <a href="{{site.url}}{{site.baseurl}}/index.html" class="float" >
