@@ -5,5 +5,5 @@ title: "Glimma: MDS-plot"
 tags:
     - Day3
 
-permalink: "MDSplot"
+permalink: /MDSplot/
 ---

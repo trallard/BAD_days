@@ -613,7 +613,7 @@ legend("topright", samplenames, text.col=col, bty="n")
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_27_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_27_0.png)
 
 
 The density of log-CPM values for raw pre-filtered data (A) and post-filtered
@@ -721,7 +721,7 @@ title(main="B. Example: Normalised data",ylab="Log-cpm")
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_34_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_34_1.png)
 
 
 Example data: Boxplots of log-CPM values showing expression distributions for
@@ -790,7 +790,7 @@ title(main="B. Sequencing lanes")
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_38_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_38_0.png)
 
 
 MDS plots of log-CPM values over dimensions 1 and 2 with samples coloured and
@@ -1195,7 +1195,7 @@ plotSA(efit, main="Final model: Mean−variance trend")
 
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_47_2.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_47_2.png)
 
 
 Note that the other data frames stored within the `DGEList-object` that contain
@@ -1331,7 +1331,7 @@ vennDiagram(dt[,1:2], circle.col=c("mediumpurple", "midnightblue"))
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_55_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_55_0.png)
 
 
 Venn diagram showing the number of genes DE in the comparison between basal
@@ -1396,7 +1396,7 @@ plotMD(tfit, column=1, status=dt[,1], main=colnames(tfit)[1],
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_61_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_61_0.png)
 
 
 *Glimma* extends this functionality by providing an interactive mean-difference
@@ -1467,7 +1467,7 @@ heatmap.2(v$E[i,], scale="row",
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_65_1.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_65_1.png)
 
 
 Heatmap of log-CPM values for top 100 genes DE in basal versus LP. Expression
@@ -1588,7 +1588,7 @@ barcodeplot(efit$t[,3], index=idx$LIM_MAMMARY_LUMINAL_MATURE_UP,
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/rna-sequencing_72_0.png)
+![png]({{ site.url}}{{ site.baseurl }}/notebooks/RNA-sequencing_files/RNA-sequencing_72_0.png)
 
 
 Barcode plot of `LIM_MAMMARY_LUMINAL_MATURE_UP` (red bars, top of plot) and
@@ -1613,13 +1613,15 @@ whereas mroast tests sets that are already of interest for significance.
 
 ---
 
-<a href="{{site.url}}{{site.baseurl}}/MDPlot" class="button button-default" >
+<a href="{{site.url}}{{site.baseurl}}{% link Day3/MDPlot.md %}" class="button button-default" >
 <i class="fa fa-bar-chart" aria-hidden="true"></i> Interactive MD plot
 </a>
 
 
-<a href="{{site.url}}{{site.baseurl}}/MDSPlot" class="button" >
-<i class="fa fa-bar-chart" aria-hidden="true"></i>Interactive MDS plot 
+<a href="{{site.url}}{{site.baseurl}}{% link Day3/MDSPlot.md %}" class="button" >
+<i class="fa fa-bar-chart" aria-hidden="true"></i>Interactive MDS plot
 </a>
+
+
 
 ---
