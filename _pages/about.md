@@ -33,12 +33,25 @@ The simplest way to enjoy these materials is to view each lesson online here. In
 You can also **download/fork** the whole collections of Notebooks from the [GitHub repository](https://github.com/trallard/BAD_days). That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
 
 <!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/trallard/BAD_days/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork trallard/BAD_days on GitHub">Fork</a>
+<a class="github-button" href="https://github.com/trallard/BAD_days/fork" data-icon="octicon-repo-forked" data-show-count="false" aria-label="Fork trallard/BAD_days on GitHub">Fork</a>
 
-If you plan to follow this approach and run the notebooks locally (in your own desktop/laptop) make sure to follow the steps detailed in [Setting up R and Jupyter notebooks locally]({{site.url}}{{site.baseurl}}/local_install/)
+If you plan to follow this approach and run the notebooks locally (in your own desktop/laptop) make sure to follow the steps detailed in [Setting up R and Jupyter notebooks locally]({{site.url}}{{site.baseurl}}/local_install/).
+
+Additionally, each of the notebooks have a download button that will allow you to save a local copy of the Jupyter notebook.
+
+<img src='{{site.url}}{{site.baseurl}}/images/action_buttons.png' alt='action_buttons' style="width:150px !important;height:160px !important;">
+
 
 ### [Working on the cloud]({{site.url}}{{site.baseurl}}/cloud/)
+Some notebooks have been added to a library within [Microsoft Azure Notebooks](https://notebooks.azure.com). Whenever you see the cloud action button (see figure above) you can launch the corresponding notebook in Microsoft Azure for free.
 
+![azure_bad]({{site.url}}{{site.baseurl}}/images/azure.png)
+
+Some of the advantages of this method is that you do not need to install any packages/dependencies in your local computer.
+
+Please follow the instructions in [running notebooks on the cloud]({{site.url}}{{site.baseurl}}/cloud/) before getting started.
+
+<br>
 <a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
 <i class="fa fa-home my-float"></i>
 </a>
