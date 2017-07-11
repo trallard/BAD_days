@@ -76,6 +76,11 @@ biocLite("multtest")
 * xlsx
 * gdata
 * ape
+* limma
+* Glimma
+* edgeR
+* Mus.musculus
+* RColorBrewer
 
 
 <br>
