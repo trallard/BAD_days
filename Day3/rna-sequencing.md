@@ -762,8 +762,10 @@ for (i in 2:nsamples){
 legend("topright", samplenames, text.col=col, bty="n")
 {% endhighlight %}
 
-
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_36_0.png)
+
+
+
 
 
 The density of log-CPM values for raw pre-filtered data (A) and post-filtered
@@ -874,6 +876,7 @@ title(main="B. Example: Normalised data",ylab="Log-cpm")
 
 
 ![png]({{ site.url}}{{ site.baseurl }}/notebooks/rna-sequencing_files/rna-sequencing_43_1.png)
+
 
 
 Example data: Boxplots of log-CPM values showing expression distributions for
