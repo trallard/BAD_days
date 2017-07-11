@@ -6,6 +6,8 @@ The Bioinformatics Awareness Days are days devoted to Bioinformatics. As a Marie
 
 Together with [Tania Allard](https://github.com/trallard) and [Mike Croucher](https:/github.com/mikecroucher) at the DCS, we decided to publicly divulgate this material to all the interested scientific community. The sessions are self contained and a full run should last at most 2 hours.
 
+**All of the sessions material is now also contained in a website based around the Jupyter notebooks: [BAD Days website](www.bitsandchips.me/BAD_days).**
+
 ## What is R?
 
 R is a free, open-source programming language that has very strong support for statistics. It was originally developed as an open source implementation of the [S Programming language](https://en.wikipedia.org/wiki/S_(programming_language)).
