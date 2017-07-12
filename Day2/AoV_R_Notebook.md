@@ -8,6 +8,7 @@ nb: "AoV_R_Notebook.ipynb"
 module: '/2-outline/'
 
 permalink: "AoV_R_Notebook.html"
+azure: true
 ---
 # BAD DAY 2: ANOVA
 

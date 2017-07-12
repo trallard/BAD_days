@@ -8,6 +8,7 @@ nb: "dimensionality ReductionR.ipynb"
 module: '/2-outline/'
 
 permalink: "dimensionality ReductionR.html"
+azure: true
 ---
 # BAD DAY 2: Dimensionality reduction
 

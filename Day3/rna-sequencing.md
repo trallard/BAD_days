@@ -1,19 +1,16 @@
 ---
 layout: default
 title: "RNA-sequencing"
-
-tags:
-    - Day3
+tags: Day3
 nb: "RNA-sequencing.ipynb"
 module: '/3-outline/'
-
 permalink: "RNA-sequencing.html"
+azure: true
 ---
 # BAD Day 3: RNA sequencing pipeline
 
-# BAD Day 3: RNA sequencing pipeline
 
-This tutorial follows the Work flow described in
+This tutorial follows the workflow described in
 <http://www.bioconductor.org/help/workflows/RNAseq123/>.
 Note that to install this workflow under Bioconductor 3.5 you need to run the
 following commands:
@@ -43,7 +40,7 @@ for a more detailed exploration of the data at both the sample and gene-level
 than is possible using static R plots.
 
 The experiment analysed in this workflow is from Sheridan et al. (2015)
-(Sheridan et al. 2015) and consists of three cell populations (basal, luminal
+and consists of three cell populations (basal, luminal
 progenitor (LP) and mature luminal (ML)) sorted from the mammary glands of
 female virgin mice, each profiled in triplicate. RNA samples were sequenced
 across three batches on an Illumina HiSeq 2000 to obtain 100 base-pair single-

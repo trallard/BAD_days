@@ -8,6 +8,7 @@ nb: "GLM_bad2.ipynb"
 module: '/2-outline/'
 
 permalink: "GLM_bad2.html"
+azure: true
 ---
 #  BAD DAY 2: Generalized linear models
 
