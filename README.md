@@ -4,9 +4,9 @@ Originally developed by [Luisa Cutillo](https://www.sheffield.ac.uk/neuroscience
 
 The Bioinformatics Awareness Days are days devoted to Bioinformatics. As a Marie S. Curie postdoctoral fellow @ SITRaN and Computer Science Departments at the University of Sheffield, I organized such an event to give my practical contribution in Bioinformatics, although I have to state that all this started in Naples at the Telethon Institute of Genetics and Medicine, with the great Bionformatics Core.
 
-Together with [Tania Allard](https://github.com/trallard) and [Mike Croucher](https:/github.com/mikecroucher) at the DCS, we decided to publicly divulgate this material to all the interested scientific community. The sessions are self contained and a full run should last at most 2 hours.
+Together with [Tania Allard](https://github.com/trallard) and [Mike Croucher](https:/github.com/mikecroucher) at the DCS, we decided to publicly disseminate this material to all the interested scientific community. The sessions are self contained and a full run should last at most 2 hours.
 
-**All of the sessions material is now also contained in a website based around the Jupyter notebooks: [BAD Days website](www.bitsandchips.me/BAD_days).**
+**All of the sessions material is now also contained in a website based around the Jupyter notebooks: [BAD Days website](http://bitsandchips.me/BAD_days/).**
 
 ## What is R?
 
