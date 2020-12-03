@@ -104,7 +104,7 @@ biocLite("multtest")
 
 
 ## Working on the cloud
-Some notebooks have been added to a library within [Microsoft Azure Notebooks](https://notebooks.azure.com). Whenever you see the cloud action button (see figure above) you can launch the corresponding notebook in Microsoft Azure for free (see the website).
+Some notebooks have been added to a library within [Microsoft Azure Notebooks](https://notebooks.azure.com/?WT.mc_id=academic-0000-taallard). Whenever you see the cloud action button (see figure above) you can launch the corresponding notebook in Microsoft Azure for free (see the website).
 
 
 Some of the advantages of this method is that you do not need to install any packages/dependencies in your local computer.
@@ -112,7 +112,7 @@ Some of the advantages of this method is that you do not need to install any pac
 
 Follow the first steps to work with the notebooks in the cloud:
 
-1. Create a [Microsoft Azure Notebooks](https://notebooks.azure.com). Head to the website and click on sign-in (upper right corner). Use your university email address and set a password.
+1. Create a [Microsoft Azure Notebooks](https://notebooks.azure.com/?WT.mc_id=academic-0000-taallard). Head to the website and click on sign-in (upper right corner). Use your university email address and set a password.
 2. Make sure you are logged into your account.
 3. Go to the Notebook in this website that you want to run in the cloud and click on the Cloud icon located at the bottom right corner of your screen.
 4. This should take you to the library where the notebooks are saved to.
